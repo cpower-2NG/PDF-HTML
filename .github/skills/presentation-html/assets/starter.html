@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentation Deck</title>
+  <style>
+    :root {
+      --bg: #f6efe7;
+      --fg: #1f1b16;
+      --muted: #6d6258;
+      --accent: #c45b2d;
+      --accent-2: #2c6e49;
+      --card: rgba(255, 255, 255, 0.72);
+      --border: rgba(31, 27, 22, 0.12);
+      --shadow: 0 20px 60px rgba(31, 27, 22, 0.12);
+      --radius: 24px;
+      --slide-w: 1280px;
+      --slide-h: 720px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at top left, rgba(196, 91, 45, 0.16), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(44, 110, 73, 0.14), transparent 28%),
+        var(--bg);
+      color: var(--fg);
+      font-family: "Aptos", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    }
+
+    .deck {
+      width: min(100vw, var(--slide-w));
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .slide {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      padding: 56px;
+      margin: 0 0 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 11ch;
+      font-size: clamp(56px, 7vw, 92px);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+    }
+
+    h2 {
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      height: 100%;
+      align-items: end;
+    }
+
+    .panel {
+      padding: 28px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(31, 27, 22, 0.08);
+    }
+
+    .meta {
+      display: grid;
+      gap: 10px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(196, 91, 45, 0.1);
+      color: var(--fg);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    @media print {
+      html, body {
+        background: white;
+      }
+
+      .deck {
+        width: 100%;
+        padding: 0;
+      }
+
+      .slide {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide">
+      <div class="grid">
+        <div>
+          <p class="eyebrow">Topic / Theme</p>
+          <h1>Your deck starts here</h1>
+          <div class="chips">
+            <span class="chip">HTML-first</span>
+            <span class="chip">PDF-ready</span>
+            <span class="chip">PPT-friendly</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="meta">
+            <p>Audience: add here</p>
+            <p>Length: add here</p>
+            <p>Style: add here</p>
+            <p>Output: HTML / PDF / PPT</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

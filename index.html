@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML 演示文稿归档</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2a3a;
+      --muted: #4d5d75;
+      --line: #d8dfeb;
+      --accent: #1d5fab;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 32px 18px;
+      background: radial-gradient(circle at top right, rgba(29,95,171,0.10), transparent 35%), var(--bg);
+      color: var(--text);
+      font-family: "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    h1, h2, p { margin: 0; }
+
+    h1 { font-size: 30px; }
+    h2 { font-size: 20px; margin-bottom: 10px; }
+    p { color: var(--muted); line-height: 1.6; }
+
+    .list {
+      margin-top: 8px;
+      display: grid;
+      gap: 8px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(29,95,171,0.35);
+      width: fit-content;
+    }
+
+    .small { font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>HTML 演示文稿在线归档</h1>
+      <p style="margin-top: 8px;">该页面用于 GitHub Pages 在线预览与归档。每个主题建议保留摘要、大纲和可预览 HTML。</p>
+    </section>
+
+    <section class="card">
+      <h2>当前主题</h2>
+      <div class="list">
+        <a href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/01-summary.md">摘要</a>
+        <a href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/02-outline.md">大纲</a>
+        <a href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides-draft.html">演示文稿草稿</a>
+      </div>
+      <p class="small" style="margin-top: 10px;">建议流程：先确认大纲，再把草稿转为正式版 03-slides.html。</p>
+    </section>
+  </main>
+</body>
+</html>

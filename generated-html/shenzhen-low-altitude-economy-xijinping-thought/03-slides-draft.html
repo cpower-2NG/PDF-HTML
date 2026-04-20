@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>从“天空之城”到“经济高地”：深圳低空经济产业集聚与新质生产力实践剖析</title>
+  <style>
+    :root {
+      --bg: #f3f6fb;
+      --surface: #ffffff;
+      --ink: #142033;
+      --muted: #4a5b75;
+      --accent: #0e5aa7;
+      --accent-2: #0f7a67;
+      --line: #d8e0ec;
+      --shadow: 0 10px 28px rgba(20, 32, 51, 0.08);
+      --radius: 18px;
+      --slide-width: 1280px;
+      --slide-height: 720px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(14, 90, 167, 0.12), transparent 32%),
+        radial-gradient(circle at 92% 12%, rgba(15, 122, 103, 0.10), transparent 30%),
+        var(--bg);
+      font-family: "Source Han Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .deck {
+      width: min(100vw, var(--slide-width));
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .slide {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 0 0 20px;
+      padding: 42px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(14, 90, 167, 0.10);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .page-no {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    h1, h2, h3, p, ul { margin: 0; }
+
+    h1 {
+      font-size: 56px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      max-width: 14ch;
+    }
+
+    h2 {
+      font-size: 34px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.3;
+      color: var(--accent);
+    }
+
+    p {
+      font-size: 22px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .lead {
+      font-size: 27px;
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 38em;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .card {
+      background: #f9fbff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .card p {
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .bullet {
+      display: grid;
+      gap: 10px;
+      padding-left: 22px;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.5;
+    }
+
+    .bullet li { margin: 0; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .point {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #f5f9ff;
+      min-height: 148px;
+    }
+
+    .point strong {
+      display: block;
+      color: var(--accent);
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .point p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .quote {
+      padding: 16px 18px;
+      border-left: 5px solid var(--accent-2);
+      background: #f1faf7;
+      border-radius: 8px;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.6;
+    }
+
+    .small {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .links {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(14, 90, 167, 0.35);
+    }
+
+    .matrix {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 17px;
+    }
+
+    .matrix th,
+    .matrix td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      vertical-align: top;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .matrix th {
+      background: #eef4ff;
+      color: #1c3f78;
+      font-weight: 700;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 1024px) {
+      .deck { padding: 12px; }
+      .slide { padding: 24px; }
+      h1 { font-size: 42px; }
+      h2 { font-size: 28px; }
+      p { font-size: 18px; }
+      .lead { font-size: 22px; }
+      .grid-2, .grid-3, .timeline { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      @page {
+        size: 16in 9in;
+        margin: 0;
+      }
+
+      html, body {
+        background: #fff;
+      }
+
+      .deck {
+        width: 100%;
+        padding: 0;
+      }
+
+      .slide {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      a {
+        color: #1d4f91;
+        text-decoration: underline;
+        border: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide" aria-label="封面">
+      <header class="slide-header">
+        <span class="tag">习概课堂专题汇报</span>
+        <span class="page-no">01 / 11</span>
+      </header>
+      <div>
+        <h1>从“天空之城”到“经济高地”</h1>
+        <p class="lead" style="margin-top: 16px;">深圳低空经济产业集聚与新质生产力实践剖析</p>
+      </div>
+      <div class="card">
+        <p><strong>主题：</strong>习近平新时代中国特色社会主义经济思想 - 低空经济</p>
+        <p><strong>课程受众：</strong>习概课堂师生</p>
+        <p><strong>报告目标：</strong>通过深圳一线案例，把经济思想转化为可感知、可讨论、可迁移的现实实践。</p>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="问题与结论">
+      <header class="slide-header">
+        <span class="tag">核心问题</span>
+        <span class="page-no">02 / 11</span>
+      </header>
+      <div class="grid-2">
+        <div class="card">
+          <h3>我们要回答什么</h3>
+          <ul class="bullet">
+            <li>低空经济为何在深圳率先形成产业集聚？</li>
+            <li>它如何体现“新质生产力”与高质量发展要求？</li>
+            <li>这类探索对全国城市产业升级有哪些启示？</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>先给结论</h3>
+          <p>深圳的低空经济不是“单一企业突破”，而是“技术创新 + 制度创新 + 场景创新 + 产业协同”的系统性成果，体现了以创新驱动发展、构建现代化产业体系、统筹发展与安全的经济思想实践路径。</p>
+        </div>
+      </div>
+      <div class="footer"><span>主观点：低空经济是“产业组织能力”的竞争，不只是飞行器硬件竞争。</span><span>关键词：创新驱动 / 现代化产业体系 / 安全发展</span></div>
+    </section>
+
+    <section class="slide" aria-label="理论映射">
+      <header class="slide-header">
+        <span class="tag">思想映射</span>
+        <span class="page-no">03 / 11</span>
+      </header>
+      <h2>把“经济思想”映射到“低空经济实践”</h2>
+      <div class="grid-3" style="margin-top: 16px;">
+        <article class="card">
+          <h3>创新驱动发展</h3>
+          <p>以关键核心技术和应用创新为牵引，推动无人机、感知通信、低空管理系统迭代。</p>
+        </article>
+        <article class="card">
+          <h3>建设现代化产业体系</h3>
+          <p>从整机到零部件、软件算法、运营服务、保险金融，形成跨链条协同。</p>
+        </article>
+        <article class="card">
+          <h3>高质量发展</h3>
+          <p>强调效率、质量、韧性、安全并重，不以单点速度替代系统稳定。</p>
+        </article>
+        <article class="card">
+          <h3>统筹发展和安全</h3>
+          <p>围绕空域规则、飞行监管、数据治理、应急响应建立制度护栏。</p>
+        </article>
+        <article class="card">
+          <h3>深化改革扩大开放</h3>
+          <p>通过先行先试与制度创新，提升市场配置效率与国际竞争力。</p>
+        </article>
+        <article class="card">
+          <h3>服务人民美好生活</h3>
+          <p>把“看得见的技术”转化为“可体验的公共服务”与民生效率改善。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="产业集聚逻辑">
+      <header class="slide-header">
+        <span class="tag">机制分析</span>
+        <span class="page-no">04 / 11</span>
+      </header>
+      <h2>深圳低空经济的产业集聚逻辑：四个轮子一起转</h2>
+      <div class="timeline" style="margin-top: 14px;">
+        <article class="point">
+          <strong>技术轮</strong>
+          <p>深圳具备电子信息与智能制造底座，支持无人系统快速迭代与工程化落地。</p>
+        </article>
+        <article class="point">
+          <strong>制度轮</strong>
+          <p>地方政策与试点机制为低空运营提供规则空间，降低创新交易成本。</p>
+        </article>
+        <article class="point">
+          <strong>场景轮</strong>
+          <p>物流、巡检、应急、文旅等城市高频需求，为技术商业化提供真实场景。</p>
+        </article>
+        <article class="point">
+          <strong>协同轮</strong>
+          <p>企业、高校、政府与资本形成协作网络，推动“研发-制造-运营”闭环。</p>
+        </article>
+      </div>
+      <p style="margin-top: 14px;">这四个轮子共同作用，决定了深圳并非“偶然领先”，而是“系统能力领先”。</p>
+    </section>
+
+    <section class="slide" aria-label="案例一">
+      <header class="slide-header">
+        <span class="tag">深圳案例 A</span>
+        <span class="page-no">05 / 11</span>
+      </header>
+      <h2>案例 1：无人机即时配送与城市服务场景扩展</h2>
+      <div class="grid-2" style="margin-top: 14px;">
+        <article class="card">
+          <h3>实践要点</h3>
+          <ul class="bullet">
+            <li>在园区、商圈、社区等高需求区域探索常态化配送与补给。</li>
+            <li>把“末端配送难题”转化为“低空网络能力”建设。</li>
+            <li>与地面物流形成协同，不是替代关系，而是效率互补。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>思想呼应</h3>
+          <p>体现“以人民为中心”的效率提升，兼顾创新驱动与安全规范，属于新质生产力在民生场景中的具体表达。</p>
+          <div class="links">
+            <p class="small">视频线索（课堂演示可选）：</p>
+            <a href="https://search.bilibili.com/all?keyword=%E6%B7%B1%E5%9C%B3%20%E6%97%A0%E4%BA%BA%E6%9C%BA%20%E9%85%8D%E9%80%81" target="_blank" rel="noopener">B站检索：深圳 无人机 配送</a>
+            <a href="https://search.bilibili.com/all?keyword=%E4%BD%8E%E7%A9%BA%E7%BB%8F%E6%B5%8E%20%E6%B7%B1%E5%9C%B3" target="_blank" rel="noopener">B站检索：低空经济 深圳</a>
+          </div>
+        </article>
+      </div>
+      <p class="small">注：课堂前可根据学院网络环境，提前筛选 1-2 个可播放短视频并记录标题与发布时间。</p>
+    </section>
+
+    <section class="slide" aria-label="案例二">
+      <header class="slide-header">
+        <span class="tag">深圳案例 B</span>
+        <span class="page-no">06 / 11</span>
+      </header>
+      <h2>案例 2：无人机产业链集群与技术外溢效应</h2>
+      <div class="grid-2" style="margin-top: 14px;">
+        <article class="card">
+          <h3>产业观察</h3>
+          <ul class="bullet">
+            <li>整机企业带动上游零部件、算法软件、传感通信、系统集成同步升级。</li>
+            <li>从“单产品竞争”转向“产业生态竞争”。</li>
+            <li>跨行业外溢：应急管理、测绘巡检、农业服务、影视文旅等。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>思想呼应</h3>
+          <p>契合“建设现代化产业体系”和“发展实体经济”的要求，强调产业基础高级化与产业链现代化。</p>
+          <div class="quote">低空经济的核心价值，不在“飞起来”本身，而在“带动整个产业体系升级”。</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="案例三">
+      <header class="slide-header">
+        <span class="tag">深圳案例 C</span>
+        <span class="page-no">07 / 11</span>
+      </header>
+      <h2>案例 3：低空治理能力建设与“发展-安全”平衡</h2>
+      <div class="grid-2" style="margin-top: 14px;">
+        <article class="card">
+          <h3>治理维度</h3>
+          <ul class="bullet">
+            <li>空域秩序：航线规划、区域限制、动态调度。</li>
+            <li>运行安全：设备标准、飞手资质、应急预案。</li>
+            <li>数据治理：飞行数据、隐私保护、责任追溯。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>思想呼应</h3>
+          <p>体现“统筹发展和安全”的治理逻辑：没有规则护栏，创新不可持续；没有创新活力，规则也难以落地。</p>
+          <p class="small">课堂讨论点：如何在鼓励试点与控制风险之间找到动态平衡？</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="成效与挑战">
+      <header class="slide-header">
+        <span class="tag">辩证分析</span>
+        <span class="page-no">08 / 11</span>
+      </header>
+      <h2>现实成效与主要挑战：必须同时看见“增长面”与“约束面”</h2>
+      <table class="matrix" style="margin-top: 12px;">
+        <thead>
+          <tr>
+            <th>维度</th>
+            <th>已显现成效</th>
+            <th>仍待突破问题</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>产业</td>
+            <td>形成企业集聚与供应链协同，创新迭代速度快。</td>
+            <td>中小企业标准化能力、跨区域协同效率仍有差异。</td>
+          </tr>
+          <tr>
+            <td>应用</td>
+            <td>物流、巡检、应急等场景逐步常态化。</td>
+            <td>可复制商业模式仍需在成本、频次、用户习惯上验证。</td>
+          </tr>
+          <tr>
+            <td>治理</td>
+            <td>规则体系和监管工具持续完善。</td>
+            <td>跨部门数据协同、责任边界、事故处置机制仍要细化。</td>
+          </tr>
+          <tr>
+            <td>人才</td>
+            <td>技术与运营岗位需求增长，带动新型职业发展。</td>
+            <td>复合型人才供给仍不足，课程与产业需求对接有提升空间。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="slide" aria-label="课堂可视化材料">
+      <header class="slide-header">
+        <span class="tag">教学增强</span>
+        <span class="page-no">09 / 11</span>
+      </header>
+      <h2>课堂素材建议：用“可视化证据”增强理解与讨论</h2>
+      <div class="grid-2" style="margin-top: 14px;">
+        <article class="card">
+          <h3>可选视频与资料入口</h3>
+          <div class="links">
+            <a href="https://search.bilibili.com/all?keyword=%E6%B7%B1%E5%9C%B3%20%E4%BD%8E%E7%A9%BA%E7%BB%8F%E6%B5%8E%20%E6%94%BF%E7%AD%96" target="_blank" rel="noopener">B站检索：深圳 低空经济 政策</a>
+            <a href="https://search.bilibili.com/all?keyword=%E6%B7%B1%E5%9C%B3%20%E6%97%A0%E4%BA%BA%E6%9C%BA%20%E5%B7%A1%E6%A3%80" target="_blank" rel="noopener">B站检索：深圳 无人机 巡检</a>
+            <a href="https://search.bilibili.com/all?keyword=%E6%96%B0%E8%B4%A8%E7%94%9F%E4%BA%A7%E5%8A%9B%20%E4%BD%8E%E7%A9%BA%E7%BB%8F%E6%B5%8E" target="_blank" rel="noopener">B站检索：新质生产力 低空经济</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>课堂组织建议</h3>
+          <ul class="bullet">
+            <li>每看完一个短视频，就回到“理论映射页”做一次思想对照。</li>
+            <li>让学生分组回答：这个案例体现了哪条经济思想？证据是什么？</li>
+            <li>最后以“政策建议页”收束，形成“理论-案例-建议”闭环。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="展望与建议">
+      <header class="slide-header">
+        <span class="tag">展望建议</span>
+        <span class="page-no">10 / 11</span>
+      </header>
+      <h2>基于经济思想的三条展望与建议</h2>
+      <div class="grid-3" style="margin-top: 14px;">
+        <article class="card">
+          <h3>建议一：做强制度型创新</h3>
+          <p>继续完善低空治理规则与试点机制，构建可复制、可推广、可评估的制度样板。</p>
+        </article>
+        <article class="card">
+          <h3>建议二：做深产业链协同</h3>
+          <p>围绕核心环节补链强链，推动“技术研发-场景应用-商业运营”协同进化。</p>
+        </article>
+        <article class="card">
+          <h3>建议三：做实人才与教育联动</h3>
+          <p>推动高校课程与产业需求对接，培育懂技术、懂治理、懂产业的复合型人才。</p>
+        </article>
+      </div>
+      <div class="quote" style="margin-top: 16px;">面向“十五五”阶段，低空经济的竞争焦点将从“单点技术突破”转向“城市级产业组织与治理能力”。</div>
+    </section>
+
+    <section class="slide" aria-label="总结">
+      <header class="slide-header">
+        <span class="tag">总结页</span>
+        <span class="page-no">11 / 11</span>
+      </header>
+      <h2>回到课堂目标：从“概念理解”走向“实践认知”</h2>
+      <ul class="bullet" style="margin-top: 14px;">
+        <li>深圳案例证明：低空经济是新质生产力的重要实践场，不只是新技术展示场。</li>
+        <li>理论价值在于指导现实：创新驱动、现代化产业体系、发展与安全统筹可以在城市治理中落地。</li>
+        <li>课堂价值在于迁移能力：学会用经济思想分析新兴产业，形成“看现象-找机制-提建议”的方法。</li>
+      </ul>
+      <div class="footer"><span>结束语：让理论有温度，让案例有方法，让建议可执行。</span><span>感谢聆听</span></div>
+    </section>
+  </main>
+</body>
+</html>
