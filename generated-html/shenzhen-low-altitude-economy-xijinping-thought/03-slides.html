@@ -3,312 +3,327 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>从“天空之城”到“经济高地” | 深圳低空经济产业集聚与新质生产力实践剖析</title>
+  <title>从“天空之城”到“经济高地”</title>
   <style>
     :root {
-      --bg: #eef3fb;
-      --panel: #ffffff;
-      --ink: #13233a;
-      --muted: #4b5f7b;
-      --line: #d8e1ee;
-      --brand: #b30f1b;
-      --brand-2: #0f5da8;
-      --brand-3: #0f8a67;
-      --radius: 18px;
-      --shadow: 0 16px 40px rgba(19, 35, 58, 0.12);
+      --bg: #f4f5f7;
+      --paper: #ffffff;
+      --ink: #2a1e1e;
+      --muted: #5a4f4f;
+      --red: #b3001b;
+      --red-deep: #8d0015;
+      --gold: #c79a3b;
+      --line: #e4d8c8;
+      --shadow: 0 14px 36px rgba(30, 10, 10, 0.12);
       --slide-w: 1280px;
-      --slide-h: 720px;
+      --radius: 8px;
     }
 
     * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
+      padding: 0;
       background:
-        radial-gradient(circle at 0% 0%, rgba(179, 15, 27, 0.18), transparent 32%),
-        radial-gradient(circle at 100% 0%, rgba(15, 93, 168, 0.16), transparent 30%),
-        radial-gradient(circle at 100% 100%, rgba(15, 138, 103, 0.12), transparent 34%),
+        linear-gradient(155deg, rgba(179, 0, 27, 0.08), transparent 40%),
+        linear-gradient(340deg, rgba(199, 154, 59, 0.09), transparent 35%),
         var(--bg);
       color: var(--ink);
-      font-family: "Source Han Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      min-height: 100%;
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
     }
 
     .deck {
-      width: min(var(--slide-w), 100vw);
+      width: min(100vw, var(--slide-w));
       margin: 0 auto;
-      padding: 20px;
+      padding: 18px;
       display: grid;
-      gap: 20px;
+      gap: 16px;
     }
 
     .slide {
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.98));
-      border: 1px solid var(--line);
+      background: var(--paper);
+      border: 1px solid #d8c8b2;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 36px 44px;
       overflow: hidden;
       display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 14px;
-      position: relative;
+      grid-template-rows: 58px 1fr 34px;
     }
 
-    .slide::after {
-      content: "";
-      position: absolute;
-      right: -90px;
-      bottom: -90px;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(15, 93, 168, 0.18), transparent 70%);
-      pointer-events: none;
-    }
-
-    .top {
-      display: flex;
-      justify-content: space-between;
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 10px;
+      background:
+        linear-gradient(90deg, var(--red-deep), var(--red) 55%, #be1f2f);
+      color: #fff9ef;
+      padding: 0 20px;
+      border-bottom: 2px solid rgba(199, 154, 59, 0.85);
     }
 
-    .chip {
-      font-size: 12px;
+    .topbar .label {
+      font-size: 18px;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      min-height: 30px;
-      padding: 0 12px;
-      display: inline-flex;
-      align-items: center;
-      background: rgba(179, 15, 27, 0.1);
-      color: var(--brand);
-      border: 1px solid rgba(179, 15, 27, 0.2);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .pageno {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 600;
+    .topbar .page {
+      font-size: 16px;
+      font-weight: 700;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 18px 24px 12px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
     }
 
     h1, h2, h3, p, ul { margin: 0; }
 
     h1 {
-      font-size: clamp(48px, 5.2vw, 72px);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+      font-size: 54px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #7d0013;
       max-width: 12ch;
     }
 
     h2 {
-      font-size: clamp(30px, 3.2vw, 42px);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      max-width: 20ch;
+      font-size: 36px;
+      line-height: 1.15;
+      color: #7d0013;
+      letter-spacing: -0.02em;
     }
 
-    h3 {
-      font-size: 20px;
-      line-height: 1.3;
-      color: var(--brand-2);
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.58;
-      color: var(--muted);
+    .subtitle {
+      font-size: 22px;
+      line-height: 1.45;
+      color: #3f3131;
+      max-width: 30em;
     }
 
     .lead {
-      font-size: 24px;
-      color: var(--ink);
-      line-height: 1.5;
-      max-width: 34em;
+      font-size: 25px;
+      line-height: 1.45;
+      color: #3a2a2a;
     }
 
-    .grid-2 {
+    .slogan {
+      border-left: 6px solid var(--gold);
+      background: #fdf7ea;
+      padding: 10px 12px;
+      font-size: 20px;
+      line-height: 1.5;
+      color: #4c3636;
+    }
+
+    .cols-2 {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .cols-even {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
       align-items: start;
     }
 
-    .grid-3 {
+    .cols-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       align-items: start;
     }
 
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      align-items: stretch;
-    }
-
     .panel {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 14px;
-      padding: 12px;
+      background: #fffdf9;
+      border-radius: 6px;
+      padding: 10px 12px;
       display: grid;
       gap: 8px;
+      align-content: start;
+    }
+
+    .panel h3 {
+      font-size: 21px;
+      color: var(--red);
+      line-height: 1.35;
     }
 
     .panel p {
-      font-size: 16px;
-      line-height: 1.5;
+      font-size: 18px;
+      line-height: 1.56;
+      color: var(--muted);
     }
 
     .list {
-      margin: 0;
       padding-left: 20px;
       display: grid;
-      gap: 7px;
+      gap: 6px;
+      margin: 0;
     }
 
     .list li {
-      font-size: 17px;
-      line-height: 1.48;
-      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.52;
+      color: #352626;
     }
 
-    .quote {
-      border-left: 5px solid var(--brand-3);
-      background: rgba(15, 138, 103, 0.08);
-      border-radius: 8px;
-      padding: 10px 12px;
-      color: var(--ink);
-      font-size: 18px;
-      line-height: 1.55;
+    .list li::marker {
+      color: var(--red);
+      font-weight: 700;
     }
 
-    .placeholder {
-      border: 1.5px dashed rgba(19, 35, 58, 0.35);
-      border-radius: 12px;
-      min-height: 118px;
-      padding: 10px;
-      font-size: 14px;
-      color: #5a6880;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: rgba(240, 246, 255, 0.6);
-    }
-
-    .flow {
+    .steps {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 10px;
     }
 
     .step {
-      position: relative;
       border: 1px solid var(--line);
-      border-radius: 12px;
+      background: #fff9ef;
+      border-radius: 6px;
       padding: 10px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(241,246,255,0.9));
+      min-height: 132px;
+      display: grid;
+      gap: 6px;
+      align-content: start;
     }
 
     .step b {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--brand-2);
-      font-size: 15px;
+      color: var(--red);
+      font-size: 18px;
+      line-height: 1.35;
     }
 
     .step p {
-      font-size: 14px;
+      font-size: 16px;
+      line-height: 1.52;
+      color: #4f4141;
+    }
+
+    .photo-slot {
+      border: 2px dashed #d9b56e;
+      border-radius: 6px;
+      background: linear-gradient(135deg, rgba(199,154,59,0.14), rgba(179,0,27,0.08));
+      min-height: 190px;
+      padding: 10px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+      gap: 6px;
+    }
+
+    .photo-slot strong {
+      color: #8b0016;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .photo-slot span {
+      color: #6e5757;
+      font-size: 15px;
+      line-height: 1.4;
+      max-width: 28ch;
+    }
+
+    .kv {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+      table-layout: fixed;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .kv th,
+    .kv td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
       line-height: 1.45;
     }
 
-    .step:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      right: -10px;
-      top: 50%;
-      transform: translateY(-50%);
+    .kv th {
+      background: #faefe0;
+      color: #7d0013;
       font-weight: 700;
-      color: rgba(15, 93, 168, 0.45);
+      font-size: 15px;
     }
 
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
+    .footer {
+      border-top: 1px solid #eadfce;
+      background: #fffaf1;
+      padding: 0 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-size: 14px;
-      border: 1px solid var(--line);
+      color: #6e5c5c;
     }
 
-    .table th,
-    .table td {
-      border: 1px solid var(--line);
-      padding: 8px;
-      vertical-align: top;
+    .footer b {
+      color: #8b0016;
+      font-weight: 700;
+    }
+
+    .links {
+      display: grid;
+      gap: 5px;
+    }
+
+    .links a {
+      color: #9c0d23;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(156, 13, 35, 0.35);
+      width: fit-content;
+      font-size: 16px;
       line-height: 1.4;
     }
 
-    .table th {
-      background: rgba(15, 93, 168, 0.1);
-      color: #0f2f58;
-      text-align: left;
-    }
-
-    .foot {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 14px;
-      align-items: end;
-    }
-
     @media (max-width: 1024px) {
-      .deck { padding: 12px; gap: 12px; }
-      .slide { padding: 22px; }
-      .grid-2, .grid-3, .grid-4, .flow, .hero { grid-template-columns: 1fr; }
-      .step:not(:last-child)::after { display: none; }
-      h1 { font-size: 42px; }
+      .deck { padding: 10px; }
+      .slide { grid-template-rows: 52px 1fr 30px; }
+      .content { padding: 12px 14px 8px; gap: 8px; }
+      h1 { font-size: 38px; }
       h2 { font-size: 30px; }
-      .lead { font-size: 21px; }
-      p { font-size: 16px; }
+      .subtitle { font-size: 18px; }
+      .lead { font-size: 20px; }
+      .cols-2, .cols-even, .cols-3, .steps { grid-template-columns: 1fr; }
+      .photo-slot { min-height: 120px; }
+      .panel h3 { font-size: 19px; }
+      .panel p { font-size: 16px; }
+      .list li { font-size: 16px; }
     }
 
     @media print {
-      @page {
-        size: 16in 9in;
-        margin: 0;
-      }
-
+      @page { size: 16in 9in; margin: 0; }
       html, body { background: #fff; }
-
-      .deck {
-        width: 100%;
-        padding: 0;
-        gap: 0;
-      }
-
+      .deck { width: 100%; padding: 0; gap: 0; }
       .slide {
-        margin: 0;
         border-radius: 0;
         box-shadow: none;
+        border: 0;
         break-after: page;
         page-break-after: always;
+      }
+      .photo-slot {
+        border-color: #b99b6a;
       }
     }
   </style>
@@ -316,306 +331,316 @@
 <body>
   <main class="deck">
     <section class="slide" aria-label="封面">
-      <div class="top"><span class="chip">党建宣传风 · 低空经济专题</span><span class="pageno">01 / 16</span></div>
-      <div class="hero">
-        <div>
-          <h1>从“天空之城”到“经济高地”</h1>
-          <p class="lead" style="margin-top: 12px;">深圳低空经济产业集聚与新质生产力实践剖析</p>
-          <p style="margin-top: 10px;">在习近平新时代中国特色社会主义经济思想指引下，深圳正把低空资源转化为发展优势。</p>
-        </div>
-        <div class="panel">
-          <h3>封面图位</h3>
-          <div class="placeholder">图1：深圳城市天际线 + 无人机编队</div>
+      <div class="topbar"><div class="label">深圳低空经济产业集聚与新质生产力实践剖析</div><div class="page">01 / 16</div></div>
+      <div class="content">
+        <h1>从“天空之城”到“经济高地”</h1>
+        <p class="subtitle">在习近平新时代中国特色社会主义经济思想指引下，深圳正把低空资源优势转化为产业发展优势。</p>
+        <div class="cols-2">
+          <div class="slogan">聚焦“低空经济如何形成新质生产力”，以深圳样本展示“理论引领实践、实践检验理论”的现实路径。</div>
+          <div class="photo-slot"><strong>[图1 封面主视觉位]</strong><span>建议替换：深圳城市天际线 + 无人机编队航拍（16:9）</span></div>
         </div>
       </div>
-      <div class="foot"><span>开场：为什么选深圳，为什么从低空经济切入</span><span>30-45秒</span></div>
+      <div class="footer"><span><b>主题词：</b>创新驱动 / 现代化产业体系 / 发展与安全</span><span>党建宣传专题</span></div>
     </section>
 
-    <section class="slide" aria-label="开篇引入">
-      <div class="top"><span class="chip">开篇引入</span><span class="pageno">02 / 16</span></div>
-      <h2>先看一个现实变化：从路网效率到空地一体效率</h2>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel">
-          <h3>现实矛盾</h3>
-          <ul class="list">
-            <li>即时需求不断增长，地面交通在高峰与特殊场景存在天然瓶颈。</li>
-            <li>技术已具备工程化能力，但“能飞”不等于“能常态化运营”。</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>核心提问与讲述路径</h3>
-          <ul class="list">
-            <li>问题一：低空经济为何在当下进入加速期？</li>
-            <li>问题二：深圳如何把新质生产力落到可运行、可复制的实践？</li>
-            <li>问题三：如何在发展与安全并重中实现长期可持续？</li>
-          </ul>
-        </article>
+    <section class="slide" aria-label="三个结论">
+      <div class="topbar"><div class="label">开篇亮观点</div><div class="page">02 / 16</div></div>
+      <div class="content">
+        <h2>三个结论先行，锚定全篇主线</h2>
+        <div class="cols-even">
+          <div class="panel">
+            <h3>结论一：系统能力是领先关键</h3>
+            <p>深圳低空经济成势成群，不是单点企业突破，而是产业组织能力和城市协同能力共同作用的结果。</p>
+          </div>
+          <div class="panel">
+            <h3>结论二：低空经济是新质生产力实践场</h3>
+            <p>低空经济把技术创新、场景创新和制度创新连接起来，成为培育新动能的重要平台。</p>
+          </div>
+        </div>
+        <div class="cols-2">
+          <div class="panel">
+            <h3>结论三：发展和安全必须同向发力</h3>
+            <p>只有把安全治理体系同步嵌入产业扩张过程，才能推动产业行稳致远、健康发展。</p>
+          </div>
+          <div class="photo-slot"><strong>[图2 结论信息图位]</strong><span>建议替换：三角结构图（三结论对应三支柱）</span></div>
+        </div>
       </div>
-      <div class="placeholder" style="margin-top: 8px;">图2：城市需求压力 + 低空场景切入 + 三问结构图</div>
-      <div class="foot"><span>导入逻辑：现实矛盾 -> 核心提问 -> 三问预告</span><span>45-60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>先说结论，再展开论证，形成“总-分”叙事</span><span>时长 45-60 秒</span></div>
     </section>
 
     <section class="slide" aria-label="时代背景">
-      <div class="top"><span class="chip">时代背景</span><span class="pageno">03 / 16</span></div>
-      <h2>为什么必须抢抓低空经济机遇</h2>
-      <div class="grid-4" style="margin-top: 8px;">
-        <article class="panel"><h3>技术拐点</h3><p>飞控、感知避障、通信链路与算法调度进入工程化可用阶段。</p></article>
-        <article class="panel"><h3>成本拐点</h3><p>电池、核心部件与系统集成成本下行，单位任务成本持续优化。</p></article>
-        <article class="panel"><h3>需求拐点</h3><p>配送、急送、应急、巡检等场景由偶发转向高频刚需。</p></article>
-        <article class="panel"><h3>制度拐点</h3><p>空域管理、航线划设、标准规范和监管沙盒加速落地。</p></article>
+      <div class="topbar"><div class="label">时代背景</div><div class="page">03 / 16</div></div>
+      <div class="content">
+        <h2>为什么必须抢抓低空经济发展机遇</h2>
+        <div class="cols-2">
+          <div class="panel">
+            <ul class="list">
+              <li>国家层面：低空经济政策部署密集出台，发展导向更加明确。</li>
+              <li>区域层面：各地竞相布局新赛道，城市竞争进入新阶段。</li>
+              <li>产业层面：发展目标从“能飞”升级为“稳飞、常飞、久飞”。</li>
+              <li>社会层面：民生服务、城市治理、产业升级需求快速增长。</li>
+            </ul>
+          </div>
+          <div class="photo-slot"><strong>[图3 时间轴图位]</strong><span>建议替换：政策节点 + 产业事件双时间轴</span></div>
+        </div>
+        <div class="slogan">把握低空经济，不是选择题，而是抢占未来产业制高点的必答题。</div>
       </div>
-      <div class="quote">竞争本质变化：城市竞争正在从“单点技术领先”升级为“技术-场景-治理”综合组织能力竞争。</div>
-      <div class="placeholder">图3：政策节点 + 产业节点时间轴（补政策与任务量数据）</div>
-      <div class="foot"><span>讲清“为什么是现在”，再引出“为什么是深圳”</span><span>60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>突出“窗口期”与“紧迫性”</span><span>时长 45 秒</span></div>
     </section>
 
-    <section class="slide" aria-label="思想引领">
-      <div class="top"><span class="chip">思想引领</span><span class="pageno">04 / 16</span></div>
-      <h2>理论与实践如何同频共振</h2>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel">
-          <h3>四条理论主轴</h3>
-          <ul class="list">
-            <li>新质生产力：科技创新引领产业创新。</li>
-            <li>高质量发展：效率、效益、韧性与安全并进。</li>
-            <li>现代化产业体系：链群协同、生态竞争、制度竞争。</li>
-            <li>统筹发展和安全：把安全前置为发展条件。</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>深圳实践映射</h3>
-          <ul class="list">
-            <li>打通技术研发-制造集成-运营服务链条。</li>
-            <li>以场景开放推动产品迭代与标准形成。</li>
-            <li>以空域治理、数据治理、应急机制构建安全底座。</li>
-          </ul>
-        </article>
+    <section class="slide" aria-label="思想映射">
+      <div class="topbar"><div class="label">思想引领</div><div class="page">04 / 16</div></div>
+      <div class="content">
+        <h2>经济思想与低空经济实践同频共振</h2>
+        <div class="cols-2">
+          <div class="panel">
+            <ul class="list">
+              <li>创新驱动：以科技创新塑造发展新动能。</li>
+              <li>体系建设：链群协同支撑现代化产业体系。</li>
+              <li>高质量发展：效率、效益、韧性、安全并重。</li>
+              <li>安全统筹：风险防范贯穿产业全过程。</li>
+            </ul>
+          </div>
+          <div class="photo-slot"><strong>[图4 映射矩阵位]</strong><span>建议替换：理论关键词 x 深圳实践场景矩阵</span></div>
+        </div>
+        <div class="slogan">理论不是抽象口号，而是指导实践、解决问题、推动发展的行动指南。</div>
       </div>
-      <div class="quote">案例分析统一方法：理论命题 -> 实践机制 -> 可观察结果 -> 可复制条件。</div>
-      <div class="placeholder">图4：理论要点 x 实践场景映射矩阵</div>
-      <div class="foot"><span>避免“只讲经验、不讲理论”</span><span>60-75秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>逐条对应“理论点-实践点”</span><span>时长 50 秒</span></div>
     </section>
 
     <section class="slide" aria-label="深圳基础">
-      <div class="top"><span class="chip">深圳基础</span><span class="pageno">05 / 16</span></div>
-      <h2>先行示范为什么发生在深圳</h2>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel">
-          <ul class="list">
-            <li><b>产业底盘：</b>电子信息与智能制造基础雄厚。</li>
-            <li><b>要素支撑：</b>技术、资本、人才、平台高密度集聚。</li>
-            <li><b>场景牵引：</b>物流、应急、巡检等需求稳定高频。</li>
-            <li><b>制度优势：</b>改革创新与政策供给快速协同。</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>结论表达</h3>
-          <p>深圳优势不在单项指标，而在“底座-要素-场景-制度”四维同向发力，形成系统性先发优势。</p>
-          <div class="placeholder" style="min-height: 140px;">图5：深圳优势雷达图 + 产业地图</div>
-        </article>
+      <div class="topbar"><div class="label">深圳基础</div><div class="page">05 / 16</div></div>
+      <div class="content">
+        <h2>先行示范为何发生在深圳</h2>
+        <div class="cols-2">
+          <div class="panel">
+            <ul class="list">
+              <li>产业底盘厚：电子信息和高端制造基础雄厚。</li>
+              <li>创新要素密：技术、资本、人才、平台集聚度高。</li>
+              <li>场景资源多：物流、巡检、应急、文旅需求高频。</li>
+              <li>制度响应快：改革创新与政策供给协同高效。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="photo-slot"><strong>[图5 优势雷达图位]</strong><span>建议替换：深圳比较优势雷达图 + 产业地图</span></div>
+          </div>
+        </div>
+        <div class="slogan">深圳的领先，本质是“产业底盘 + 创新生态 + 制度供给”叠加形成的综合优势。</div>
       </div>
-      <div class="foot"><span>从“底座-要素-场景-制度”解释先发优势</span><span>45秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>用“四个为什么”解释先发优势</span><span>时长 45 秒</span></div>
     </section>
 
-    <section class="slide" aria-label="形成机制">
-      <div class="top"><span class="chip">形成机制</span><span class="pageno">06 / 16</span></div>
-      <h2>四轮驱动释放集聚效应</h2>
-      <div class="flow" style="margin-top: 8px;">
-        <article class="step"><b>技术轮</b><p>飞控、通信、感知、算法持续进步。</p></article>
-        <article class="step"><b>制度轮</b><p>标准建设、规则试点、监管协同同步推进。</p></article>
-        <article class="step"><b>场景轮</b><p>高频应用持续牵引技术快速迭代。</p></article>
-        <article class="step"><b>协同轮</b><p>研发、制造、运营、治理形成闭环。</p></article>
+    <section class="slide" aria-label="四轮驱动">
+      <div class="topbar"><div class="label">形成机制</div><div class="page">06 / 16</div></div>
+      <div class="content">
+        <h2>四轮驱动释放低空经济集聚效应</h2>
+        <div class="steps">
+          <div class="step"><b>技术轮</b><p>飞控、通信、感知、算法迭代，持续抬升产业上限。</p></div>
+          <div class="step"><b>制度轮</b><p>标准规则先行，监管协同跟进，降低发展不确定性。</p></div>
+          <div class="step"><b>场景轮</b><p>高频应用牵引技术转化，推动产品快速商业落地。</p></div>
+        </div>
+        <div class="cols-2">
+          <div class="panel">
+            <h3>协同轮（系统关键）</h3>
+            <p>研发、制造、运营、治理形成完整闭环，推动“单点突破”走向“系统涌现”。</p>
+          </div>
+          <div class="photo-slot"><strong>[图6 四轮模型图位]</strong><span>建议替换：环形闭环示意图</span></div>
+        </div>
       </div>
-      <div class="quote">四轮互促而非线性推进：场景稳定会加速规则成熟，规则成熟又会放大产业投资与人才进入。</div>
-      <div class="placeholder">图6：四轮驱动环形图/流程图</div>
-      <div class="foot"><span>讲机制，不只讲结果</span><span>45-60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>强调“四轮互促、缺一不可”</span><span>时长 55 秒</span></div>
     </section>
 
-    <section class="slide" aria-label="案例全景">
-      <div class="top"><span class="chip">案例全景</span><span class="pageno">07 / 16</span></div>
-      <h2>A/B/C 三类路径如何构成演进链条</h2>
-      <table class="table" style="margin-top: 8px;">
-        <thead>
-          <tr><th>类别</th><th>核心问题</th><th>新质生产力内核</th><th>关键指标</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>A 应用效率型</td><td>值不值得做</td><td>重塑生产场景</td><td>时效、成本、覆盖</td></tr>
-          <tr><td>B 产业升级型</td><td>能不能做大</td><td>重塑产业组织</td><td>配套率、协作率、外溢率</td></tr>
-          <tr><td>C 治理能力型</td><td>能不能长期做</td><td>重塑治理范式</td><td>合规率、事故率、处置时效</td></tr>
-        </tbody>
-      </table>
-      <div class="quote">传导关系：A 提供需求牵引，B 提供供给能力，C 提供制度稳定，三者缺一不可。</div>
-      <div class="placeholder">图7：三类案例总览（左中右三栏）</div>
-      <div class="foot"><span>不是三个并列故事，而是一条演进链条</span><span>45-60秒</span></div>
+    <section class="slide" aria-label="案例总览">
+      <div class="topbar"><div class="label">案例全景</div><div class="page">07 / 16</div></div>
+      <div class="content">
+        <h2>A/B/C 三类实践共同构成发展路径</h2>
+        <table class="kv">
+          <thead>
+            <tr><th>类别</th><th>核心主题</th><th>实践价值</th><th>对应思想要点</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A 应用效率型</td><td>配送与服务提效</td><td>让技术可感知、可体验</td><td>以人民为中心、高质量发展</td></tr>
+            <tr><td>B 产业升级型</td><td>链群协同与外溢</td><td>让产业可扩面、可升级</td><td>现代化产业体系</td></tr>
+            <tr><td>C 治理能力型</td><td>规则与安全保障</td><td>让发展可持续、可复制</td><td>统筹发展和安全</td></tr>
+          </tbody>
+        </table>
+        <div class="slogan">主线关系：应用见效 -> 产业扩面 -> 治理固本。</div>
+      </div>
+      <div class="footer"><span><b>讲述建议：</b>先总览后分解，避免听众迷失</span><span>时长 40 秒</span></div>
     </section>
 
     <section class="slide" aria-label="案例A">
-      <div class="top"><span class="chip">案例 A</span><span class="pageno">08 / 16</span></div>
-      <h2>无人机配送与城市服务提效</h2>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel">
-          <h3>场景与机制</h3>
-          <ul class="list">
-            <li>即时零售：跨拥堵段快速接驳，稳定高峰期服务。</li>
-            <li>医疗急送：降低极端时段延误风险，提升时效稳定性。</li>
-            <li>运行链路：下单分流 -> 算法派单 -> 空地协同交接 -> 异常切换地面备份。</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>价值与证据抓手</h3>
-          <ul class="list">
-            <li>价值不只“更快”，更在“更稳、更可预期”。</li>
-            <li>建议补数：平均时长、准时率、极端天气履约稳定度。</li>
-            <li>理论映射：场景牵引技术迭代、需求倒逼组织重构。</li>
-          </ul>
-          <div class="placeholder">图8：配送场景实拍 + 视频二维码</div>
-        </article>
+      <div class="topbar"><div class="label">案例 A：应用效率型</div><div class="page">08 / 16</div></div>
+      <div class="content">
+        <h2>无人机配送与城市服务提效</h2>
+        <div class="cols-2">
+          <div class="panel">
+            <ul class="list">
+              <li>典型场景：园区、商圈、社区、医疗补给。</li>
+              <li>实际成效：缓解拥堵、提升时效、增强可达性。</li>
+              <li>实践启示：地空协同，而非单纯替代地面物流。</li>
+              <li>群众感知：服务更快、更稳、更便捷。</li>
+            </ul>
+            <div class="links">
+              <a target="_blank" rel="noopener" href="https://search.bilibili.com/all?keyword=%E6%B7%B1%E5%9C%B3%20%E6%97%A0%E4%BA%BA%E6%9C%BA%20%E9%85%8D%E9%80%81">视频参考：深圳无人机配送</a>
+              <a target="_blank" rel="noopener" href="https://search.bilibili.com/all?keyword=%E6%B7%B1%E5%9C%B3%20%E4%BD%8E%E7%A9%BA%20%E7%89%A9%E6%B5%81">视频参考：深圳低空物流</a>
+            </div>
+          </div>
+          <div class="photo-slot"><strong>[图8 场景实拍图位]</strong><span>建议替换：配送起降点、空地交接、航线示意</span></div>
+        </div>
       </div>
-      <div class="foot"><span>讲完整任务链路：问题 -> 改造 -> 结果</span><span>60-75秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>突出“群众获得感”这一落脚点</span><span>时长 60 秒</span></div>
     </section>
 
     <section class="slide" aria-label="案例A深化">
-      <div class="top"><span class="chip">案例 A 深化</span><span class="pageno">09 / 16</span></div>
-      <h2>从试点到规模运营：真正门槛在哪里</h2>
-      <div class="flow" style="margin-top: 8px;">
-        <article class="step"><b>阶段一 可飞</b><p>验证技术可行与风险可控，重点压降事故率。</p></article>
-        <article class="step"><b>阶段二 可管</b><p>建立SOP、资质体系、应急预案和跨部门协同。</p></article>
-        <article class="step"><b>阶段三 可算账</b><p>进入网络化运营，检验单位经济性是否成立。</p></article>
-        <article class="step"><b>阶段四 可复制</b><p>在多点联动中保持稳定履约与合规运营。</p></article>
+      <div class="topbar"><div class="label">案例 A 深化</div><div class="page">09 / 16</div></div>
+      <div class="content">
+        <h2>从试点示范到规模运营的三阶段演进</h2>
+        <div class="steps">
+          <div class="step"><b>阶段一：试点验证</b><p>围绕典型场景验证技术稳定性与安全边界。</p></div>
+          <div class="step"><b>阶段二：标准成型</b><p>建立流程标准和协同机制，形成可复制模板。</p></div>
+          <div class="step"><b>阶段三：网络运营</b><p>多点联动形成常态化服务网络和规模化能力。</p></div>
+        </div>
+        <div class="cols-2">
+          <div class="panel"><h3>关键认识</h3><p>真正竞争力不在“飞一次”，而在“持续稳定飞、规模化飞”。</p></div>
+          <div class="photo-slot"><strong>[图9 演进流程图位]</strong><span>建议替换：三阶段流程图 + 成效数据点</span></div>
+        </div>
       </div>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel"><p><b>扩张约束：</b>起降点密度、空域协调、天气扰动、维护能力、算法调度。</p></article>
-        <article class="panel"><p><b>关键判断：</b>规模化门槛不是设备数量，而是稳定履约 + 合规运营 + 成本闭环。</p></article>
-      </div>
-      <div class="placeholder">图9：三阶段演进图 + 运营流程图 + 成本曲线</div>
-      <div class="foot"><span>突出“试点有效不等于可复制”</span><span>60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>可补“从点到网”的具体转变案例</span><span>时长 50 秒</span></div>
     </section>
 
     <section class="slide" aria-label="案例B">
-      <div class="top"><span class="chip">案例 B</span><span class="pageno">10 / 16</span></div>
-      <h2>产业链集群与协同升级</h2>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel">
-          <h3>链群协同路径</h3>
-          <ul class="list">
-            <li>纵向贯通：核心部件 -> 整机系统 -> 运营服务。</li>
-            <li>横向拓展：配送技术外溢至巡检、测绘、应急、文旅等。</li>
-            <li>三快优势：研发迭代快、供应链响应快、场景验证快。</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>机制与实证抓手</h3>
-          <ul class="list">
-            <li>龙头牵引 + 专精特新配套 + 公共测试平台。</li>
-            <li>建议补数：本地配套率、协作企业数、迭代周期缩短幅度。</li>
-            <li>理论呼应：创新链、产业链、资金链、人才链融合。</li>
-          </ul>
-          <div class="placeholder">图10：产业链全景图</div>
-        </article>
+      <div class="topbar"><div class="label">案例 B：产业升级型</div><div class="page">10 / 16</div></div>
+      <div class="content">
+        <h2>产业链集群与协同升级的深圳实践</h2>
+        <div class="cols-even">
+          <div class="panel">
+            <h3>纵向贯通</h3>
+            <p>上游零部件、中游整机系统、下游运营服务协同发展，链条完整度持续提升。</p>
+          </div>
+          <div class="panel">
+            <h3>横向拓展</h3>
+            <p>低空技术向巡检、测绘、应急等行业迁移，形成多行业联动效应。</p>
+          </div>
+        </div>
+        <div class="cols-2">
+          <div class="panel"><h3>发展意义</h3><p>由单点突破走向生态竞争，体现现代化产业体系建设的现实进展。</p></div>
+          <div class="photo-slot"><strong>[图10 产业链图位]</strong><span>建议替换：产业链全景图 + 代表企业/环节</span></div>
+        </div>
       </div>
-      <div class="foot"><span>举“单个企业做不到、协同才能做到”的任务</span><span>60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>强调“链群协同”是长期竞争力来源</span><span>时长 50 秒</span></div>
     </section>
 
     <section class="slide" aria-label="案例B深化">
-      <div class="top"><span class="chip">案例 B 深化</span><span class="pageno">11 / 16</span></div>
-      <h2>外溢效应如何转化发展增量</h2>
-      <div class="grid-4" style="margin-top: 8px;">
-        <article class="panel"><h3>技术外溢</h3><p>飞控、感知、通信等迁移到机器人、交通、应急管理。</p></article>
-        <article class="panel"><h3>组织外溢</h3><p>快速试制、跨域协同、系统工程方法反哺制造业。</p></article>
-        <article class="panel"><h3>人才外溢</h3><p>形成航空+软件+运营+安全复合岗位。</p></article>
-        <article class="panel"><h3>资本外溢</h3><p>从单点投资转向平台化、生态化投资。</p></article>
+      <div class="topbar"><div class="label">案例 B 深化</div><div class="page">11 / 16</div></div>
+      <div class="content">
+        <h2>外溢效应如何转化为城市发展增量</h2>
+        <div class="cols-3">
+          <div class="panel"><h3>技术外溢</h3><p>共性技术跨行业复用，提升创新效率。</p></div>
+          <div class="panel"><h3>组织外溢</h3><p>工程体系和供应链能力向多产业扩展。</p></div>
+          <div class="panel"><h3>人才外溢</h3><p>新岗位新职业涌现，人才结构优化升级。</p></div>
+        </div>
+        <div class="cols-2">
+          <div class="panel"><h3>综合效应</h3><p>带动产业韧性提升，增强城市综合竞争力和发展后劲。</p></div>
+          <div class="photo-slot"><strong>[图11 外溢路径图位]</strong><span>建议替换：技术-组织-人才三路径关系图</span></div>
+        </div>
       </div>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel"><p><b>外溢前提：</b>标准接口、数据规范、协同平台三项基础设施完善。</p></article>
-        <article class="panel"><p><b>建议补数：</b>跨行业项目占比、复用模块数量、复合岗位增长率。</p></article>
-      </div>
-      <div class="placeholder">图11：技术/组织/人才外溢路径图</div>
-      <div class="foot"><span>强调“组织能力外溢”，不只是技术名词外溢</span><span>60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>可补“外溢带动区域协同”案例句</span><span>时长 55 秒</span></div>
     </section>
 
     <section class="slide" aria-label="案例C">
-      <div class="top"><span class="chip">案例 C</span><span class="pageno">12 / 16</span></div>
-      <h2>治理能力建设与安全边界塑造</h2>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel">
-          <h3>治理模块</h3>
-          <ul class="list">
-            <li>空域治理：分层分类、动态调整、冲突预防。</li>
-            <li>运行治理：准入-运行-退出全周期规则。</li>
-            <li>数据治理：采集边界、权限管理、责任追溯。</li>
-            <li>应急治理：跨部门联动，提升异常处置一致性。</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h3>治理创新重点</h3>
-          <p>把“事后问责”前移为“事前预防 + 事中监测 + 事后复盘”闭环，增强产业扩张确定性。</p>
-          <div class="placeholder" style="min-height: 136px;">图12：治理体系框架图</div>
-        </article>
+      <div class="topbar"><div class="label">案例 C：治理能力型</div><div class="page">12 / 16</div></div>
+      <div class="content">
+        <h2>治理能力建设与安全边界塑造</h2>
+        <div class="cols-even">
+          <div class="panel">
+            <ul class="list">
+              <li>空域治理：航线规划、冲突管理、动态调度持续优化。</li>
+              <li>运行治理：标准体系、资质管理、应急机制不断完善。</li>
+              <li>数据治理：隐私保护、责任追溯、合规边界逐步清晰。</li>
+            </ul>
+          </div>
+          <div class="photo-slot"><strong>[图12 治理框架图位]</strong><span>建议替换：空域-运行-数据三层治理框架</span></div>
+        </div>
+        <div class="slogan">核心命题：以高水平安全保障高质量发展。</div>
       </div>
-      <div class="quote">核心命题：治理能力不是约束产业，而是产业规模化发展的前提条件。</div>
-      <div class="foot"><span>可加入一次异常处置流程，体现实战价值</span><span>60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>突出“治理能力就是产业竞争力”</span><span>时长 45 秒</span></div>
     </section>
 
     <section class="slide" aria-label="案例C深化">
-      <div class="top"><span class="chip">案例 C 深化</span><span class="pageno">13 / 16</span></div>
-      <h2>规则供给决定发展质量</h2>
-      <div class="grid-3" style="margin-top: 8px;">
-        <article class="panel"><h3>底线规则</h3><p>守住安全红线，明确不可触碰边界。</p></article>
-        <article class="panel"><h3>发展规则</h3><p>为创新试点提供可控空间与评估机制。</p></article>
-        <article class="panel"><h3>协同规则</h3><p>明确跨部门接口、流程和责任链条。</p></article>
+      <div class="topbar"><div class="label">案例 C 深化</div><div class="page">13 / 16</div></div>
+      <div class="content">
+        <h2>规则供给决定产业扩张质量</h2>
+        <div class="cols-2">
+          <div class="panel">
+            <ul class="list">
+              <li>规则越清晰，扩张不确定性越低。</li>
+              <li>协同越高效，创新与监管越能形成良性互动。</li>
+              <li>治理越前置，风险处置越主动、越精准。</li>
+              <li>规则体系是产业发展的关键基础设施。</li>
+            </ul>
+          </div>
+          <div class="photo-slot"><strong>[图13 规则供给关系图位]</strong><span>建议替换：规则成熟度与产业扩张关系曲线</span></div>
+        </div>
+        <div class="panel"><h3>宣传表达建议</h3><p>把“守底线、防风险、促发展”作为统一表达口径，体现底线思维和系统思维。</p></div>
       </div>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel"><p>规则清晰度与产业扩张正相关：规则模糊时企业观望，规则稳定时企业长期投入。</p></article>
-        <article class="panel"><p>分级分类监管实现“高风险严管、低风险放活”，形成创新与监管良性互动。</p></article>
-      </div>
-      <div class="placeholder">图13：有规则场景 vs 规则模糊场景对照（落地周期/融资意愿/扩张速度）</div>
-      <div class="foot"><span>落脚：发展与安全并重是可操作的治理工程</span><span>60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>可补“前置治理避免系统性风险”实例</span><span>时长 50 秒</span></div>
     </section>
 
     <section class="slide" aria-label="成效与挑战">
-      <div class="top"><span class="chip">成效与挑战</span><span class="pageno">14 / 16</span></div>
-      <h2>坚持辩证看问题：成绩与短板并陈</h2>
-      <table class="table" style="margin-top: 8px;">
-        <thead><tr><th>维度</th><th>阶段成效</th><th>现实挑战</th><th>工作重点</th></tr></thead>
-        <tbody>
-          <tr><td>产业</td><td>集聚加快、协同增强</td><td>跨域协同成本偏高</td><td>深化跨区域标准协同</td></tr>
-          <tr><td>应用</td><td>场景拓展、频次提升</td><td>商业闭环仍需验证</td><td>聚焦高频高价值场景</td></tr>
-          <tr><td>治理</td><td>规则体系持续完善</td><td>数据共享与边界仍需细化</td><td>完善平台化治理与追溯</td></tr>
-          <tr><td>人才</td><td>新岗位涌现</td><td>复合型人才供给不足</td><td>教育与产业联动培养</td></tr>
-        </tbody>
-      </table>
-      <div class="placeholder">图14：成效挑战左右对照图</div>
-      <div class="foot"><span>宣传口径：既讲成绩，也讲问题和路径</span><span>45秒</span></div>
+      <div class="topbar"><div class="label">成效与挑战</div><div class="page">14 / 16</div></div>
+      <div class="content">
+        <h2>坚持辩证看问题：既看成绩也看短板</h2>
+        <table class="kv">
+          <thead>
+            <tr><th>维度</th><th>阶段成效</th><th>现实挑战</th><th>下一步重点</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>产业</td><td>集聚加快、链条更完整</td><td>跨域协同成本仍高</td><td>强化区域协同机制</td></tr>
+            <tr><td>应用</td><td>场景持续拓展</td><td>规模化运营能力待提升</td><td>聚焦高频高价值场景</td></tr>
+            <tr><td>治理</td><td>规则体系持续完善</td><td>标准统一难度较大</td><td>推进标准协同与互认</td></tr>
+            <tr><td>人才</td><td>新职业持续涌现</td><td>复合型人才有缺口</td><td>加强产教协同培养</td></tr>
+          </tbody>
+        </table>
+        <div class="slogan">基本判断：低空经济进入高质量爬坡关键期，必须在发展中发现问题、在改革中解决问题。</div>
+      </div>
+      <div class="footer"><span><b>讲述建议：</b>用“成绩+问题+举措”三段式讲清楚</span><span>时长 55 秒</span></div>
     </section>
 
     <section class="slide" aria-label="展望建议">
-      <div class="top"><span class="chip">展望与建议</span><span class="pageno">15 / 16</span></div>
-      <h2>锚定高质量发展方向：三项建议</h2>
-      <div class="grid-3" style="margin-top: 8px;">
-        <article class="panel"><h3>建议一</h3><p>推进制度型创新，完善可复制可推广政策样板。</p></article>
-        <article class="panel"><h3>建议二</h3><p>深化产业链协同，推动场景-运营-制造深度融合。</p></article>
-        <article class="panel"><h3>建议三</h3><p>强化教育与产业联动，夯实复合型人才支撑。</p></article>
+      <div class="topbar"><div class="label">展望与建议</div><div class="page">15 / 16</div></div>
+      <div class="content">
+        <h2>锚定高质量发展方向，提出三项建议</h2>
+        <div class="cols-3">
+          <div class="panel"><h3>建议一</h3><p>推进制度型创新，完善可复制可推广政策样板。</p></div>
+          <div class="panel"><h3>建议二</h3><p>深化产业链协同，推动场景-运营-制造深度融合。</p></div>
+          <div class="panel"><h3>建议三</h3><p>强化教育与产业联动，夯实复合型人才支撑。</p></div>
+        </div>
+        <div class="cols-2">
+          <div class="slogan">趋势判断：未来竞争关键在城市级组织能力与治理能力。</div>
+          <div class="photo-slot"><strong>[图15 建议路线图位]</strong><span>建议替换：三建议路线图 + 阶段里程碑</span></div>
+        </div>
       </div>
-      <div class="quote">趋势判断：未来竞争关键不在“先飞一步”，而在城市级组织能力与治理能力。</div>
-      <div class="placeholder">图15：三项建议路线图 + 里程碑</div>
-      <div class="foot"><span>每条建议补“抓手动作”以便落地执行</span><span>45-60秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>每条建议补一句“落地抓手”</span><span>时长 50 秒</span></div>
     </section>
 
     <section class="slide" aria-label="总结收束">
-      <div class="top"><span class="chip">总结收束</span><span class="pageno">16 / 16</span></div>
-      <h2>三类案例贯通形成实践逻辑闭环</h2>
-      <div class="flow" style="margin-top: 8px;">
-        <article class="step"><b>应用侧见效</b><p>验证低空技术是否创造可感知价值。</p></article>
-        <article class="step"><b>产业侧扩面</b><p>将单点创新转化为链群协同能力。</p></article>
-        <article class="step"><b>治理侧固本</b><p>以规则供给保障长期可持续发展。</p></article>
-        <article class="step"><b>路径推广</b><p>形成可复制、可评估、可推广的方法论。</p></article>
+      <div class="topbar"><div class="label">总结收束</div><div class="page">16 / 16</div></div>
+      <div class="content">
+        <h2>三类案例贯通形成完整实践逻辑</h2>
+        <div class="cols-even">
+          <div class="panel">
+            <ul class="list">
+              <li>应用侧见效：让技术价值可感知、可检验。</li>
+              <li>产业侧扩面：让发展动能可复制、可放大。</li>
+              <li>治理侧固本：让发展路径可持续、可推广。</li>
+            </ul>
+          </div>
+          <div class="photo-slot"><strong>[图16 闭环总图位]</strong><span>建议替换：应用-产业-治理闭环图</span></div>
+        </div>
+        <div class="slogan">收束表达：低空经济竞争不在“先飞一步”，而在“稳飞、常飞、长飞”。</div>
       </div>
-      <div class="grid-2" style="margin-top: 8px;">
-        <article class="panel"><p><b>分析方法：</b>看现象、找机制、做映射、提对策。</p></article>
-        <article class="panel"><p><b>收束表达：</b>低空经济竞争不在先飞一步，而在稳飞、常飞、长飞。</p></article>
-      </div>
-      <div class="placeholder">图16：应用-产业-治理闭环总图</div>
-      <div class="foot"><span>理论引领 -> 实践验证 -> 路径推广</span><span>30-45秒</span></div>
+      <div class="footer"><span><b>结束语：</b>以理论之光照亮实践之路，以改革创新开拓发展新局</span><span>谢谢观看</span></div>
     </section>
   </main>
 </body>
