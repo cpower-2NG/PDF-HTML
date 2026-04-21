@@ -39,7 +39,22 @@
 - 若目标只是视觉一致性，可以把 HTML 作为主源并输出 PDF；PPTX 只在明确需要编辑时再做二次转换。
 - 转换前先做一轮打印预览，确认分页、溢出、字号和色彩在静态场景下都稳定。
 
+## Python 环境约定
+- 如需 Python 虚拟环境，统一使用 conda 创建与管理，不使用 venv/virtualenv 作为默认方案。
+- 新任务涉及 Python 依赖前，先确认并激活项目 conda 环境，再执行安装或运行命令。
+- 包安装优先在当前 conda 环境内完成，避免安装到系统 Python。
+- 若未指定环境名，默认命名建议：`pdf-html-creator`。
+- 推荐最小流程：`conda create -n pdf-html-creator python=3.11 -y` -> `conda activate pdf-html-creator` -> `pip install -r requirements.txt`（如存在依赖文件）。
+
 ## 输出要求
 - 先说明方案，再给代码。
 - 代码完成后，附上导出 PDF 或转换 PPT 的建议命令或步骤。
 - 如果信息不足，只追问会影响版式、内容或导出结果的关键项。
+
+## GitHub Pages 固定发布流程
+- 本仓库网页发布统一走 GitHub Pages + GitHub Actions。
+- 工作流文件固定为 `.github/workflows/deploy-pages.yml`，不要随意改名。
+- 首次配置时：在仓库 `Settings -> Pages` 里将 Source 设为 `GitHub Actions`。
+- 日常发布时：只需将修改提交并推送到 `main` 分支，即自动触发部署。
+- 发布入口统一为根目录 `index.html`，演示文稿正文位于 `generated-html/<topic>/03-slides.html`。
+- 每次发布前必须检查：页面无截断、可打印、路径可访问、首页链接指向当前正式版。

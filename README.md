@@ -18,5 +18,13 @@
 2. Source 选择 GitHub Actions。
 3. 推送 main 分支后等待部署完成。
 
+## 固定调用方式（后续每次发布）
+- 首次启用后，无需重复设置。
+- 之后只要把修改提交并推送到 `main` 分支，GitHub Pages 会自动重新部署。
+- 建议每次发布前执行：
+	1. 确认首页 `index.html` 链接指向当前正式稿。
+	2. 确认 `generated-html/<topic>/03-slides.html` 无内容截断。
+	3. 推送后到 Actions 页面查看部署是否成功。
+
 部署成功后，访问：
 - https://<你的用户名>.github.io/<仓库名>/
