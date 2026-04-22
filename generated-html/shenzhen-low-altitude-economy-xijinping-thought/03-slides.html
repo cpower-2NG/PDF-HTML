@@ -209,6 +209,23 @@
       border-color: #e2cda8;
     }
 
+    .chips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .chip {
+      border: 1px solid #e0c79b;
+      background: #fff8ec;
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 16px;
+      line-height: 1.35;
+      color: #5a4747;
+      text-align: center;
+    }
+
     .art-2 {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -271,6 +288,35 @@
     .photo-slot.wide {
       aspect-ratio: 16 / 9;
       min-height: 130px;
+    }
+
+    .diagram-shell {
+      border: 1px solid #dfcaa5;
+      border-radius: 6px;
+      background: linear-gradient(135deg, rgba(255,245,229,0.92), rgba(250,234,210,0.92));
+      min-height: 150px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: stretch;
+    }
+
+    .diagram-shell.tall { min-height: 250px; }
+
+    .diagram-shell svg {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      display: block;
+    }
+
+    .diagram-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #8b0016;
+      text-align: center;
+      line-height: 1.2;
     }
 
     .photo-slot strong {
@@ -342,6 +388,31 @@
       line-height: 1.4;
     }
 
+    .diagram-led .content {
+      gap: 8px;
+    }
+
+    .diagram-led .stagger-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      align-items: start;
+    }
+
+    .diagram-led .stagger-3 .panel:nth-child(2) {
+      transform: none;
+    }
+
+    .diagram-led .art-2 {
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .diagram-led .panel p {
+      line-height: 1.48;
+    }
+
     @media (max-width: 860px) {
       .deck { padding: 10px; }
       .slide { grid-template-rows: 52px 1fr 30px; }
@@ -352,7 +423,9 @@
       .lead { font-size: 20px; }
       .cols-2, .cols-even, .cols-3, .steps, .stagger-3, .art-2 { grid-template-columns: 1fr; }
       .stagger-3 .panel:nth-child(2) { transform: none; }
+      .chips { grid-template-columns: 1fr; }
       .photo-slot { min-height: 120px; }
+      .diagram-shell { min-height: 120px; }
       .panel h3 { font-size: 19px; }
       .panel p { font-size: 16px; }
       .list li { font-size: 16px; }
@@ -416,13 +489,22 @@
       .panel p,
       .list li { font-size: 12.2pt; line-height: 1.36; }
 
-      .photo-slot {
+      .photo-slot,
+      .diagram-shell {
         min-height: 1.8in;
+      }
+
+      .chips {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .photo-slot.tall,
       .photo-slot.wide {
         aspect-ratio: auto;
+      }
+
+      .diagram-shell.tall {
+        min-height: 2.4in;
       }
 
       .kv {
@@ -541,18 +623,49 @@
       <div class="topbar"><div class="label">形成机制</div><div class="page">06 / 16</div></div>
       <div class="content">
         <h2>四轮驱动释放低空经济集聚效应</h2>
-        <div class="stagger-3">
-          <div class="panel"><h3>技术轮</h3><p>飞控、通信、感知、算法持续升级，决定产业上限。</p></div>
-          <div class="panel"><h3>制度轮</h3><p>标准规则先行、监管协同并进，降低发展不确定性。</p></div>
-          <div class="panel"><h3>场景轮</h3><p>高频应用反哺技术迭代，牵引产品快速落地。</p></div>
+        <div class="chips">
+          <div class="chip">技术轮：飞控、通信、感知、算法持续升级</div>
+          <div class="chip">制度轮：标准规则先行、监管协同并进</div>
+          <div class="chip">场景轮：高频应用反哺技术迭代</div>
         </div>
         <div class="art-2">
           <div class="panel">
             <h3>协同轮（系统关键）</h3>
-            <p>研发、制造、运营、治理形成完整闭环，推动“单点突破”走向“系统涌现”。在四轮互促中，协同轮决定机制是否可持续放大。</p>
-            <div class="slogan">四轮不是并列项，而是“相互牵引、相互强化”的发展系统。</div>
+            <p>研发、制造、运营、治理形成完整闭环，推动“单点突破”走向“系统涌现”。</p>
+            <p>四轮不是并列项，而是“相互牵引、相互强化”的发展系统，协同轮决定机制是否可持续放大。</p>
+            <div class="slogan">系统逻辑：技术供给、制度供给、场景供给，最终都要在协同轮上完成放大。</div>
           </div>
-          <div class="photo-slot tall"><strong>[图6 四轮模型图位]</strong><span>建议替换：环形闭环示意图 / 四轮联动关系图</span></div>
+          <div class="diagram-shell tall">
+            <div class="diagram-title">[图6 四轮联动关系图（代码实现）]</div>
+            <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" aria-label="四轮联动关系图">
+              <defs>
+                <marker id="arrow6" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#b3001b"/>
+                </marker>
+              </defs>
+              <rect x="125" y="94" rx="16" ry="16" width="110" height="72" fill="#fff1df" stroke="#c79a3b" stroke-width="2"/>
+              <text x="180" y="124" font-size="18" text-anchor="middle" fill="#8b0016" font-weight="700">协同轮</text>
+              <text x="180" y="146" font-size="12" text-anchor="middle" fill="#5a4f4f">系统关键</text>
+
+              <circle cx="56" cy="84" r="34" fill="#fff8ef" stroke="#b3001b" stroke-width="2"/>
+              <text x="56" y="80" font-size="15" text-anchor="middle" fill="#b3001b" font-weight="700">技术轮</text>
+              <text x="56" y="98" font-size="11" text-anchor="middle" fill="#5a4f4f">飞控/算法</text>
+
+              <circle cx="304" cy="84" r="34" fill="#fff8ef" stroke="#b3001b" stroke-width="2"/>
+              <text x="304" y="80" font-size="15" text-anchor="middle" fill="#b3001b" font-weight="700">制度轮</text>
+              <text x="304" y="98" font-size="11" text-anchor="middle" fill="#5a4f4f">标准/监管</text>
+
+              <circle cx="180" cy="214" r="34" fill="#fff8ef" stroke="#b3001b" stroke-width="2"/>
+              <text x="180" y="210" font-size="15" text-anchor="middle" fill="#b3001b" font-weight="700">场景轮</text>
+              <text x="180" y="228" font-size="11" text-anchor="middle" fill="#5a4f4f">高频应用</text>
+
+              <line x1="90" y1="90" x2="122" y2="110" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow6)"/>
+              <line x1="270" y1="90" x2="238" y2="110" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow6)"/>
+              <line x1="180" y1="182" x2="180" y2="164" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow6)"/>
+              <line x1="180" y1="94" x2="180" y2="62" stroke="#b3001b" stroke-width="2" stroke-dasharray="4 4"/>
+              <text x="180" y="44" font-size="12" text-anchor="middle" fill="#5a4f4f">技术迭代 → 场景验证</text>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>强调“四轮互促、缺一不可”</span><span>时长 55 秒</span></div>
@@ -639,18 +752,49 @@
       <div class="footer"><span><b>讲述建议：</b>强调“链群协同”是长期竞争力来源</span><span>时长 50 秒</span></div>
     </section>
 
-    <section class="slide compact" aria-label="案例B深化">
+    <section class="slide compact diagram-led" aria-label="案例B深化">
       <div class="topbar"><div class="label">案例 B 深化</div><div class="page">11 / 16</div></div>
       <div class="content">
         <h2>外溢效应如何转化为城市发展增量</h2>
-        <div class="stagger-3">
-          <div class="panel"><h3>技术外溢</h3><p>共性技术跨行业复用，提升创新效率。</p></div>
-          <div class="panel"><h3>组织外溢</h3><p>工程体系和供应链能力向多产业扩展。</p></div>
-          <div class="panel"><h3>人才外溢</h3><p>新岗位新职业涌现，人才结构优化升级。</p></div>
+        <div class="chips">
+          <div class="chip">技术外溢：共性技术跨行业复用，提升创新效率</div>
+          <div class="chip">组织外溢：工程体系和供应链能力向多产业扩展</div>
+          <div class="chip">人才外溢：新岗位新职业涌现，人才结构优化升级</div>
         </div>
         <div class="art-2">
           <div class="panel"><h3>综合效应</h3><p>技术、组织、人才三类外溢共同叠加，带动产业韧性提升，增强城市综合竞争力和发展后劲。</p><p>从短期看是效率提升，从中长期看是增长质量与发展韧性增强。</p></div>
-          <div class="photo-slot tall"><strong>[图11 外溢路径图位]</strong><span>建议替换：技术-组织-人才三路径关系图（可加箭头与节点）</span></div>
+          <div class="diagram-shell tall">
+            <div class="diagram-title">[图11 外溢路径图（代码实现）]</div>
+            <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" aria-label="外溢路径图">
+              <defs>
+                <marker id="arrow11" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#b3001b"/>
+                </marker>
+              </defs>
+              <rect x="86" y="24" width="188" height="52" rx="12" fill="#fff4e5" stroke="#c79a3b" stroke-width="2"/>
+              <text x="180" y="54" text-anchor="middle" font-size="16" fill="#8b0016" font-weight="700">低空经济产业核心</text>
+
+              <rect x="26" y="112" width="92" height="62" rx="12" fill="#fffaf2" stroke="#b3001b" stroke-width="2"/>
+              <text x="72" y="142" text-anchor="middle" font-size="15" fill="#b3001b" font-weight="700">技术外溢</text>
+
+              <rect x="134" y="112" width="92" height="62" rx="12" fill="#fffaf2" stroke="#b3001b" stroke-width="2"/>
+              <text x="180" y="142" text-anchor="middle" font-size="15" fill="#b3001b" font-weight="700">组织外溢</text>
+
+              <rect x="242" y="112" width="92" height="62" rx="12" fill="#fffaf2" stroke="#b3001b" stroke-width="2"/>
+              <text x="288" y="142" text-anchor="middle" font-size="15" fill="#b3001b" font-weight="700">人才外溢</text>
+
+              <line x1="180" y1="76" x2="72" y2="112" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow11)"/>
+              <line x1="180" y1="76" x2="180" y2="112" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow11)"/>
+              <line x1="180" y1="76" x2="288" y2="112" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow11)"/>
+
+              <rect x="52" y="214" width="256" height="50" rx="14" fill="#fff6ea" stroke="#c79a3b" stroke-width="2"/>
+              <text x="180" y="244" text-anchor="middle" font-size="16" fill="#5a4f4f">城市发展增量：产业韧性 / 综合竞争力 / 发展后劲</text>
+
+              <line x1="72" y1="174" x2="72" y2="214" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow11)"/>
+              <line x1="180" y1="174" x2="180" y2="214" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow11)"/>
+              <line x1="288" y1="174" x2="288" y2="214" stroke="#b3001b" stroke-width="2.5" marker-end="url(#arrow11)"/>
+            </svg>
+          </div>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>可补“外溢带动区域协同”案例句</span><span>时长 55 秒</span></div>
