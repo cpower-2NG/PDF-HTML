@@ -6,20 +6,23 @@
   <title>HTML 演示文稿归档</title>
   <style>
     :root {
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #1f2a3a;
-      --muted: #4d5d75;
-      --line: #d8dfeb;
-      --accent: #1d5fab;
+      --bg: #f2efe9;
+      --card: rgba(255, 250, 244, 0.88);
+      --text: #2a1e1e;
+      --muted: #5c4d4d;
+      --line: rgba(199, 154, 59, 0.28);
+      --accent: #8b0016;
     }
 
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      padding: 32px 18px;
-      background: radial-gradient(circle at top right, rgba(29,95,171,0.10), transparent 35%), var(--bg);
+      padding: 28px 18px;
+      background:
+        linear-gradient(145deg, rgba(179, 0, 27, 0.08), transparent 38%),
+        linear-gradient(335deg, rgba(199, 154, 59, 0.12), transparent 36%),
+        var(--bg);
       color: var(--text);
       font-family: "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     }
@@ -36,6 +39,8 @@
       border: 1px solid var(--line);
       border-radius: 14px;
       padding: 18px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 16px 40px rgba(38, 18, 12, 0.08);
     }
 
     h1, h2, p { margin: 0; }
@@ -53,18 +58,94 @@
     a {
       color: var(--accent);
       text-decoration: none;
-      border-bottom: 1px solid rgba(29,95,171,0.35);
+      border-bottom: 1px solid rgba(139, 0, 22, 0.35);
       width: fit-content;
     }
 
     .small { font-size: 14px; }
+
+    .hero {
+      min-height: 56vh;
+      display: grid;
+      align-items: end;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(19, 18, 17, 0.12), rgba(14, 11, 10, 0.52)),
+        url('https://www.dmduav.com/uploads/image/20250408/e1c99954c9e6ac0283a19da973e72a0f.png') center center / cover no-repeat;
+      border: 1px solid rgba(199, 154, 59, 0.22);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(139, 0, 22, 0.22), transparent 45%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      padding: 28px;
+      color: #fff9ef;
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.05;
+      margin: 0;
+      text-shadow: 0 8px 20px rgba(0, 0, 0, 0.38);
+    }
+
+    .hero p {
+      color: rgba(255, 249, 239, 0.92);
+      max-width: 44ch;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 249, 239, 0.4);
+      background: rgba(139, 0, 22, 0.78);
+      color: #fff9ef;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+    }
+
+    .button.secondary {
+      background: rgba(255, 249, 239, 0.14);
+      border-color: rgba(255, 249, 239, 0.3);
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <section class="card">
-      <h1>HTML 演示文稿在线归档</h1>
-      <p style="margin-top: 8px;">该页面用于 GitHub Pages 在线预览与归档。每个主题建议保留摘要、大纲和可预览 HTML。</p>
+    <section class="card hero">
+      <div class="hero-inner">
+        <h1>HTML 演示文稿在线归档</h1>
+        <p>这里是当前主题的正式发布入口。首页采用封面大图叠字布局，适合 GitHub Pages 浏览，也便于直接进入正式版幻灯片。</p>
+        <div class="hero-actions">
+          <a class="button" href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides.html">打开正式版演示文稿</a>
+          <a class="button secondary" href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/04-image-links.md">查看图片与视频外链</a>
+        </div>
+      </div>
     </section>
 
     <section class="card">
