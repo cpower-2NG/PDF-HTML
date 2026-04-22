@@ -365,6 +365,7 @@
 
     .cover-stage {
       position: relative;
+      height: 100%;
       min-height: 100%;
       overflow: hidden;
     }
@@ -388,7 +389,8 @@
       line-height: 1.01;
       color: #fff9ef;
       text-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
-      max-width: 9.6ch;
+      max-width: none;
+      white-space: nowrap;
     }
 
     .cover-copy .subtitle {
@@ -414,6 +416,8 @@
 
     .cover-visual {
       position: relative;
+      height: 100%;
+      aspect-ratio: auto;
       min-height: 100%;
       background:
         linear-gradient(180deg, rgba(22, 34, 60, 0.18), rgba(18, 14, 10, 0.48)),
@@ -612,7 +616,12 @@
       .cover-copy h1 {
         font-size: 34pt;
         line-height: 1.02;
-        max-width: 9.8ch;
+        max-width: none;
+      }
+
+      .cover-visual {
+        height: 100%;
+        aspect-ratio: auto;
       }
 
       .cover-copy .subtitle {
