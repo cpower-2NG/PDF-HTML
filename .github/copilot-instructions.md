@@ -56,5 +56,7 @@
 - 工作流文件固定为 `.github/workflows/deploy-pages.yml`，不要随意改名。
 - 首次配置时：在仓库 `Settings -> Pages` 里将 Source 设为 `GitHub Actions`。
 - 日常发布时：只需将修改提交并推送到 `main` 分支，即自动触发部署。
+- 默认执行策略：每次完成代码修改后，自动执行 `git add`、`git commit`、`git push origin main`，并触发 Pages 发布；仅当用户明确要求“暂不发布”时跳过。
+- 本地仓库自动推送机制：启用 `.githooks/post-commit`，在 `main` 分支每次提交后自动 `push` 到 `origin/main`。
 - 发布入口统一为根目录 `index.html`，演示文稿正文位于 `generated-html/<topic>/03-slides.html`。
 - 每次发布前必须检查：页面无截断、可打印、路径可访问、首页链接指向当前正式版。

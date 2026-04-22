@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -u
+
+# Auto-push after each commit to trigger GitHub Pages deployment.
+# Bypass once: NO_AUTO_PUSH=1 git commit -m "..."
+if [[ "${NO_AUTO_PUSH:-0}" == "1" ]]; then
+  exit 0
+fi
+
+branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo '')"
+if [[ -z "$branch" ]]; then
+  exit 0
+fi
+
+# Only auto-push when working on main.
+if [[ "$branch" != "main" ]]; then
+  exit 0
+fi
+
+if git remote get-url origin >/dev/null 2>&1; then
+  git push origin "$branch" >/dev/null 2>&1 || {
+    echo "[post-commit] auto-push failed. You can push manually: git push origin $branch"
+  }
+fi

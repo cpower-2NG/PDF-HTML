@@ -21,6 +21,9 @@
 ## 固定调用方式（后续每次发布）
 - 首次启用后，无需重复设置。
 - 之后只要把修改提交并推送到 `main` 分支，GitHub Pages 会自动重新部署。
+- 本仓库已启用本地自动推送钩子：`core.hooksPath=.githooks`。
+- 在 `main` 分支每次 `git commit` 后会自动执行 `git push origin main`，从而自动触发 Pages 发布。
+- 如需单次跳过自动推送，可使用：`NO_AUTO_PUSH=1 git commit -m "..."`。
 - 建议每次发布前执行：
 	1. 确认首页 `index.html` 链接指向当前正式稿。
 	2. 确认 `generated-html/<topic>/03-slides.html` 无内容截断。
