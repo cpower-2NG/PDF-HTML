@@ -81,8 +81,9 @@
     .content {
       padding: 18px 24px 12px;
       display: grid;
-      gap: 12px;
+      gap: 10px;
       align-content: start;
+      min-height: 0;
     }
 
     h1, h2, h3, p, ul { margin: 0; }
@@ -191,6 +192,40 @@
       gap: 10px;
     }
 
+    .stagger-3 {
+      display: grid;
+      grid-template-columns: 1.12fr 1fr 0.9fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .stagger-3 .panel:nth-child(2) {
+      transform: translateY(8px);
+      background: #fff8ee;
+    }
+
+    .stagger-3 .panel:nth-child(3) {
+      background: #fffaf4;
+      border-color: #e2cda8;
+    }
+
+    .art-2 {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .compact .panel h3 {
+      font-size: 20px;
+    }
+
+    .compact .panel p,
+    .compact .list li {
+      font-size: 17px;
+      line-height: 1.48;
+    }
+
     .step {
       border: 1px solid var(--line);
       background: #fff9ef;
@@ -218,13 +253,24 @@
       border: 2px dashed #d9b56e;
       border-radius: 6px;
       background: linear-gradient(135deg, rgba(199,154,59,0.14), rgba(179,0,27,0.08));
-      min-height: 190px;
+      min-height: 150px;
+      aspect-ratio: 4 / 3;
       padding: 10px;
       display: grid;
       align-content: center;
       justify-items: center;
       text-align: center;
       gap: 6px;
+    }
+
+    .photo-slot.tall {
+      aspect-ratio: 3 / 4;
+      min-height: 240px;
+    }
+
+    .photo-slot.wide {
+      aspect-ratio: 16 / 9;
+      min-height: 130px;
     }
 
     .photo-slot strong {
@@ -296,7 +342,7 @@
       line-height: 1.4;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 860px) {
       .deck { padding: 10px; }
       .slide { grid-template-rows: 52px 1fr 30px; }
       .content { padding: 12px 14px 8px; gap: 8px; }
@@ -304,7 +350,8 @@
       h2 { font-size: 30px; }
       .subtitle { font-size: 18px; }
       .lead { font-size: 20px; }
-      .cols-2, .cols-even, .cols-3, .steps { grid-template-columns: 1fr; }
+      .cols-2, .cols-even, .cols-3, .steps, .stagger-3, .art-2 { grid-template-columns: 1fr; }
+      .stagger-3 .panel:nth-child(2) { transform: none; }
       .photo-slot { min-height: 120px; }
       .panel h3 { font-size: 19px; }
       .panel p { font-size: 16px; }
@@ -371,6 +418,11 @@
 
       .photo-slot {
         min-height: 1.8in;
+      }
+
+      .photo-slot.tall,
+      .photo-slot.wide {
+        aspect-ratio: auto;
       }
 
       .kv {
@@ -485,21 +537,22 @@
       <div class="footer"><span><b>讲述建议：</b>用“四个为什么”解释先发优势</span><span>时长 45 秒</span></div>
     </section>
 
-    <section class="slide" aria-label="四轮驱动">
+    <section class="slide compact" aria-label="四轮驱动">
       <div class="topbar"><div class="label">形成机制</div><div class="page">06 / 16</div></div>
       <div class="content">
         <h2>四轮驱动释放低空经济集聚效应</h2>
-        <div class="steps">
-          <div class="step"><b>技术轮</b><p>飞控、通信、感知、算法迭代，持续抬升产业上限。</p></div>
-          <div class="step"><b>制度轮</b><p>标准规则先行，监管协同跟进，降低发展不确定性。</p></div>
-          <div class="step"><b>场景轮</b><p>高频应用牵引技术转化，推动产品快速商业落地。</p></div>
+        <div class="stagger-3">
+          <div class="panel"><h3>技术轮</h3><p>飞控、通信、感知、算法持续升级，决定产业上限。</p></div>
+          <div class="panel"><h3>制度轮</h3><p>标准规则先行、监管协同并进，降低发展不确定性。</p></div>
+          <div class="panel"><h3>场景轮</h3><p>高频应用反哺技术迭代，牵引产品快速落地。</p></div>
         </div>
-        <div class="cols-2">
+        <div class="art-2">
           <div class="panel">
             <h3>协同轮（系统关键）</h3>
-            <p>研发、制造、运营、治理形成完整闭环，推动“单点突破”走向“系统涌现”。</p>
+            <p>研发、制造、运营、治理形成完整闭环，推动“单点突破”走向“系统涌现”。在四轮互促中，协同轮决定机制是否可持续放大。</p>
+            <div class="slogan">四轮不是并列项，而是“相互牵引、相互强化”的发展系统。</div>
           </div>
-          <div class="photo-slot"><strong>[图6 四轮模型图位]</strong><span>建议替换：环形闭环示意图</span></div>
+          <div class="photo-slot tall"><strong>[图6 四轮模型图位]</strong><span>建议替换：环形闭环示意图 / 四轮联动关系图</span></div>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>强调“四轮互促、缺一不可”</span><span>时长 55 秒</span></div>
@@ -586,18 +639,18 @@
       <div class="footer"><span><b>讲述建议：</b>强调“链群协同”是长期竞争力来源</span><span>时长 50 秒</span></div>
     </section>
 
-    <section class="slide" aria-label="案例B深化">
+    <section class="slide compact" aria-label="案例B深化">
       <div class="topbar"><div class="label">案例 B 深化</div><div class="page">11 / 16</div></div>
       <div class="content">
         <h2>外溢效应如何转化为城市发展增量</h2>
-        <div class="cols-3">
+        <div class="stagger-3">
           <div class="panel"><h3>技术外溢</h3><p>共性技术跨行业复用，提升创新效率。</p></div>
           <div class="panel"><h3>组织外溢</h3><p>工程体系和供应链能力向多产业扩展。</p></div>
           <div class="panel"><h3>人才外溢</h3><p>新岗位新职业涌现，人才结构优化升级。</p></div>
         </div>
-        <div class="cols-2">
-          <div class="panel"><h3>综合效应</h3><p>带动产业韧性提升，增强城市综合竞争力和发展后劲。</p></div>
-          <div class="photo-slot"><strong>[图11 外溢路径图位]</strong><span>建议替换：技术-组织-人才三路径关系图</span></div>
+        <div class="art-2">
+          <div class="panel"><h3>综合效应</h3><p>技术、组织、人才三类外溢共同叠加，带动产业韧性提升，增强城市综合竞争力和发展后劲。</p><p>从短期看是效率提升，从中长期看是增长质量与发展韧性增强。</p></div>
+          <div class="photo-slot tall"><strong>[图11 外溢路径图位]</strong><span>建议替换：技术-组织-人才三路径关系图（可加箭头与节点）</span></div>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>可补“外溢带动区域协同”案例句</span><span>时长 55 秒</span></div>
