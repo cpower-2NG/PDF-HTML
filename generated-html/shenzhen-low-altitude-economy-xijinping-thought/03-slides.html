@@ -679,9 +679,82 @@
         border-color: #b99b6a;
       }
     }
+
+    /* ── 演示模式控制栏 ── */
+    #ctrl-bar {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(30, 10, 10, 0.72);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(199, 154, 59, 0.4);
+      border-radius: 999px;
+      padding: 8px 16px;
+      color: #fff9ef;
+      font-size: 14px;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      user-select: none;
+      transition: opacity 0.3s;
+    }
+    #ctrl-bar.hidden { opacity: 0; pointer-events: none; }
+    #ctrl-bar button {
+      background: none;
+      border: none;
+      color: #fff9ef;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+    #ctrl-bar button:hover { opacity: 1; }
+    #ctrl-bar .sep {
+      width: 1px;
+      height: 18px;
+      background: rgba(199, 154, 59, 0.5);
+    }
+    #ctrl-bar #page-counter { min-width: 48px; text-align: center; opacity: 0.9; }
+
+    /* 全屏模式下的幻灯片展示 */
+    body.fullscreen-mode {
+      overflow: hidden;
+    }
+    body.fullscreen-mode .deck {
+      padding: 0;
+      gap: 0;
+      width: 100vw;
+      max-width: 100vw;
+    }
+    body.fullscreen-mode .slide {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      aspect-ratio: auto;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+    }
+    body.fullscreen-mode .slide.active {
+      display: grid;
+    }
   </style>
 </head>
 <body>
+  <div id="ctrl-bar">
+    <button id="btn-fs" title="全屏 / 退出全屏">⛶</button>
+    <div class="sep"></div>
+    <button id="btn-prev" title="上一页">◀</button>
+    <span id="page-counter">1 / 16</span>
+    <button id="btn-next" title="下一页">▶</button>
+    <div class="sep"></div>
+    <button id="btn-exit" title="退出演示" style="font-size:14px;opacity:0.7;">✕</button>
+  </div>
   <main class="deck">
     <section class="slide" aria-label="封面">
       <div class="topbar"><div class="label">深圳低空经济产业集聚与新质生产力实践剖析</div><div class="page">01 / 16</div></div>
@@ -1307,5 +1380,144 @@
       <div class="footer"><span><b>结束语：</b>以理论之光照亮实践之路，以改革创新开拓发展新局</span><span>谢谢观看</span></div>
     </section>
   </main>
+
+  <script>
+    (function () {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const total = slides.length;
+      let current = 0;
+      let presentMode = false;
+
+      const bar = document.getElementById('ctrl-bar');
+      const counter = document.getElementById('page-counter');
+      const btnFs = document.getElementById('btn-fs');
+      const btnPrev = document.getElementById('btn-prev');
+      const btnNext = document.getElementById('btn-next');
+      const btnExit = document.getElementById('btn-exit');
+
+      function updateCounter() {
+        counter.textContent = (current + 1) + ' / ' + total;
+      }
+
+      function goTo(idx) {
+        if (idx < 0 || idx >= total) return;
+        if (presentMode) {
+          slides[current].classList.remove('active');
+          slides[idx].classList.add('active');
+        }
+        current = idx;
+        updateCounter();
+        if (!presentMode) {
+          slides[current].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+
+      function enterPresent() {
+        presentMode = true;
+        document.body.classList.add('fullscreen-mode');
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === current);
+        });
+        btnFs.textContent = '⊠';
+        btnFs.title = '退出全屏';
+        btnExit.style.display = '';
+        updateCounter();
+        // Request browser fullscreen if available
+        if (document.documentElement.requestFullscreen) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        }
+      }
+
+      function exitPresent() {
+        presentMode = false;
+        document.body.classList.remove('fullscreen-mode');
+        slides.forEach(s => s.classList.remove('active'));
+        btnFs.textContent = '⛶';
+        btnFs.title = '进入全屏演示';
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+        // Scroll to current slide after a brief layout tick
+        setTimeout(() => slides[current].scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
+      }
+
+      btnFs.addEventListener('click', () => presentMode ? exitPresent() : enterPresent());
+      btnExit.addEventListener('click', exitPresent);
+      btnPrev.addEventListener('click', () => goTo(current - 1));
+      btnNext.addEventListener('click', () => goTo(current + 1));
+
+      // Keyboard navigation
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+          e.preventDefault();
+          goTo(current + 1);
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          goTo(current - 1);
+        } else if (e.key === 'F5' || (e.key === 'F' && !e.ctrlKey && !e.metaKey)) {
+          e.preventDefault();
+          presentMode ? exitPresent() : enterPresent();
+        } else if (e.key === 'Escape' && presentMode) {
+          exitPresent();
+        }
+      });
+
+      // Mouse wheel navigation (in present mode)
+      let wheelTimer = null;
+      document.addEventListener('wheel', function (e) {
+        if (!presentMode) return;
+        e.preventDefault();
+        if (wheelTimer) return;
+        wheelTimer = setTimeout(() => { wheelTimer = null; }, 600);
+        if (e.deltaY > 0) goTo(current + 1);
+        else if (e.deltaY < 0) goTo(current - 1);
+      }, { passive: false });
+
+      // Touch swipe navigation (in present mode)
+      let touchStartY = null;
+      document.addEventListener('touchstart', function (e) {
+        if (!presentMode) return;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      document.addEventListener('touchend', function (e) {
+        if (!presentMode || touchStartY === null) return;
+        const dy = touchStartY - e.changedTouches[0].clientY;
+        if (Math.abs(dy) > 40) goTo(dy > 0 ? current + 1 : current - 1);
+        touchStartY = null;
+      }, { passive: true });
+
+      // Sync fullscreen API exit (user presses Esc natively)
+      document.addEventListener('fullscreenchange', function () {
+        if (!document.fullscreenElement && presentMode) exitPresent();
+      });
+
+      // Auto-detect current slide on scroll (non-present mode)
+      const observer = new IntersectionObserver(function (entries) {
+        if (presentMode) return;
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const idx = slides.indexOf(entry.target);
+            if (idx !== -1) { current = idx; updateCounter(); }
+          }
+        });
+      }, { threshold: 0.5 });
+      slides.forEach(s => observer.observe(s));
+
+      // Hide control bar briefly when not interacting (non-present mode)
+      let hideTimer = null;
+      function showBar() {
+        bar.classList.remove('hidden');
+        clearTimeout(hideTimer);
+        if (!presentMode) {
+          hideTimer = setTimeout(() => bar.classList.add('hidden'), 3000);
+        }
+      }
+      document.addEventListener('mousemove', showBar);
+      document.addEventListener('touchstart', showBar, { passive: true });
+      showBar();
+
+      updateCounter();
+    })();
+  </script>
 </body>
 </html>
