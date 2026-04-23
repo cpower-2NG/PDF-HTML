@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HTML 演示文稿归档</title>
+  <title>演示文稿在线观看</title>
   <style>
     :root {
       --bg: #f2efe9;
@@ -48,21 +48,6 @@
     h1 { font-size: 30px; }
     h2 { font-size: 20px; margin-bottom: 10px; }
     p { color: var(--muted); line-height: 1.6; }
-
-    .list {
-      margin-top: 8px;
-      display: grid;
-      gap: 8px;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(139, 0, 22, 0.35);
-      width: fit-content;
-    }
-
-    .small { font-size: 14px; }
 
     .hero {
       min-height: 56vh;
@@ -120,18 +105,87 @@
       align-items: center;
       justify-content: center;
       min-height: 42px;
-      padding: 0 16px;
+      padding: 0 20px;
       border-radius: 999px;
       border: 1px solid rgba(255, 249, 239, 0.4);
-      background: rgba(139, 0, 22, 0.78);
+      background: rgba(139, 0, 22, 0.82);
       color: #fff9ef;
       text-decoration: none;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+      letter-spacing: 0.02em;
     }
 
-    .button.secondary {
-      background: rgba(255, 249, 239, 0.14);
-      border-color: rgba(255, 249, 239, 0.3);
+    .project-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 18px;
+      background: rgba(255, 252, 248, 0.7);
+      text-decoration: none;
+      color: var(--text);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .project-item:hover {
+      box-shadow: 0 6px 20px rgba(139, 0, 22, 0.12);
+      border-color: rgba(139, 0, 22, 0.3);
+    }
+
+    .project-item .proj-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.35;
+    }
+
+    .project-item .proj-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+
+    .proj-arrow {
+      font-size: 20px;
+      color: var(--accent);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .tips {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .tips kbd {
+      display: inline-block;
+      background: rgba(42, 30, 30, 0.08);
+      border: 1px solid rgba(42, 30, 30, 0.18);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 12px;
+      font-family: inherit;
     }
   </style>
 </head>
@@ -139,24 +193,28 @@
   <main class="wrap">
     <section class="card hero">
       <div class="hero-inner">
-        <h1>HTML 演示文稿在线归档</h1>
-        <p>这里是当前主题的正式发布入口。首页采用封面大图叠字布局，适合 GitHub Pages 浏览，也便于直接进入正式版幻灯片。</p>
+        <h1>演示文稿在线观看</h1>
+        <p>点击下方进入演示，支持全屏翻页，适合课堂、会议及个人学习使用。</p>
         <div class="hero-actions">
-          <a class="button" href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides.html">打开正式版演示文稿</a>
-          <a class="button secondary" href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/04-image-links.md">查看图片与视频外链</a>
+          <a class="button" href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides.html">立即观看</a>
         </div>
       </div>
     </section>
 
     <section class="card">
-      <h2>当前主题</h2>
-      <div class="list">
-        <a href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/01-summary.md">摘要</a>
-        <a href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/02-outline.md">大纲</a>
-        <a href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides.html">演示文稿正式版（16 页）</a>
-        <a href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides-draft.html">演示文稿草稿（11 页归档）</a>
+      <div class="section-title">全部演示文稿</div>
+      <div class="project-list">
+        <a class="project-item" href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides.html">
+          <div>
+            <div class="proj-title">从"天空之城"到"经济高地"</div>
+            <div class="proj-desc">深圳低空经济产业集聚与新质生产力实践剖析 · 16 页</div>
+          </div>
+          <span class="proj-arrow">›</span>
+        </a>
       </div>
-      <p class="small" style="margin-top: 10px;">当前默认预览为正式版 03-slides.html，草稿保留用于历史对照。</p>
+      <p class="tips">
+        观看技巧：进入演示后点击右下角 <kbd>⛶</kbd> 全屏，使用 <kbd>↑</kbd> <kbd>↓</kbd> 方向键或鼠标滚轮翻页，按 <kbd>Esc</kbd> 退出全屏。
+      </p>
     </section>
   </main>
 </body>
