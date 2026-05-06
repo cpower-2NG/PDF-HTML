@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>演示文稿在线观看</title>
+  <title>演示文稿在线观看 · AI 生成 HTML Deck</title>
   <style>
     :root {
       --bg: #f2efe9;
@@ -195,27 +195,76 @@
       <div class="hero-inner">
         <h1>演示文稿在线观看</h1>
         <p>点击下方进入演示，支持全屏翻页，适合课堂、会议及个人学习使用。</p>
-        <div class="hero-actions">
-          <a class="button" href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides.html">立即观看</a>
+        <div class="hero-actions" id="hero-actions">
+          <!-- 由 JS 动态填充 -->
         </div>
       </div>
     </section>
 
     <section class="card">
       <div class="section-title">全部演示文稿</div>
-      <div class="project-list">
-        <a class="project-item" href="generated-html/shenzhen-low-altitude-economy-xijinping-thought/03-slides.html">
-          <div>
-            <div class="proj-title">从"天空之城"到"经济高地"</div>
-            <div class="proj-desc">深圳低空经济产业集聚与新质生产力实践剖析 · 16 页</div>
-          </div>
-          <span class="proj-arrow">›</span>
-        </a>
+      <div class="project-list" id="project-list">
+        <!-- 项目由 JavaScript 自动加载 -->
       </div>
-      <p class="tips">
-        观看技巧：进入演示后点击右下角 <kbd>⛶</kbd> 全屏，使用 <kbd>↑</kbd> <kbd>↓</kbd> 方向键或鼠标滚轮翻页，按 <kbd>Esc</kbd> 退出全屏。
+      <p class="tips" id="tips-msg">
+        加载中⋯
       </p>
     </section>
   </main>
+  <script>
+    // ── 项目注册表 ──
+    // 新增项目时在此数组中添加一条记录即可自动出现在首页。
+    const PROJECTS = [
+      {
+        id: 'sz-hk-hub-proposal',
+        title: 'SZ-HK Hub 深港跨境专业生活助手',
+        desc: '开题报告 · 多智能体 + 高级 RAG + MCP 架构 · 12 页',
+        tag: '最新'
+      },
+      {
+        id: 'shenzhen-low-altitude-economy-xijinping-thought',
+        title: '从"天空之城"到"经济高地"',
+        desc: '深圳低空经济产业集聚与新质生产力实践剖析 · 16 页'
+      }
+    ];
+
+    // ── 渲染项目列表 ──
+    (function() {
+      const list = document.getElementById('project-list');
+      const msg = document.getElementById('tips-msg');
+      const hero = document.getElementById('hero-actions');
+
+      if (!PROJECTS.length) {
+        msg.textContent = '暂无可用的演示文稿。';
+        return;
+      }
+
+      // 按 tag 排序：有 tag（如"最新"）的排在前面
+      const sorted = [...PROJECTS].sort((a, b) => {
+        if (a.tag && !b.tag) return -1;
+        if (!a.tag && b.tag) return 1;
+        return 0;
+      });
+
+      list.innerHTML = sorted.map(p => {
+        const href = `generated-html/${p.id}/03-slides.html`;
+        return `
+          <a class="project-item" href="${href}">
+            <div>
+              <div class="proj-title">${p.title}${p.tag ? ' <span style="font-size:11px;color:#8b0016;font-weight:600;">· ' + p.tag + '</span>' : ''}</div>
+              <div class="proj-desc">${p.desc}</div>
+            </div>
+            <span class="proj-arrow">›</span>
+          </a>
+        `;
+      }).join('');
+
+      // 英雄区第一个项目作为"立即观看"
+      const first = sorted[0];
+      hero.innerHTML = `<a class="button" href="generated-html/${first.id}/03-slides.html">立即观看</a>`;
+
+      msg.innerHTML = '观看技巧：进入演示后点击右下角 <kbd>⛶</kbd> 全屏，使用 <kbd>↑</kbd> <kbd>↓</kbd> 方向键或鼠标滚轮翻页，按 <kbd>Esc</kbd> 退出全屏。';
+    })();
+  </script>
 </body>
 </html>
