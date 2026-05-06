@@ -36,9 +36,9 @@
     .deck {
       width: min(100vw, var(--slide-w));
       margin: 0 auto;
-      padding: 18px;
+      padding: 1.4%;
       display: grid;
-      gap: 16px;
+      gap: 1.4%;
     }
 
     /* ── 界限流动：贯穿页面的波浪装饰 ── */
@@ -63,7 +63,7 @@
       box-shadow: var(--shadow);
       overflow: hidden;
       display: grid;
-      grid-template-rows: 50px 1fr 30px;
+      grid-template-rows: 7% 1fr 4%;
       position: relative;
     }
 
@@ -80,7 +80,7 @@
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
-      padding: 0 22px;
+      padding: 0 3%;
       color: #4a4a6a;
       background: rgba(0, 87, 255, 0.03);
       border-bottom: 1px solid var(--line);
@@ -89,8 +89,8 @@
     .topbar .label {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 16px;
+      gap: 8px;
+      font-size: clamp(13px, 1.25vw, 17px);
       font-weight: 700;
       letter-spacing: 0.03em;
       white-space: nowrap;
@@ -99,9 +99,9 @@
     }
 
     .city-pill {
-      font-size: 10px;
+      font-size: clamp(8px, 0.75vw, 10px);
       letter-spacing: 0.15em;
-      padding: 3px 10px;
+      padding: 2px 9px;
       border-radius: 999px;
       border: 1px solid rgba(0, 87, 255, 0.3);
       background: rgba(0, 87, 255, 0.06);
@@ -110,27 +110,28 @@
     }
 
     .topbar .page {
-      font-size: 13px;
+      font-size: clamp(11px, 1vw, 13px);
       font-weight: 600;
       opacity: 0.5;
       font-variant-numeric: tabular-nums;
     }
 
     .content {
-      padding: 16px 24px 10px;
+      padding: 3% 3.2% 1.5%;
       display: grid;
-      gap: 10px;
+      gap: 1.6%;
       align-content: start;
       min-height: 0;
       position: relative;
       z-index: 1;
     }
+    .content.slim { gap: 1%; }
 
     h1, h2, h3, p, ul { margin: 0; }
 
     h1 {
-      font-size: 56px;
-      line-height: 1.02;
+      font-size: clamp(32px, 4.6vw, 58px);
+      line-height: 1.04;
       letter-spacing: -0.03em;
       background: linear-gradient(135deg, #1a1a2e 0%, var(--accent) 50%, var(--pink) 100%);
       -webkit-background-clip: text;
@@ -139,11 +140,11 @@
     }
 
     h2 {
-      font-size: 30px;
-      line-height: 1.18;
+      font-size: clamp(20px, 2.5vw, 32px);
+      line-height: 1.2;
       letter-spacing: -0.02em;
       color: #2a2a4a;
-      padding-left: 14px;
+      padding-left: 1.2%;
       position: relative;
     }
     h2::before {
@@ -158,7 +159,7 @@
     }
 
     h3 {
-      font-size: 17px;
+      font-size: clamp(14px, 1.35vw, 18px);
       color: var(--accent);
       line-height: 1.35;
       display: flex;
@@ -177,13 +178,13 @@
     }
 
     p {
-      font-size: 16px;
-      line-height: 1.56;
+      font-size: clamp(13px, 1.25vw, 16px);
+      line-height: 1.55;
       color: var(--muted);
     }
 
     .eyebrow {
-      font-size: 11px;
+      font-size: clamp(9px, 0.85vw, 11px);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--pink);
@@ -191,7 +192,7 @@
     }
 
     .lead {
-      font-size: 20px;
+      font-size: clamp(15px, 1.6vw, 21px);
       line-height: 1.5;
       color: #3a3a58;
     }
@@ -199,31 +200,31 @@
     .cols-2 {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 14px;
+      gap: 2%;
       align-items: start;
     }
 
     .cols-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 1.8%;
       align-items: stretch;
     }
 
     .cols-even {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      gap: 1.8%;
       align-items: stretch;
     }
 
     .panel {
       border: 1px solid var(--line);
       background: rgba(0, 87, 255, 0.02);
-      border-radius: 12px;
-      padding: 12px 14px;
+      border-radius: 10px;
+      padding: 1.6% 1.8%;
       display: grid;
-      gap: 8px;
+      gap: 1.2%;
       align-content: start;
     }
 
@@ -238,13 +239,13 @@
     }
 
     .list {
-      padding-left: 20px;
+      padding-left: 2.2%;
       display: grid;
-      gap: 5px;
+      gap: 0.8%;
     }
 
     .list li {
-      font-size: 16px;
+      font-size: clamp(13px, 1.2vw, 16px);
       line-height: 1.5;
       color: #3a3a58;
     }
@@ -257,15 +258,15 @@
     .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 1%;
     }
 
     .chip {
       border-radius: 999px;
-      padding: 4px 12px;
+      padding: 0.4% 1.2%;
       background: rgba(0, 87, 255, 0.05);
       color: var(--accent);
-      font-size: 12px;
+      font-size: clamp(10px, 0.95vw, 13px);
       font-weight: 600;
       border: 1px solid rgba(0, 87, 255, 0.15);
     }
@@ -275,9 +276,9 @@
     .callout {
       border-left: 3px solid var(--pink);
       background: rgba(255, 20, 147, 0.04);
-      padding: 10px 14px;
+      padding: 1.2% 1.6%;
       border-radius: 8px;
-      font-size: 15px;
+      font-size: clamp(12px, 1.15vw, 15px);
       color: #4a4a6a;
     }
 
@@ -285,39 +286,35 @@
       border: 1px dashed rgba(0, 87, 255, 0.25);
       border-radius: 12px;
       background: linear-gradient(135deg, rgba(255, 20, 147, 0.04), rgba(0, 87, 255, 0.03));
-      min-height: 120px;
-      padding: 10px;
+      min-height: 0;
+      padding: 3% 2%;
       display: grid;
-      gap: 6px;
+      gap: 2%;
       align-content: center;
       justify-items: center;
       text-align: center;
     }
 
     .photo-slot strong {
-      font-size: 15px;
+      font-size: clamp(12px, 1.15vw, 15px);
       color: var(--accent);
     }
 
     .photo-slot span {
-      font-size: 12px;
+      font-size: clamp(10px, 0.9vw, 12px);
       color: var(--muted);
-      max-width: 26ch;
-    }
-
-    .photo-slot.wide {
-      aspect-ratio: 16 / 9;
+      max-width: 28ch;
     }
 
     .diagram-shell {
       border: 1px solid var(--line);
-      border-radius: 12px;
+      border-radius: 10px;
       background: rgba(0, 87, 255, 0.02);
-      min-height: 150px;
-      padding: 8px;
+      min-height: 0;
+      padding: 1% 1.2%;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 0.8%;
       align-items: stretch;
     }
 
@@ -328,7 +325,7 @@
     }
 
     .diagram-title {
-      font-size: 11px;
+      font-size: clamp(9px, 0.85vw, 11px);
       font-weight: 700;
       color: var(--accent);
       text-align: center;
@@ -337,9 +334,9 @@
     }
 
     .footer {
-      font-size: 11px;
+      font-size: clamp(9px, 0.85vw, 11px);
       color: #9999b0;
-      padding: 4px 22px 0;
+      padding: 0.5% 3%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -349,19 +346,19 @@
     .cover-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 16px;
+      gap: 2.4%;
       align-items: stretch;
     }
 
     .cover-right {
       display: grid;
-      gap: 12px;
+      gap: 2.4%;
       align-content: start;
     }
 
     .stack {
       display: grid;
-      gap: 10px;
+      gap: 1.6%;
     }
 
     .tag {
