@@ -6,16 +6,16 @@
   <title>SZ-HK Hub 开题报告</title>
   <style>
     :root {
-      --bg: #f8f5f0;
-      --paper: #ffffff;
-      --ink: #1a1a2e;
-      --muted: #6b6b80;
-      --accent: #0057ff;
-      --pink: #ff1493;
-      --green: #00c9a7;
-      --line: rgba(0, 87, 255, 0.1);
-      --shadow: 0 12px 40px rgba(26, 26, 46, 0.08);
-      --radius: 16px;
+      --bg: linear-gradient(180deg, #071026 0%, #0b1630 60%, #0f243f 100%);
+      --paper: rgba(255,255,255,0.03);
+      --ink: #e8eef8;
+      --muted: #b8c6dc;
+      --accent: #7ec8ff;
+      --pink: #ff98c8;
+      --green: #6ef0c8;
+      --line: rgba(126,200,255,0.08);
+      --shadow: 0 12px 40px rgba(2,6,23,0.45);
+      --radius: 14px;
       --slide-w: 1280px;
     }
 
@@ -297,6 +297,27 @@
       text-align: center;
     }
 
+    /* 可用于把外链图片以封面裁切填充 */
+    .image-fill {
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(2,6,23,0.4) inset;
+      display: flex;
+      align-items: end;
+      justify-content: start;
+      padding: 12px;
+      color: var(--ink);
+    }
+
+    .image-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .image-card { aspect-ratio: 16/9; width: 100%; border-radius: 10px; overflow: hidden; }
+    .image-card .image-fill { min-height: 0; height: 100%; }
+
     .photo-slot strong {
       font-size: clamp(13px, 1.2vw, 16px);
       color: var(--accent);
@@ -486,14 +507,22 @@
             <div class="callout">目标：把“能回答”升级为“能决策、可验证、可合规”。</div>
           </div>
           <div class="cover-right">
-            <div class="photo-slot wide">
-              <strong>图1 港深双城天际线</strong>
-              <span>维港 + 深圳湾/前海夜景组合主视觉</span>
-            </div>
-            <div class="photo-slot">
-              <strong>图2 口岸/跨境交通场景</strong>
-              <span>福田/罗湖口岸、港铁/跨境巴士</span>
-            </div>
+              <div class="photo-slot wide" style="padding:0; overflow:hidden;">
+                <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/34087666/pexels-photo-34087666.jpeg'); min-height:260px;">
+                  <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:10px 14px; border-radius:8px; margin:12px;">
+                    <strong style="font-size:16px; color: #fff;">图1 港深双城天际线</strong>
+                    <div style="font-size:12px; color: rgba(255,255,255,0.85);">维港 + 深圳湾/前海夜景组合主视觉</div>
+                  </div>
+                </div>
+              </div>
+              <div class="photo-slot" style="padding:0; overflow:hidden;">
+                <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg'); min-height:120px;">
+                  <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.28)); padding:8px 10px; border-radius:8px; margin:8px;">
+                    <strong style="font-size:13px; color:#fff;">图2 口岸/跨境交通场景</strong>
+                    <div style="font-size:11px; color: rgba(255,255,255,0.85);">福田/罗湖口岸、港铁/跨境巴士</div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -624,13 +653,33 @@
             <p>高频过关、重视通关效率与最优路径决策。</p>
           </div>
         </div>
+        <div class="image-row" style="margin-top:12px;">
+          <div class="image-card">
+            <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg');">
+              <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:8px; border-radius:6px; margin:8px;">
+                <strong style="font-size:13px; color:#fff;">图4.1 跨境金融服务</strong>
+              </div>
+            </div>
+          </div>
+          <div class="image-card">
+            <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg');">
+              <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:8px; border-radius:6px; margin:8px;">
+                <strong style="font-size:13px; color:#fff;">图4.2 文旅活动</strong>
+              </div>
+            </div>
+          </div>
+          <div class="image-card">
+            <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/33897861/pexels-photo-33897861.jpeg');">
+              <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:8px; border-radius:6px; margin:8px;">
+                <strong style="font-size:13px; color:#fff;">图4.3 通勤场景</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="panel light">
           <h3>典型场景</h3>
-          <p>“去西九龙打卡并参加比赛，顺便开户”——跨场景需求需要拆解、验证、并行处理。</p>
-        </div>
-        <div class="photo-slot">
-          <strong>图4 用户场景实拍</strong>
-          <span>跨境金融/活动/通勤场景组合图</span>
+          <p>“去西九龙看演唱会并顺便开户”——跨场景需求需要拆解、验证、并行处理。</p>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>用一个真实用户故事快速建立共鸣</span><span>时长 40 秒</span></div>
@@ -878,9 +927,13 @@
             <p>第 10 周提交 Hit Rate 与 MRR 检索质量报告。</p>
           </div>
           <div class="stack">
-            <div class="photo-slot wide">
-              <strong>图5 数据源入口截图</strong>
-              <span>港府 / 银行 / 港铁官网或 PDF 页面</span>
+            <div class="photo-slot wide" style="padding:0; overflow:hidden;">
+                <div class="image-fill" style="background-image:url('image1.png'); min-height:160px;">
+                  <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:12px; border-radius:8px; margin:12px;">
+                    <strong style="font-size:15px; color:#fff; display:block; margin-bottom:6px;">图5 数据源入口截图</strong>
+                    <div style="font-size:12px; color:rgba(255,255,255,0.9);">示例占位图（可替换为港府/银行/港铁官网截图）</div>
+                  </div>
+                </div>
             </div>
             <div class="diagram-shell">
               <div class="diagram-title">RAG 检索链路 · 从数据采集到检索增强</div>
@@ -943,9 +996,51 @@
             </div>
           </div>
           <div class="stack">
-            <div class="photo-slot wide">
-              <strong>图6 实时数据可视化</strong>
-              <span>口岸人流/汇率/路线规划界面</span>
+            <div class="photo-slot wide" style="padding:12px;">
+              <div class="diagram-shell" style="padding:10px;">
+                <div class="diagram-title">实时数据流概念</div>
+                <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" aria-label="MCP 实时数据流示意" style="width:100%; height:220px;">
+                  <defs>
+                    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#7ec8ff"/></marker>
+                  </defs>
+                  <!-- User -->
+                  <rect x="20" y="36" width="120" height="48" rx="8" fill="#0b2340" stroke="#7ec8ff"/>
+                  <text x="80" y="66" text-anchor="middle" font-size="12" fill="#cfeeff">用户查询</text>
+
+                  <!-- Planner -->
+                  <rect x="160" y="36" width="120" height="48" rx="8" fill="#10293f" stroke="#ff98c8"/>
+                  <text x="220" y="66" text-anchor="middle" font-size="12" fill="#ffd6ea">Planner</text>
+
+                  <!-- RAG -->
+                  <rect x="320" y="10" width="140" height="56" rx="8" fill="#07263a" stroke="#6ef0c8"/>
+                  <text x="390" y="38" text-anchor="middle" font-size="11" fill="#bff7e9">RAG / Embedding</text>
+                  <text x="390" y="52" text-anchor="middle" font-size="10" fill="#9bdcc6">Vector DB</text>
+
+                  <!-- MCP Tools group -->
+                  <rect x="320" y="80" width="280" height="80" rx="10" fill="#071826" stroke="#7ec8ff"/>
+                  <text x="460" y="102" text-anchor="middle" font-size="11" fill="#9bdff6">MCP 工具层</text>
+                  <text x="420" y="122" font-size="10" fill="#9bdff6">汇率 · 口岸人流 · 路径规划</text>
+
+                  <!-- Verifier -->
+                  <rect x="620" y="44" width="80" height="56" rx="8" fill="#09202e" stroke="#6ef0c8"/>
+                  <text x="660" y="74" text-anchor="middle" font-size="11" fill="#bff7e9">Verifier</text>
+
+                  <!-- Output -->
+                  <rect x="620" y="150" width="80" height="40" rx="8" fill="#05202b" stroke="#7ec8ff"/>
+                  <text x="660" y="176" text-anchor="middle" font-size="11" fill="#cfeeff">可执行方案</text>
+
+                  <!-- Arrows -->
+                  <line x1="140" y1="60" x2="160" y2="60" stroke="#7ec8ff" stroke-width="2" marker-end="url(#arrow)"/>
+                  <line x1="280" y1="60" x2="320" y2="38" stroke="#7ec8ff" stroke-width="2" marker-end="url(#arrow)"/>
+                  <line x1="460" y1="66" x2="620" y2="66" stroke="#7ec8ff" stroke-width="2" marker-end="url(#arrow)"/>
+                  <line x1="460" y1="120" x2="660" y2="170" stroke="#6ef0c8" stroke-width="2" marker-end="url(#arrow)"/>
+                  <line x1="500" y1="66" x2="500" y2="100" stroke="#9bdff6" stroke-width="1" stroke-dasharray="4 4"/>
+
+                  <!-- small labels -->
+                  <text x="240" y="86" font-size="10" fill="#9bdff6">任务拆解 → 工具调用</text>
+                </svg>
+                <div style="font-size:13px; color:var(--muted); margin-top:8px;">图注：展示数据与工具如何在 Agent 协作下流动与融合（概念示意）。</div>
+              </div>
             </div>
             <div class="callout">输出结果可直接给出“通关时间 + 路线 + 支付方案”。</div>
           </div>
