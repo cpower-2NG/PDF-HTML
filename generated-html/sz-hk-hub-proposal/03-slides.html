@@ -6,16 +6,16 @@
   <title>SZ-HK Hub 开题报告</title>
   <style>
     :root {
-      --bg: linear-gradient(180deg, #071026 0%, #0b1630 60%, #0f243f 100%);
-      --paper: rgba(255,255,255,0.03);
-      --ink: #e8eef8;
-      --muted: #b8c6dc;
-      --accent: #7ec8ff;
-      --pink: #ff98c8;
-      --green: #6ef0c8;
-      --line: rgba(126,200,255,0.08);
-      --shadow: 0 12px 40px rgba(2,6,23,0.45);
-      --radius: 14px;
+      --bg: #f7f5ef;
+      --paper: #ffffff;
+      --ink: #17172a;
+      --muted: #66667a;
+      --accent: #0057ff;
+      --pink: #ff1493;
+      --green: #00c9a7;
+      --line: rgba(0, 87, 255, 0.12);
+      --shadow: 0 12px 40px rgba(26, 26, 46, 0.08);
+      --radius: 16px;
       --slide-w: 1280px;
     }
 
@@ -24,11 +24,7 @@
     html, body {
       margin: 0;
       padding: 0;
-      background:
-        radial-gradient(ellipse at 18% 12%, rgba(255, 20, 147, 0.04), transparent 42%),
-        radial-gradient(ellipse at 82% 88%, rgba(0, 87, 255, 0.05), transparent 40%),
-        radial-gradient(ellipse at 50% 50%, rgba(0, 201, 167, 0.03), transparent 50%),
-        var(--bg);
+      background: var(--bg);
       color: var(--ink);
       font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", "Inter", sans-serif;
     }
@@ -41,17 +37,9 @@
       gap: 1.8%;
     }
 
-    /* ── 界限流动：贯穿页面的波浪装饰 ── */
+    /* ── 霓虹块：极简纯色装饰 ── */
     .wave-bg {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      opacity: 0.3;
-    }
-    .wave-bg svg {
-      width: 100%;
-      height: 100%;
+      display: none;
     }
 
     .slide {
@@ -72,8 +60,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--pink), var(--accent), var(--green));
-      opacity: 0.5;
+      background: var(--pink);
     }
 
     .topbar {
@@ -81,8 +68,8 @@
       grid-template-columns: 1fr auto;
       align-items: center;
       padding: 0 3%;
-      color: #4a4a6a;
-      background: rgba(0, 87, 255, 0.03);
+      color: #3f3f58;
+      background: #f4f7ff;
       border-bottom: 1px solid var(--line);
     }
 
@@ -134,10 +121,8 @@
       font-size: clamp(38px, 5.2vw, 64px);
       line-height: 1.05;
       letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #1a1a2e 0%, var(--accent) 50%, var(--pink) 100%);
+      color: var(--ink);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     h2 {
@@ -157,7 +142,7 @@
       bottom: 5px;
       width: 4px;
       border-radius: 2px;
-      background: linear-gradient(180deg, var(--pink), var(--accent));
+      background: var(--pink);
     }
 
     h3 {
@@ -222,7 +207,7 @@
 
     .panel {
       border: 1px solid var(--line);
-      background: rgba(0, 87, 255, 0.02);
+      background: #ffffff;
       border-radius: 12px;
       padding: 2% 2.2%;
       display: grid;
@@ -231,13 +216,13 @@
     }
 
     .panel.light {
-      background: rgba(255, 20, 147, 0.03);
-      border-color: rgba(255, 20, 147, 0.12);
+      background: #fff7fb;
+      border-color: rgba(255, 20, 147, 0.16);
     }
 
     .panel.green-tint {
-      background: rgba(0, 201, 167, 0.03);
-      border-color: rgba(0, 201, 167, 0.15);
+      background: #f0fffb;
+      border-color: rgba(0, 201, 167, 0.18);
     }
 
     .list {
@@ -266,18 +251,18 @@
     .chip {
       border-radius: 999px;
       padding: 0.5% 1.4%;
-      background: rgba(0, 87, 255, 0.05);
+      background: #eef4ff;
       color: var(--accent);
       font-size: clamp(11px, 1vw, 14px);
       font-weight: 600;
       border: 1px solid rgba(0, 87, 255, 0.15);
     }
-    .chip.pink { background: rgba(255, 20, 147, 0.06); color: var(--pink); border-color: rgba(255, 20, 147, 0.2); }
-    .chip.green { background: rgba(0, 201, 167, 0.06); color: var(--green); border-color: rgba(0, 201, 167, 0.2); }
+    .chip.pink { background: #ffe7f4; color: var(--pink); border-color: rgba(255, 20, 147, 0.2); }
+    .chip.green { background: #e6fbf7; color: #008b74; border-color: rgba(0, 201, 167, 0.2); }
 
     .callout {
       border-left: 3px solid var(--pink);
-      background: rgba(255, 20, 147, 0.04);
+      background: #fff4fa;
       padding: 1.4% 1.8%;
       border-radius: 8px;
       font-size: clamp(14px, 1.25vw, 17px);
@@ -287,7 +272,7 @@
     .photo-slot {
       border: 1px dashed rgba(0, 87, 255, 0.25);
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(255, 20, 147, 0.04), rgba(0, 87, 255, 0.03));
+      background: #fff;
       min-height: 0;
       padding: 4% 3%;
       display: grid;
@@ -306,7 +291,7 @@
       background-position: center;
       background-repeat: no-repeat;
       border-radius: 10px;
-      box-shadow: 0 8px 32px rgba(2,6,23,0.4) inset;
+      box-shadow: 0 0 0 1px rgba(0, 87, 255, 0.08) inset;
       display: flex;
       align-items: end;
       justify-content: start;
@@ -332,7 +317,7 @@
     .diagram-shell {
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: rgba(0, 87, 255, 0.02);
+      background: #ffffff;
       min-height: 0;
       padding: 1.2% 1.5%;
       display: flex;
@@ -353,7 +338,7 @@
       color: var(--accent);
       text-align: center;
       letter-spacing: 0.05em;
-      opacity: 0.8;
+      opacity: 1;
     }
 
     .footer {
@@ -509,7 +494,7 @@
           <div class="cover-right">
               <div class="photo-slot wide" style="padding:0; overflow:hidden;">
                 <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/34087666/pexels-photo-34087666.jpeg'); min-height:260px;">
-                  <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:10px 14px; border-radius:8px; margin:12px;">
+                  <div style="background:rgba(0,0,0,0.35); padding:10px 14px; border-radius:8px; margin:12px;">
                     <strong style="font-size:16px; color: #fff;">图1 港深双城天际线</strong>
                     <div style="font-size:12px; color: rgba(255,255,255,0.85);">维港 + 深圳湾/前海夜景组合主视觉</div>
                   </div>
@@ -517,7 +502,7 @@
               </div>
               <div class="photo-slot" style="padding:0; overflow:hidden;">
                 <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg'); min-height:120px;">
-                  <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.28)); padding:8px 10px; border-radius:8px; margin:8px;">
+                  <div style="background:rgba(0,0,0,0.28); padding:8px 10px; border-radius:8px; margin:8px;">
                     <strong style="font-size:13px; color:#fff;">图2 口岸/跨境交通场景</strong>
                     <div style="font-size:11px; color: rgba(255,255,255,0.85);">福田/罗湖口岸、港铁/跨境巴士</div>
                   </div>
@@ -656,21 +641,21 @@
         <div class="image-row" style="margin-top:12px;">
           <div class="image-card">
             <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg');">
-              <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:8px; border-radius:6px; margin:8px;">
+              <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
                 <strong style="font-size:13px; color:#fff;">图4.1 跨境金融服务</strong>
               </div>
             </div>
           </div>
           <div class="image-card">
             <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg');">
-              <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:8px; border-radius:6px; margin:8px;">
+              <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
                 <strong style="font-size:13px; color:#fff;">图4.2 文旅活动</strong>
               </div>
             </div>
           </div>
           <div class="image-card">
             <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/33897861/pexels-photo-33897861.jpeg');">
-              <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:8px; border-radius:6px; margin:8px;">
+              <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
                 <strong style="font-size:13px; color:#fff;">图4.3 通勤场景</strong>
               </div>
             </div>
@@ -756,14 +741,10 @@
             <div class="diagram-title">全栈技术架构 · LLM 应用技术栈总览</div>
             <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg" aria-label="LLM全栈技术架构">
               <defs>
-                <linearGradient id="g-layer1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0057ff" stop-opacity="0.2"/><stop offset="100%" stop-color="#0057ff" stop-opacity="0.05"/></linearGradient>
-                <linearGradient id="g-layer2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff1493" stop-opacity="0.2"/><stop offset="100%" stop-color="#ff1493" stop-opacity="0.05"/></linearGradient>
-                <linearGradient id="g-layer3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c9a7" stop-opacity="0.2"/><stop offset="100%" stop-color="#00c9a7" stop-opacity="0.05"/></linearGradient>
-                <linearGradient id="g-layer4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff1493" stop-opacity="0.2"/><stop offset="100%" stop-color="#ff1493" stop-opacity="0.05"/></linearGradient>
                 <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
               </defs>
               <!-- Layer 1: 用户交互层 -->
-              <rect x="24" y="8" width="312" height="44" rx="8" fill="url(#g-layer1)" stroke="rgba(0,87,255,0.3)" stroke-width="1.2"/>
+              <rect x="24" y="8" width="312" height="44" rx="8" fill="#eaf2ff" stroke="rgba(0,87,255,0.3)" stroke-width="1.2"/>
               <text x="36" y="26" font-size="9" fill="#0057ff" font-weight="700">01 交互层</text>
               <rect x="36" y="30" width="56" height="18" rx="4" fill="rgba(0,87,255,0.12)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
               <text x="64" y="43" text-anchor="middle" font-size="9" fill="#a0c0e0">Web UI</text>
@@ -773,7 +754,7 @@
               <text x="188" y="43" text-anchor="middle" font-size="9" fill="#a0c0e0">Chat</text>
               <line x1="36" y1="52" x2="36" y2="58" stroke="rgba(0,87,255,0.3)" stroke-width="1"/>
               <!-- Layer 2: 智能编排层 -->
-              <rect x="24" y="60" width="312" height="68" rx="8" fill="url(#g-layer2)" stroke="rgba(255,20,147,0.3)" stroke-width="1.2"/>
+              <rect x="24" y="60" width="312" height="68" rx="8" fill="#fff0f8" stroke="rgba(255,20,147,0.3)" stroke-width="1.2"/>
               <text x="36" y="78" font-size="9" fill="#ff1493" font-weight="700">02 智能编排层 (Agent Orchestration)</text>
               <!-- Planner -->
               <rect x="36" y="84" width="64" height="38" rx="6" fill="rgba(255,20,147,0.15)" stroke="rgba(255,20,147,0.3)" stroke-width="0.8"/>
@@ -797,7 +778,7 @@
               <line x1="244" y1="103" x2="252" y2="103" stroke="rgba(255,20,147,0.4)" stroke-width="1"/>
               <line x1="289" y1="128" x2="289" y2="134" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
               <!-- Layer 3: RAG + 知识层 -->
-              <rect x="24" y="134" width="148" height="60" rx="8" fill="url(#g-layer3)" stroke="rgba(0,201,167,0.3)" stroke-width="1.2"/>
+              <rect x="24" y="134" width="148" height="60" rx="8" fill="#eefdf9" stroke="rgba(0,201,167,0.3)" stroke-width="1.2"/>
               <text x="34" y="150" font-size="9" fill="#00c9a7" font-weight="700">03 RAG 知识层</text>
               <rect x="32" y="156" width="56" height="16" rx="4" fill="rgba(0,201,167,0.1)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
               <text x="60" y="167" text-anchor="middle" font-size="8" fill="#6bd6b0">Embedding</text>
@@ -806,7 +787,7 @@
               <rect x="32" y="174" width="126" height="14" rx="4" fill="rgba(0,201,167,0.08)" stroke="rgba(0,201,167,0.15)" stroke-width="0.8"/>
               <text x="95" y="184" text-anchor="middle" font-size="7" fill="#6aa88a">Qdrant / Chroma / FAISS</text>
               <!-- Layer 3b: MCP 工具层 -->
-              <rect x="188" y="134" width="148" height="60" rx="8" fill="url(#g-layer4)" stroke="rgba(255,20,147,0.3)" stroke-width="1.2"/>
+              <rect x="188" y="134" width="148" height="60" rx="8" fill="#fff0f8" stroke="rgba(255,20,147,0.3)" stroke-width="1.2"/>
               <text x="198" y="150" font-size="9" fill="#ff1493" font-weight="700">04 MCP 工具层</text>
               <rect x="196" y="156" width="56" height="16" rx="4" fill="rgba(255,20,147,0.1)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
               <text x="224" y="167" text-anchor="middle" font-size="8" fill="#ff8fab">汇率</text>
