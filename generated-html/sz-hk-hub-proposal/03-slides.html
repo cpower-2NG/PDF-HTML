@@ -475,10 +475,11 @@
   </div>
 
   <main class="deck">
-    <section class="slide" aria-label="封面">
+    <section class="slide cover-slide" aria-label="封面">
+      <div class="cover-bg" aria-hidden="true"></div>
       <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>开题报告</div><div class="page">01 / 12</div></div>
       <div class="content">
-        <div class="cover-grid">
+        <div class="cover-hero">
           <div>
             <p class="eyebrow">Proposal 2026</p>
             <h1>SZ-HK Hub</h1>
@@ -490,24 +491,6 @@
               <span class="chip">实时工具调用</span>
             </div>
             <div class="callout">目标：把“能回答”升级为“能决策、可验证、可合规”。</div>
-          </div>
-          <div class="cover-right">
-              <div class="photo-slot wide" style="padding:0; overflow:hidden;">
-                <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/34087666/pexels-photo-34087666.jpeg'); min-height:260px;">
-                  <div style="background:rgba(0,0,0,0.35); padding:10px 14px; border-radius:8px; margin:12px;">
-                    <strong style="font-size:16px; color: #fff;">图1 港深双城天际线</strong>
-                    <div style="font-size:12px; color: rgba(255,255,255,0.85);">维港 + 深圳湾/前海夜景组合主视觉</div>
-                  </div>
-                </div>
-              </div>
-              <div class="photo-slot" style="padding:0; overflow:hidden;">
-                <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg'); min-height:120px;">
-                  <div style="background:rgba(0,0,0,0.28); padding:8px 10px; border-radius:8px; margin:8px;">
-                    <strong style="font-size:13px; color:#fff;">图2 口岸/跨境交通场景</strong>
-                    <div style="font-size:11px; color: rgba(255,255,255,0.85);">福田/罗湖口岸、港铁/跨境巴士</div>
-                  </div>
-                </div>
-              </div>
           </div>
         </div>
       </div>
@@ -640,7 +623,7 @@
         </div>
         <div class="image-row" style="margin-top:12px;">
           <div class="image-card">
-            <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg');">
+            <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg'); background-position:center top;">
               <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
                 <strong style="font-size:13px; color:#fff;">图4.1 跨境金融服务</strong>
               </div>
@@ -978,49 +961,45 @@
           </div>
           <div class="stack">
             <div class="photo-slot wide" style="padding:12px;">
-              <div class="diagram-shell" style="padding:10px;">
-                <div class="diagram-title">实时数据流概念</div>
-                <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" aria-label="MCP 实时数据流示意" style="width:100%; height:220px;">
+              <div class="diagram-shell" style="padding:12px;">
+                <div class="diagram-title large">实时数据流概念</div>
+                <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" aria-label="MCP 实时数据流示意" style="width:100%; height:320px;">
                   <defs>
-                    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#7ec8ff"/></marker>
+                    <marker id="arrow-big" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L8,4 z" fill="#0057ff"/></marker>
                   </defs>
-                  <!-- User -->
-                  <rect x="20" y="36" width="120" height="48" rx="8" fill="#0b2340" stroke="#7ec8ff"/>
-                  <text x="80" y="66" text-anchor="middle" font-size="12" fill="#cfeeff">用户查询</text>
+                  <rect x="20" y="72" width="140" height="72" rx="10" fill="#eaf2ff" stroke="#0057ff" stroke-width="2"/>
+                  <text x="90" y="102" text-anchor="middle" font-size="18" fill="#0057ff" font-weight="700">用户查询</text>
+                  <text x="90" y="124" text-anchor="middle" font-size="12" fill="#55708d">跨境金融 / 出行 / 活动</text>
 
-                  <!-- Planner -->
-                  <rect x="160" y="36" width="120" height="48" rx="8" fill="#10293f" stroke="#ff98c8"/>
-                  <text x="220" y="66" text-anchor="middle" font-size="12" fill="#ffd6ea">Planner</text>
+                  <rect x="195" y="72" width="140" height="72" rx="10" fill="#fff0f8" stroke="#ff1493" stroke-width="2"/>
+                  <text x="265" y="102" text-anchor="middle" font-size="18" fill="#ff1493" font-weight="700">Planner</text>
+                  <text x="265" y="124" text-anchor="middle" font-size="12" fill="#8a5c77">拆解任务与路径</text>
 
-                  <!-- RAG -->
-                  <rect x="320" y="10" width="140" height="56" rx="8" fill="#07263a" stroke="#6ef0c8"/>
-                  <text x="390" y="38" text-anchor="middle" font-size="11" fill="#bff7e9">RAG / Embedding</text>
-                  <text x="390" y="52" text-anchor="middle" font-size="10" fill="#9bdcc6">Vector DB</text>
+                  <rect x="370" y="40" width="170" height="70" rx="10" fill="#eefdf9" stroke="#00c9a7" stroke-width="2"/>
+                  <text x="455" y="68" text-anchor="middle" font-size="18" fill="#00a88c" font-weight="700">RAG</text>
+                  <text x="455" y="90" text-anchor="middle" font-size="12" fill="#5e8f7e">检索 / 向量库 / 证据</text>
 
-                  <!-- MCP Tools group -->
-                  <rect x="320" y="80" width="280" height="80" rx="10" fill="#071826" stroke="#7ec8ff"/>
-                  <text x="460" y="102" text-anchor="middle" font-size="11" fill="#9bdff6">MCP 工具层</text>
-                  <text x="420" y="122" font-size="10" fill="#9bdff6">汇率 · 口岸人流 · 路径规划</text>
+                  <rect x="370" y="132" width="300" height="90" rx="10" fill="#eef4ff" stroke="#0057ff" stroke-width="2"/>
+                  <text x="520" y="162" text-anchor="middle" font-size="18" fill="#0057ff" font-weight="700">MCP 工具层</text>
+                  <text x="520" y="188" text-anchor="middle" font-size="13" fill="#49617d">汇率 · 口岸人流 · 路径规划 · 班次</text>
 
-                  <!-- Verifier -->
-                  <rect x="620" y="44" width="80" height="56" rx="8" fill="#09202e" stroke="#6ef0c8"/>
-                  <text x="660" y="74" text-anchor="middle" font-size="11" fill="#bff7e9">Verifier</text>
+                  <rect x="700" y="72" width="150" height="72" rx="10" fill="#fff0f8" stroke="#ff1493" stroke-width="2"/>
+                  <text x="775" y="102" text-anchor="middle" font-size="18" fill="#ff1493" font-weight="700">Verifier</text>
+                  <text x="775" y="124" text-anchor="middle" font-size="12" fill="#8a5c77">审查与纠错</text>
 
-                  <!-- Output -->
-                  <rect x="620" y="150" width="80" height="40" rx="8" fill="#05202b" stroke="#7ec8ff"/>
-                  <text x="660" y="176" text-anchor="middle" font-size="11" fill="#cfeeff">可执行方案</text>
+                  <rect x="700" y="172" width="150" height="68" rx="10" fill="#fff6e8" stroke="#ff8a00" stroke-width="2"/>
+                  <text x="775" y="202" text-anchor="middle" font-size="18" fill="#ff8a00" font-weight="700">输出方案</text>
+                  <text x="775" y="224" text-anchor="middle" font-size="12" fill="#8c6b3f">时间 / 路线 / 支付建议</text>
 
-                  <!-- Arrows -->
-                  <line x1="140" y1="60" x2="160" y2="60" stroke="#7ec8ff" stroke-width="2" marker-end="url(#arrow)"/>
-                  <line x1="280" y1="60" x2="320" y2="38" stroke="#7ec8ff" stroke-width="2" marker-end="url(#arrow)"/>
-                  <line x1="460" y1="66" x2="620" y2="66" stroke="#7ec8ff" stroke-width="2" marker-end="url(#arrow)"/>
-                  <line x1="460" y1="120" x2="660" y2="170" stroke="#6ef0c8" stroke-width="2" marker-end="url(#arrow)"/>
-                  <line x1="500" y1="66" x2="500" y2="100" stroke="#9bdff6" stroke-width="1" stroke-dasharray="4 4"/>
+                  <line x1="160" y1="108" x2="195" y2="108" stroke="#0057ff" stroke-width="4" marker-end="url(#arrow-big)"/>
+                  <line x1="335" y1="108" x2="370" y2="75" stroke="#0057ff" stroke-width="4" marker-end="url(#arrow-big)"/>
+                  <line x1="455" y1="110" x2="455" y2="132" stroke="#00c9a7" stroke-width="4" marker-end="url(#arrow-big)"/>
+                  <line x1="670" y1="177" x2="700" y2="108" stroke="#ff1493" stroke-width="4" marker-end="url(#arrow-big)"/>
+                  <line x1="775" y1="144" x2="775" y2="172" stroke="#ff8a00" stroke-width="4" marker-end="url(#arrow-big)"/>
 
-                  <!-- small labels -->
-                  <text x="240" y="86" font-size="10" fill="#9bdff6">任务拆解 → 工具调用</text>
+                  <text x="255" y="154" font-size="14" fill="#6b6b80">任务拆解 → 检索证据 → 工具调用 → 审查输出</text>
                 </svg>
-                <div style="font-size:13px; color:var(--muted); margin-top:8px;">图注：展示数据与工具如何在 Agent 协作下流动与融合（概念示意）。</div>
+                <div style="font-size:13px; color:var(--muted); margin-top:8px;">图注：用更大的节点和更少的文字展示完整数据流逻辑。</div>
               </div>
             </div>
             <div class="callout">输出结果可直接给出“通关时间 + 路线 + 支付方案”。</div>
