@@ -55,6 +55,63 @@
       position: relative;
     }
 
+    .cover-slide {
+      overflow: hidden;
+    }
+
+    .cover-slide .cover-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.pexels.com/photos/34087666/pexels-photo-34087666.jpeg');
+      background-size: cover;
+      background-position: center center;
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .cover-slide .content,
+    .cover-slide .topbar,
+    .cover-slide .footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-slide .content {
+      padding: 0;
+    }
+
+    .cover-hero {
+      position: absolute;
+      left: 7%;
+      top: 31%;
+      width: 46%;
+      max-width: 620px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 87, 255, 0.14);
+      border-radius: 18px;
+      box-shadow: 0 16px 48px rgba(26, 26, 46, 0.12);
+      padding: 4.2%;
+      display: grid;
+      gap: 16px;
+    }
+
+    .cover-hero::after {
+      content: '';
+      position: absolute;
+      right: -24px;
+      bottom: -24px;
+      width: 64px;
+      height: 64px;
+      background: var(--pink);
+      border-radius: 16px;
+      opacity: 0.15;
+    }
+
+    .cover-hero > div {
+      position: relative;
+      z-index: 1;
+    }
+
     .slide::before {
       content: '';
       position: absolute;
@@ -112,6 +169,11 @@
       position: relative;
       z-index: 1;
     }
+    .content.spread-content {
+      align-content: space-between;
+      padding-top: 4.2%;
+      padding-bottom: 3.2%;
+    }
     /* 内容较少的页用居中垂直对齐 */
     .content.center-v { align-content: center; }
 
@@ -122,7 +184,6 @@
       line-height: 1.05;
       letter-spacing: -0.03em;
       color: var(--ink);
-      -webkit-background-clip: text;
     }
 
     h2 {
@@ -605,7 +666,7 @@
 
     <section class="slide" aria-label="用户画像">
       <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>用户画像与场景</div><div class="page">04 / 12</div></div>
-      <div class="content">
+      <div class="content spread-content">
         <h2>三类核心用户，覆盖高频跨境场景</h2>
         <div class="cols-3">
           <div class="panel">
@@ -655,7 +716,7 @@
 
     <section class="slide" aria-label="核心功能">
       <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>核心功能</div><div class="page">05 / 12</div></div>
-      <div class="content">
+      <div class="content spread-content">
         <h2>三大能力模块，覆盖跨境决策全链路</h2>
         <div class="cols-3">
           <div class="panel">
