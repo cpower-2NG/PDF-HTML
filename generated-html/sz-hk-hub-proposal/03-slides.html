@@ -6,15 +6,15 @@
   <title>SZ-HK Hub 开题报告</title>
   <style>
     :root {
-      --bg: #f7f5ef;
+      --bg: #f9f9fc;
       --paper: #ffffff;
-      --ink: #17172a;
-      --muted: #66667a;
-      --accent: #0057ff;
-      --pink: #ff1493;
-      --green: #00c9a7;
-      --line: rgba(0, 87, 255, 0.12);
-      --shadow: 0 12px 40px rgba(26, 26, 46, 0.08);
+      --ink: #1a1a2e;
+      --muted: #62627a;
+      --accent: #2e68ff;
+      --pink: #ff338c;
+      --green: #05d5aa;
+      --line: rgba(46, 104, 255, 0.15);
+      --shadow: 0 16px 48px rgba(26, 26, 46, 0.08);
       --radius: 16px;
       --slide-w: 1280px;
     }
@@ -194,7 +194,7 @@
     }
 
     h2 {
-      font-size: clamp(24px, 2.8vw, 36px);
+      font-size: clamp(28px, 3vw, 40px);
       line-height: 1.22;
       letter-spacing: -0.02em;
       color: #2a2a4a;
@@ -209,33 +209,33 @@
       left: 0;
       top: 5px;
       bottom: 5px;
-      width: 4px;
-      border-radius: 2px;
+      width: 5px;
+      border-radius: 3px;
       background: var(--pink);
     }
 
     h3 {
-      font-size: clamp(16px, 1.5vw, 20px);
+      font-size: clamp(20px, 2vw, 26px);
       color: var(--accent);
       line-height: 1.35;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     h3::before {
       content: '';
       display: inline-block;
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--pink);
       flex-shrink: 0;
     }
 
     p {
-      font-size: clamp(15px, 1.35vw, 18px);
-      line-height: 1.55;
+      font-size: clamp(16px, 1.5vw, 20px);
+      line-height: 1.6;
       color: var(--muted);
     }
 
@@ -289,18 +289,21 @@
       padding: 3.5% 4%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 3%;
       height: 100%;
     }
+    .content > .panel {
+      height: auto;
+    }
 
     .panel.light {
-      background: #fff7fb;
+      background: rgba(255, 247, 251, 0.85);
       border-color: rgba(255, 20, 147, 0.16);
     }
 
     .panel.green-tint {
-      background: #f0fffb;
+      background: rgba(240, 255, 251, 0.85);
       border-color: rgba(0, 201, 167, 0.18);
     }
 
@@ -311,8 +314,8 @@
     }
 
     .list li {
-      font-size: clamp(14px, 1.3vw, 17px);
-      line-height: 1.55;
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.6;
       color: #3a3a58;
     }
 
@@ -329,10 +332,10 @@
 
     .chip {
       border-radius: 999px;
-      padding: 0.5% 1.4%;
+      padding: 0.8% 1.8%;
       background: #eef4ff;
       color: var(--accent);
-      font-size: clamp(11px, 1vw, 14px);
+      font-size: clamp(12px, 1.1vw, 15px);
       font-weight: 600;
       border: 1px solid rgba(0, 87, 255, 0.15);
     }
@@ -343,9 +346,9 @@
       border-left: 3px solid var(--pink);
       background: rgba(255, 244, 250, 0.85);
       backdrop-filter: blur(8px);
-      padding: 1.4% 1.8%;
+      padding: 1.8% 2.2%;
       border-radius: 8px;
-      font-size: clamp(14px, 1.25vw, 17px);
+      font-size: clamp(16px, 1.4vw, 19px);
       color: #4a4a6a;
       flex-shrink: 0;
       margin-top: auto; /* force bottom alignment in some flex contexts if needed */
@@ -981,8 +984,6 @@
               <li>港铁/MTR 官方时刻与公告。</li>
               <li>专业论坛与动态 PDF 资料。</li>
             </ul>
-            <h3>评估指标</h3>
-            <p>第 10 周提交 Hit Rate 与 MRR 检索质量报告。</p>
           </div>
           <div class="stack">
             <div class="photo-slot wide" style="padding:0; overflow:hidden;">
@@ -1201,9 +1202,9 @@
           const wave = document.createElement('div');
           wave.className = 'wave-bg';
           wave.innerHTML = `<svg viewBox="0 0 1280 720" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,480 Q160,380 320,460 Q480,540 640,420 Q800,300 960,440 Q1120,580 1280,400 L1280,720 L0,720 Z" fill="rgba(0,87,255,0.04)"/>
-            <path d="M0,540 Q200,460 400,530 Q600,600 800,490 Q1000,380 1280,510 L1280,720 L0,720 Z" fill="rgba(255,20,147,0.03)"/>
-            <path d="M0,600 Q180,540 360,590 Q540,640 720,550 Q900,460 1280,570 L1280,720 L0,720 Z" fill="rgba(0,201,167,0.03)"/>
+            <path d="M0,480 Q160,380 320,460 Q480,540 640,420 Q800,300 960,440 Q1120,580 1280,400 L1280,720 L0,720 Z" fill="rgba(46,104,255,0.06)"/>
+            <path d="M0,540 Q200,460 400,530 Q600,600 800,490 Q1000,380 1280,510 L1280,720 L0,720 Z" fill="rgba(255,51,140,0.05)"/>
+            <path d="M0,600 Q180,540 360,590 Q540,640 720,550 Q900,460 1280,570 L1280,720 L0,720 Z" fill="rgba(5,213,170,0.05)"/>
           </svg>`;
           s.prepend(wave);
         });
