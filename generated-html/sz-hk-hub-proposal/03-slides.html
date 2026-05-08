@@ -606,7 +606,7 @@
             <ul class="list">
               <li>政策、口岸、金融服务更新频繁，用户难以持续跟踪。<br><span style="font-size:0.85em;color:var(--muted)">Frequent policy updates make tracking difficult.</span></li>
               <li>实时数据（汇率、人流、班次）缺失导致决策失误。<br><span style="font-size:0.85em;color:var(--muted)">Lack of real-time data leads to poor decisions.</span></li>
-              <li>跨境金融合规边界模糊，通用 LLM 容易产生幻觉。<br><span style="font-size:0.85em;color:var(--muted)">LLM hallucination on obscure cross-border compliance.</span></li>
+              <li>跨境金融合规边界模糊，General LLM 容易产生幻觉。<br><span style="font-size:0.85em;color:var(--muted)">LLM hallucination on obscure cross-border compliance.</span></li>
               <li>跨域信息分散在政府、银行、交通与活动平台。<br><span style="font-size:0.85em;color:var(--muted)">Information is scattered across isolated platforms.</span></li>
             </ul>
           </div>
@@ -621,41 +621,41 @@
               <!-- 双城连线 -->
               <line x1="84" y1="120" x2="276" y2="120" stroke="rgba(0,87,255,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
               <!-- 矛盾/痛点标记 -->
-              <text x="180" y="62" text-anchor="middle" font-size="8" fill="#ff1493">⚠ 信息孤岛</text>
-              <text x="180" y="198" text-anchor="middle" font-size="8" fill="#ff1493">⚠ 实时缺失</text>
+              <text x="180" y="62" text-anchor="middle" font-size="12" fill="#ff1493">⚠ Info Silos</text>
+              <text x="180" y="198" text-anchor="middle" font-size="12" fill="#ff1493">⚠ No Real-time</text>
               <!-- 城市圆 -->
               <circle cx="84" cy="120" r="44" fill="rgba(0,87,255,0.06)" stroke="rgba(0,87,255,0.4)" stroke-width="1.5"/>
               <circle cx="84" cy="120" r="44" fill="none" stroke="rgba(0,87,255,0.1)" stroke-width="6" filter="url(#g-b)"/>
               <circle cx="276" cy="120" r="44" fill="rgba(255,20,147,0.06)" stroke="rgba(255,20,147,0.4)" stroke-width="1.5"/>
               <circle cx="276" cy="120" r="44" fill="none" stroke="rgba(255,20,147,0.1)" stroke-width="6" filter="url(#g-b)"/>
               <text x="84" y="116" text-anchor="middle" font-size="20" fill="#0057ff" font-weight="700">HK</text>
-              <text x="84" y="134" text-anchor="middle" font-size="9" fill="#6b6b80">香港</text>
+              <text x="84" y="134" text-anchor="middle" font-size="13" fill="#6b6b80">Hong Kong</text>
               <text x="276" y="116" text-anchor="middle" font-size="20" fill="#ff6b9d" font-weight="700">SZ</text>
-              <text x="276" y="134" text-anchor="middle" font-size="9" fill="#7a5a90">深圳</text>
+              <text x="276" y="134" text-anchor="middle" font-size="13" fill="#7a5a90">Shenzhen</text>
               <!-- 痛点标签 -->
               <rect x="104" y="86" width="72" height="22" rx="4" fill="rgba(255,20,147,0.08)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-              <text x="140" y="100" text-anchor="middle" font-size="8" fill="#ff8fab">政策碎片化</text>
+              <text x="140" y="100" text-anchor="middle" font-size="12" fill="#ff8fab">Fragmented Policy</text>
               <rect x="184" y="86" width="72" height="22" rx="4" fill="rgba(255,20,147,0.08)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-              <text x="220" y="100" text-anchor="middle" font-size="8" fill="#ff8fab">合规模糊</text>
+              <text x="220" y="100" text-anchor="middle" font-size="12" fill="#ff8fab">Unclear Compliance</text>
               <rect x="104" y="130" width="72" height="22" rx="4" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>
-              <text x="140" y="144" text-anchor="middle" font-size="8" fill="#f08080">信息滞后</text>
+              <text x="140" y="144" text-anchor="middle" font-size="12" fill="#f08080">Information Lag</text>
               <rect x="184" y="130" width="72" height="22" rx="4" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>
-              <text x="220" y="144" text-anchor="middle" font-size="8" fill="#f08080">数据断联</text>
+              <text x="220" y="144" text-anchor="middle" font-size="12" fill="#f08080">Data Disconnect</text>
               <!-- 核心结论 -->
               <rect x="60" y="210" width="240" height="22" rx="11" fill="rgba(0,87,255,0.06)" stroke="rgba(0,87,255,0.15)" stroke-width="0.8"/>
-              <text x="180" y="224" text-anchor="middle" font-size="8" fill="#8899bb">缺一个「跨境专业决策中枢」</text>
+              <text x="180" y="224" text-anchor="middle" font-size="12" fill="#8899bb">Missing Domain-Specific Agent</text>
             </svg>
           </div>
         </div>
         <div class="callout">问题本质：缺一个“跨境专业决策中枢”。</div>
       </div>
-      <div class="footer"><span><b>讲述建议：</b>先抛出现实痛点，再强调通用 LLM 的局限</span><span>时长 45 秒</span></div>
+      <div class="footer"><span><b>讲述建议：</b>先抛出现实痛点，再强调General LLM 的局限</span><span>时长 45 秒</span></div>
     </section>
 
     <section class="slide" aria-label="目标定位">
       <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>目标与定位</div><div class="page">03 / 12</div></div>
       <div class="content">
-        <h2>为什么要做“跨境专业 Agent”？<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Why Build a Domain-Specific Agent?</span></h2>
+        <h2>为什么要做“跨境Domain Agent”？<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Why Build a Domain-Specific Agent?</span></h2>
         <div class="cols-2">
           <div class="panel">
             <h3>产品定位<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Product Positioning</span></h3>
@@ -674,27 +674,27 @@
               <defs>
                 <filter id="g-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
               </defs>
-              <!-- 左侧：通用 LLM -->
+              <!-- 左侧：General LLM -->
               <rect x="20" y="50" width="130" height="140" rx="16" fill="rgba(0,87,255,0.02)" stroke="rgba(0,87,255,0.1)" stroke-width="1"/>
-              <text x="85" y="80" text-anchor="middle" font-size="13" fill="#6b6b80" font-weight="700">通用 LLM</text>
+              <text x="85" y="80" text-anchor="middle" font-size="13" fill="#6b6b80" font-weight="700">General LLM</text>
               <line x1="40" y1="90" x2="130" y2="90" stroke="rgba(0,87,255,0.06)" stroke-width="0.5"/>
-              <text x="85" y="108" text-anchor="middle" font-size="9" fill="#ef4444">✗ 易产生幻觉</text>
-              <text x="85" y="128" text-anchor="middle" font-size="9" fill="#ef4444">✗ 合规风险高</text>
-              <text x="85" y="148" text-anchor="middle" font-size="9" fill="#ef4444">✗ 信息不实时</text>
-              <text x="85" y="168" text-anchor="middle" font-size="9" fill="#ef4444">✗ 不可追溯</text>
+              <text x="85" y="108" text-anchor="middle" font-size="13" fill="#ef4444">✗ Hallucination</text>
+              <text x="85" y="128" text-anchor="middle" font-size="13" fill="#ef4444">✗ High Risk</text>
+              <text x="85" y="148" text-anchor="middle" font-size="13" fill="#ef4444">✗ Stale Info</text>
+              <text x="85" y="168" text-anchor="middle" font-size="13" fill="#ef4444">✗ Untraceable</text>
               <!-- 箭头过渡 -->
               <line x1="150" y1="120" x2="200" y2="120" stroke="rgba(0,87,255,0.3)" stroke-width="1.5"/>
               <polygon points="200,115 210,120 200,125" fill="rgba(0,87,255,0.4)"/>
-              <text x="175" y="108" text-anchor="middle" font-size="7" fill="#0057ff">RAG</text>
-              <text x="175" y="136" text-anchor="middle" font-size="7" fill="#0057ff">+Tools</text>
-              <!-- 右侧：专业 Agent -->
+              <text x="175" y="108" text-anchor="middle" font-size="13" fill="#0057ff">RAG</text>
+              <text x="175" y="136" text-anchor="middle" font-size="13" fill="#0057ff">+Tools</text>
+              <!-- 右侧：Domain Agent -->
               <rect x="210" y="50" width="130" height="140" rx="16" fill="rgba(0,87,255,0.04)" stroke="rgba(0,87,255,0.25)" stroke-width="1.2" filter="url(#g-glow)"/>
-              <text x="275" y="80" text-anchor="middle" font-size="13" fill="#0057ff" font-weight="700">专业 Agent</text>
+              <text x="275" y="80" text-anchor="middle" font-size="13" fill="#0057ff" font-weight="700">Domain Agent</text>
               <line x1="230" y1="90" x2="320" y2="90" stroke="rgba(0,87,255,0.1)" stroke-width="0.5"/>
-              <text x="275" y="108" text-anchor="middle" font-size="9" fill="#00c9a7">✓ 可验证检索</text>
-              <text x="275" y="128" text-anchor="middle" font-size="9" fill="#00c9a7">✓ 合规护栏</text>
-              <text x="275" y="148" text-anchor="middle" font-size="9" fill="#00c9a7">✓ 实时工具</text>
-              <text x="275" y="168" text-anchor="middle" font-size="9" fill="#00c9a7">✓ 可追溯</text>
+              <text x="275" y="108" text-anchor="middle" font-size="13" fill="#00c9a7">✓ Verified RAG</text>
+              <text x="275" y="128" text-anchor="middle" font-size="13" fill="#00c9a7">✓ Safety Guardrails</text>
+              <text x="275" y="148" text-anchor="middle" font-size="13" fill="#00c9a7">✓ Real-time MCP</text>
+              <text x="275" y="168" text-anchor="middle" font-size="13" fill="#00c9a7">✓ Traceable Output</text>
             </svg>
           </div>
         </div>
@@ -777,28 +777,28 @@
             <!-- 中心枢纽 -->
             <circle cx="180" cy="120" r="40" fill="rgba(0,87,255,0.08)" stroke="rgba(0,87,255,0.3)" stroke-width="1.5"/>
             <circle cx="180" cy="120" r="28" fill="rgba(0,87,255,0.05)" stroke="rgba(0,87,255,0.15)" stroke-width="0.8"/>
-            <text x="180" y="118" text-anchor="middle" font-size="11" fill="#0057ff" font-weight="700">SZ-HK Hub</text>
-            <text x="180" y="134" text-anchor="middle" font-size="8" fill="#6b6b80">Decision Engine</text>
+            <text x="180" y="118" text-anchor="middle" font-size="13" fill="#0057ff" font-weight="700">SZ-HK Hub</text>
+            <text x="180" y="134" text-anchor="middle" font-size="12" fill="#6b6b80">Decision Engine</text>
             <!-- 金融 -->
             <rect x="6" y="28" width="96" height="70" rx="10" fill="rgba(255,20,147,0.06)" stroke="rgba(255,20,147,0.25)" stroke-width="1"/>
-            <text x="54" y="52" text-anchor="middle" font-size="10" fill="#ff6b9d" font-weight="700">🏦 Finance</text>
-            <text x="54" y="70" text-anchor="middle" font-size="7" fill="#7a5a90">Account Guide</text>
-            <text x="54" y="84" text-anchor="middle" font-size="7" fill="#7a5a90">Compliance Alerts</text>
+            <text x="54" y="52" text-anchor="middle" font-size="12" fill="#ff6b9d" font-weight="700">🏦 Finance</text>
+            <text x="54" y="70" text-anchor="middle" font-size="13" fill="#7a5a90">Account Guide</text>
+            <text x="54" y="84" text-anchor="middle" font-size="13" fill="#7a5a90">Compliance Alerts</text>
             <line x1="102" y1="70" x2="140" y2="106" stroke="rgba(255,20,147,0.2)" stroke-width="1"/>
             <!-- 文旅 -->
             <rect x="258" y="28" width="96" height="70" rx="10" fill="rgba(0,201,167,0.06)" stroke="rgba(0,201,167,0.25)" stroke-width="1"/>
-            <text x="306" y="52" text-anchor="middle" font-size="10" fill="#00c9a7" font-weight="700">🎭 Events</text>
-            <text x="306" y="70" text-anchor="middle" font-size="7" fill="#6b9d8b">Poster Parsing</text>
-            <text x="306" y="84" text-anchor="middle" font-size="7" fill="#6b9d8b">Conflict Detection</text>
+            <text x="306" y="52" text-anchor="middle" font-size="12" fill="#00c9a7" font-weight="700">🎭 Events</text>
+            <text x="306" y="70" text-anchor="middle" font-size="13" fill="#6b9d8b">Poster Parsing</text>
+            <text x="306" y="84" text-anchor="middle" font-size="13" fill="#6b9d8b">Conflict Detection</text>
             <line x1="258" y1="70" x2="220" y2="106" stroke="rgba(0,201,167,0.2)" stroke-width="1"/>
             <!-- 实时 -->
             <rect x="100" y="162" width="160" height="52" rx="10" fill="rgba(255,20,147,0.06)" stroke="rgba(255,20,147,0.25)" stroke-width="1"/>
-            <text x="180" y="180" text-anchor="middle" font-size="10" fill="#ff1493" font-weight="700">🚇 Real-time Support</text>
-            <text x="180" y="198" text-anchor="middle" font-size="7" fill="#b080a0">FX / Flow / MTR / Routing</text>
+            <text x="180" y="180" text-anchor="middle" font-size="12" fill="#ff1493" font-weight="700">🚇 Real-time Support</text>
+            <text x="180" y="198" text-anchor="middle" font-size="13" fill="#b080a0">FX / Flow / MTR / Routing</text>
             <line x1="180" y1="160" x2="180" y2="162" stroke="rgba(255,20,147,0.2)" stroke-width="1"/>
             <!-- 技术标签 -->
             <rect x="140" y="10" width="80" height="16" rx="8" fill="rgba(0,87,255,0.05)" stroke="rgba(0,87,255,0.15)" stroke-width="0.6"/>
-            <text x="180" y="21" text-anchor="middle" font-size="7" fill="#6b6b80">Agent + RAG + MCP</text>
+            <text x="180" y="21" text-anchor="middle" font-size="13" fill="#6b6b80">Agent + RAG + MCP</text>
           </svg>
         </div>
       </div>
@@ -827,32 +827,32 @@
               </defs>
               <!-- Layer 1: 用户交互层 -->
               <rect x="24" y="8" width="312" height="44" rx="8" fill="#eaf2ff" stroke="rgba(0,87,255,0.3)" stroke-width="1.2"/>
-              <text x="36" y="26" font-size="11" fill="#0057ff" font-weight="700">01 Interactive Layer</text>
+              <text x="36" y="26" font-size="13" fill="#0057ff" font-weight="700">01 Interactive Layer</text>
               <rect x="36" y="30" width="56" height="18" rx="4" fill="rgba(0,87,255,0.12)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
-              <text x="64" y="43" text-anchor="middle" font-size="11" fill="#a0c0e0">Web UI</text>
+              <text x="64" y="43" text-anchor="middle" font-size="13" fill="#a0c0e0">Web UI</text>
               <rect x="98" y="30" width="56" height="18" rx="4" fill="rgba(0,87,255,0.12)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
-              <text x="126" y="43" text-anchor="middle" font-size="11" fill="#a0c0e0">API</text>
+              <text x="126" y="43" text-anchor="middle" font-size="13" fill="#a0c0e0">API</text>
               <rect x="160" y="30" width="56" height="18" rx="4" fill="rgba(0,87,255,0.12)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
-              <text x="188" y="43" text-anchor="middle" font-size="11" fill="#a0c0e0">Chat</text>
+              <text x="188" y="43" text-anchor="middle" font-size="13" fill="#a0c0e0">Chat</text>
               <line x1="36" y1="52" x2="36" y2="58" stroke="rgba(0,87,255,0.3)" stroke-width="1"/>
               <!-- Layer 2: 智能编排层 -->
               <rect x="24" y="60" width="312" height="68" rx="8" fill="#fff0f8" stroke="rgba(255,20,147,0.3)" stroke-width="1.2"/>
-              <text x="36" y="78" font-size="11" fill="#ff1493" font-weight="700">02 Agent Orchestration</text>
+              <text x="36" y="78" font-size="13" fill="#ff1493" font-weight="700">02 Agent Orchestration</text>
               <!-- Planner -->
               <rect x="36" y="84" width="64" height="38" rx="6" fill="rgba(255,20,147,0.15)" stroke="rgba(255,20,147,0.3)" stroke-width="0.8"/>
-              <text x="68" y="100" text-anchor="middle" font-size="11" fill="#ff6b9d" font-weight="700">Planner</text>
-              <text x="68" y="115" text-anchor="middle" font-size="8" fill="#b080a0">Decompose</text>
+              <text x="68" y="100" text-anchor="middle" font-size="13" fill="#ff6b9d" font-weight="700">Planner</text>
+              <text x="68" y="115" text-anchor="middle" font-size="12" fill="#b080a0">Decompose</text>
               <!-- Verifier -->
               <rect x="108" y="84" width="64" height="38" rx="6" fill="rgba(255,20,147,0.15)" stroke="rgba(255,20,147,0.3)" stroke-width="0.8"/>
-              <text x="140" y="100" text-anchor="middle" font-size="11" fill="#ff6b9d" font-weight="700">Verifier</text>
-              <text x="140" y="115" text-anchor="middle" font-size="8" fill="#b080a0">Audit·Check</text>
+              <text x="140" y="100" text-anchor="middle" font-size="13" fill="#ff6b9d" font-weight="700">Verifier</text>
+              <text x="140" y="115" text-anchor="middle" font-size="12" fill="#b080a0">Audit·Check</text>
               <!-- Router -->
               <rect x="180" y="84" width="64" height="38" rx="6" fill="rgba(255,20,147,0.15)" stroke="rgba(255,20,147,0.3)" stroke-width="0.8"/>
-              <text x="212" y="100" text-anchor="middle" font-size="11" fill="#ff6b9d" font-weight="700">Router</text>
-              <text x="212" y="115" text-anchor="middle" font-size="8" fill="#b080a0">Tool Route</text>
+              <text x="212" y="100" text-anchor="middle" font-size="13" fill="#ff6b9d" font-weight="700">Router</text>
+              <text x="212" y="115" text-anchor="middle" font-size="12" fill="#b080a0">Tool Route</text>
               <!-- LLM Core -->
               <rect x="252" y="84" width="74" height="38" rx="6" fill="rgba(0,87,255,0.1)" stroke="rgba(0,87,255,0.25)" stroke-width="0.8"/>
-              <text x="289" y="100" text-anchor="middle" font-size="11" fill="#0057ff" font-weight="700">LLM Core</text>
+              <text x="289" y="100" text-anchor="middle" font-size="13" fill="#0057ff" font-weight="700">LLM Core</text>
               <text x="289" y="115" text-anchor="middle" font-size="8.5" fill="#6b6b80">GPT-4 / DeepSeek</text>
               <!-- Arrows -->
               <line x1="100" y1="103" x2="108" y2="103" stroke="rgba(255,20,147,0.4)" stroke-width="1"/>
@@ -861,25 +861,25 @@
               <line x1="289" y1="128" x2="289" y2="134" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
               <!-- Layer 3: RAG + 知识层 -->
               <rect x="24" y="134" width="148" height="60" rx="8" fill="#eefdf9" stroke="rgba(0,201,167,0.3)" stroke-width="1.2"/>
-              <text x="34" y="150" font-size="11" fill="#00c9a7" font-weight="700">03 RAG Knowledge</text>
+              <text x="34" y="150" font-size="13" fill="#00c9a7" font-weight="700">03 RAG Knowledge</text>
               <rect x="32" y="156" width="56" height="16" rx="4" fill="rgba(0,201,167,0.1)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
               <text x="60" y="167" text-anchor="middle" font-size="9.5" fill="#6bd6b0">Embedding</text>
               <rect x="94" y="156" width="64" height="16" rx="4" fill="rgba(0,201,167,0.1)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
               <text x="126" y="167" text-anchor="middle" font-size="9.5" fill="#6bd6b0">Vector DB</text>
               <rect x="32" y="174" width="126" height="14" rx="4" fill="rgba(0,201,167,0.08)" stroke="rgba(0,201,167,0.15)" stroke-width="0.8"/>
               <text x="95" y="184" text-anchor="middle" font-size="8.5" fill="#6aa88a">Qdrant / Chroma / FAISS</text>
-              <!-- Layer 3b: MCP 工具层 -->
+              <!-- Layer 3b: MCP Tools层 -->
               <rect x="188" y="134" width="148" height="60" rx="8" fill="#fff0f8" stroke="rgba(255,20,147,0.3)" stroke-width="1.2"/>
-              <text x="198" y="150" font-size="11" fill="#ff1493" font-weight="700">04 MCP Tools</text>
+              <text x="198" y="150" font-size="13" fill="#ff1493" font-weight="700">04 MCP Tools</text>
               <rect x="196" y="156" width="56" height="16" rx="4" fill="rgba(255,20,147,0.1)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
               <text x="224" y="167" text-anchor="middle" font-size="9.5" fill="#ff8fab">FX</text>
               <rect x="258" y="156" width="64" height="16" rx="4" fill="rgba(255,20,147,0.1)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
               <text x="290" y="167" text-anchor="middle" font-size="9.5" fill="#ff8fab">Border</text>
               <rect x="196" y="174" width="126" height="14" rx="4" fill="rgba(255,20,147,0.08)" stroke="rgba(255,20,147,0.15)" stroke-width="0.8"/>
-              <text x="259" y="184" text-anchor="middle" font-size="8" fill="#b89040">Routing / MTR Schedule</text>
+              <text x="259" y="184" text-anchor="middle" font-size="12" fill="#b89040">Routing / MTR Schedule</text>
               <!-- Layer 5: 数据源 -->
               <rect x="24" y="200" width="312" height="40" rx="8" fill="rgba(0,87,255,0.02)" stroke="rgba(0,87,255,0.08)" stroke-width="0.8"/>
-              <text x="36" y="216" font-size="11" fill="#6b6b80" font-weight="700">05 Data Sources</text>
+              <text x="36" y="216" font-size="13" fill="#6b6b80" font-weight="700">05 Data Sources</text>
               <text x="80" y="216" font-size="9.5" fill="#6b6b80">HK Govt</text>
               <text x="130" y="216" font-size="9.5" fill="#6b6b80">Bank Rules</text>
               <text x="180" y="216" font-size="9.5" fill="#6b6b80">MTR Data</text>
@@ -925,12 +925,12 @@
               </defs>
               <!-- 用户查询入口 -->
               <rect x="130" y="10" width="100" height="28" rx="14" fill="rgba(0,87,255,0.1)" stroke="rgba(0,87,255,0.3)" stroke-width="1"/>
-              <text x="180" y="29" text-anchor="middle" font-size="11" fill="#0057ff" font-weight="600">👤 用户查询</text>
+              <text x="180" y="29" text-anchor="middle" font-size="13" fill="#0057ff" font-weight="600">👤 User Query</text>
               <line x1="180" y1="38" x2="180" y2="48" stroke="rgba(0,87,255,0.4)" stroke-width="1.5" marker-end="url(#af)"/>
               <!-- Planner -->
               <rect x="100" y="50" width="160" height="36" rx="8" fill="rgba(255,20,147,0.12)" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
-              <text x="180" y="64" text-anchor="middle" font-size="10" fill="#ff6b9d" font-weight="700">Planner · 任务拆解 &amp; 步骤规划</text>
-              <text x="180" y="78" text-anchor="middle" font-size="7" fill="#b080a0">意图识别 → 子任务分解 → 依赖排序</text>
+              <text x="180" y="64" text-anchor="middle" font-size="12" fill="#ff6b9d" font-weight="700">Planner: Decompose &amp; Plan</text>
+              <text x="180" y="78" text-anchor="middle" font-size="13" fill="#b080a0">Intent → Subtasks → Dependencies</text>
               <!-- Branch to 3 parallel tools -->
               <line x1="180" y1="86" x2="180" y2="98" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
               <line x1="180" y1="98" x2="60" y2="98" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
@@ -940,14 +940,14 @@
               <line x1="300" y1="98" x2="300" y2="108" stroke="rgba(255,20,147,0.3)" stroke-width="1" marker-end="url(#af-p)"/>
               <!-- Tools row -->
               <rect x="20" y="110" width="80" height="34" rx="6" fill="rgba(0,87,255,0.06)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
-              <text x="60" y="126" text-anchor="middle" font-size="9" fill="#6b9dff">RAG 检索</text>
-              <text x="60" y="138" text-anchor="middle" font-size="7" fill="#6b6b80">知识库查询</text>
+              <text x="60" y="126" text-anchor="middle" font-size="13" fill="#6b9dff">RAG Search</text>
+              <text x="60" y="138" text-anchor="middle" font-size="13" fill="#6b6b80">Knowledge Base</text>
               <rect x="140" y="110" width="80" height="34" rx="6" fill="rgba(0,201,167,0.06)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
-              <text x="180" y="126" text-anchor="middle" font-size="9" fill="#6bd6b0">MCP 工具</text>
-              <text x="180" y="138" text-anchor="middle" font-size="7" fill="#6b9d8b">实时数据调用</text>
+              <text x="180" y="126" text-anchor="middle" font-size="13" fill="#6bd6b0">MCP Tools</text>
+              <text x="180" y="138" text-anchor="middle" font-size="13" fill="#6b9d8b">Real-time API</text>
               <rect x="260" y="110" width="80" height="34" rx="6" fill="rgba(255,20,147,0.06)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-              <text x="300" y="126" text-anchor="middle" font-size="9" fill="#ff8fab">LLM 推理</text>
-              <text x="300" y="138" text-anchor="middle" font-size="7" fill="#b080a0">逻辑推理</text>
+              <text x="300" y="126" text-anchor="middle" font-size="13" fill="#ff8fab">LLM Core</text>
+              <text x="300" y="138" text-anchor="middle" font-size="13" fill="#b080a0">Reasoning</text>
               <!-- Converge to Verifier -->
               <line x1="60" y1="144" x2="60" y2="154" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
               <line x1="180" y1="144" x2="180" y2="154" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
@@ -956,15 +956,15 @@
               <line x1="180" y1="154" x2="180" y2="162" stroke="rgba(255,20,147,0.3)" stroke-width="1" marker-end="url(#af-p)"/>
               <!-- Verifier -->
               <rect x="100" y="164" width="160" height="34" rx="8" fill="rgba(0,201,167,0.1)" stroke="rgba(0,201,167,0.3)" stroke-width="1"/>
-              <text x="180" y="178" text-anchor="middle" font-size="10" fill="#00c9a7" font-weight="700">Verifier · 合规审查 &amp; 逻辑校验</text>
-              <text x="180" y="192" text-anchor="middle" font-size="7" fill="#6aa88a">幻觉检测 → 合规检查 → 依据溯源</text>
+              <text x="180" y="178" text-anchor="middle" font-size="12" fill="#00c9a7" font-weight="700">Verifier: Audit &amp; Validate</text>
+              <text x="180" y="192" text-anchor="middle" font-size="13" fill="#6aa88a">Anti-Hallucination → Compliance → Trace</text>
               <!-- Feedback loop -->
               <path d="M 100 181 Q 16 181 16 68 Q 16 55 100 68" fill="none" stroke="rgba(255,20,147,0.3)" stroke-width="1" stroke-dasharray="3 3"/>
-              <text x="8" y="128" font-size="7" fill="#ff8fab" transform="rotate(-90,8,128)">反馈修正</text>
+              <text x="8" y="128" font-size="13" fill="#ff8fab" transform="rotate(-90,8,128)">Fallback/Retry</text>
               <!-- Output -->
               <line x1="180" y1="198" x2="180" y2="210" stroke="rgba(0,201,167,0.4)" stroke-width="1.5" marker-end="url(#af)"/>
               <rect x="110" y="212" width="140" height="24" rx="12" fill="rgba(0,87,255,0.08)" stroke="rgba(0,87,255,0.2)" stroke-width="1"/>
-              <text x="180" y="228" text-anchor="middle" font-size="10" fill="#0057ff" font-weight="700">✅ 可执行方案输出</text>
+              <text x="180" y="228" text-anchor="middle" font-size="12" fill="#0057ff" font-weight="700">✅ Final Executable Plan</text>
             </svg>
           </div>
         </div>
@@ -996,37 +996,37 @@
                 </div>
             </div>
             <div class="diagram-shell">
-              <div class="diagram-title">RAG 检索链路 · 从数据采集到检索增强</div>
-              <svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" aria-label="RAG 检索链路">
+              <div class="diagram-title">RAG Search链路 · 从数据采集到检索增强</div>
+              <svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" aria-label="RAG Search链路">
                 <defs>
                   <marker id="ar-rag" markerWidth="6" markerHeight="6" refX="4" refY="2" orient="auto"><path d="M0,0 L0,4 L5,2 z" fill="#0057ff"/></marker>
                 </defs>
                 <!-- 数据采集 -->
                 <rect x="8" y="8" width="82" height="52" rx="8" fill="rgba(0,87,255,0.04)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
-                <text x="49" y="28" text-anchor="middle" font-size="9" fill="#7a9dd8">📥 数据采集</text>
-                <text x="49" y="46" text-anchor="middle" font-size="7" fill="#6b6b80">爬虫 / API / PDF</text>
+                <text x="49" y="28" text-anchor="middle" font-size="13" fill="#7a9dd8">📥 Data Collection</text>
+                <text x="49" y="46" text-anchor="middle" font-size="13" fill="#6b6b80">Crawler / API / PDF</text>
                 <line x1="90" y1="34" x2="104" y2="34" stroke="rgba(0,87,255,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- 数据处理 -->
                 <rect x="106" y="8" width="82" height="52" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-                <text x="147" y="28" text-anchor="middle" font-size="9" fill="#d8a0c0">🔧 处理</text>
-                <text x="147" y="46" text-anchor="middle" font-size="7" fill="#7a5a90">清洗 / 切分 / 去重</text>
+                <text x="147" y="28" text-anchor="middle" font-size="13" fill="#d8a0c0">🔧 Processing</text>
+                <text x="147" y="46" text-anchor="middle" font-size="13" fill="#7a5a90">Clean / Chunk / Dedupe</text>
                 <line x1="188" y1="34" x2="202" y2="34" stroke="rgba(255,20,147,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- Embedding -->
                 <rect x="204" y="8" width="82" height="52" rx="8" fill="rgba(0,201,167,0.04)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
-                <text x="245" y="28" text-anchor="middle" font-size="9" fill="#80c8a0">🧠 Embedding</text>
-                <text x="245" y="46" text-anchor="middle" font-size="7" fill="#6b9d8b">向量化处理</text>
+                <text x="245" y="28" text-anchor="middle" font-size="13" fill="#80c8a0">🧠 Embedding</text>
+                <text x="245" y="46" text-anchor="middle" font-size="13" fill="#6b9d8b">Embedding</text>
                 <line x1="286" y1="34" x2="300" y2="34" stroke="rgba(0,201,167,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- Vector DB -->
                 <rect x="302" y="8" width="50" height="52" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-                <text x="327" y="28" text-anchor="middle" font-size="9" fill="#ff8fab">🗄️</text>
-                <text x="327" y="46" text-anchor="middle" font-size="7" fill="#b080a0">向量库</text>
+                <text x="327" y="28" text-anchor="middle" font-size="13" fill="#ff8fab">🗄️</text>
+                <text x="327" y="46" text-anchor="middle" font-size="13" fill="#b080a0">Vector DB</text>
                 <!-- 检索阶段 -->
                 <rect x="30" y="76" width="300" height="34" rx="8" fill="rgba(0,87,255,0.03)" stroke="rgba(0,87,255,0.12)" stroke-width="0.8"/>
-                <text x="60" y="97" font-size="8" fill="#7a9dd8">🔍 检索阶段：</text>
-                <text x="128" y="97" font-size="8" fill="#6b6b80">Query → 向量召回 → 重排序 → 上下文组装</text>
+                <text x="60" y="97" font-size="12" fill="#7a9dd8">🔍 Retrieval Stage:</text>
+                <text x="128" y="97" font-size="12" fill="#6b6b80">Query → Vector Recall → Rerank → Context Assembly</text>
                 <!-- 评估 -->
                 <rect x="60" y="120" width="240" height="32" rx="8" fill="rgba(0,201,167,0.05)" stroke="rgba(0,201,167,0.15)" stroke-width="0.8"/>
-                <text x="115" y="140" font-size="8" fill="#80c8a0">📊 评估指标：Hit Rate / MRR</text>
+                <text x="115" y="140" font-size="12" fill="#80c8a0">📊 Metrics: Hit Rate / MRR</text>
               </svg>
             </div>
           </div>
@@ -1036,9 +1036,9 @@
     </section>
 
     <section class="slide" aria-label="MCP工具">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>MCP 工具层</div><div class="page">09 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>MCP Tools层</div><div class="page">09 / 12</div></div>
       <div class="content">
-        <h2>MCP 工具层：把信息转成行动<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">MCP Tools: Translating Info into Action</span></h2>
+        <h2>MCP Tools层：把信息转成行动<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">MCP Tools: Translating Info into Action</span></h2>
         <div class="cols-2">
           <div class="panel">
             <h3>核心能力<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Core Capabilities</span></h3>
@@ -1182,13 +1182,13 @@
             <h3>需要支持的方向</h3>
             <ul class="list">
               <li>数据源对接授权与合规咨询。</li>
-              <li>MCP 工具开发与实时接口方案。</li>
+              <li>MCP Tools开发与实时接口方案。</li>
               <li>测试环境与算力资源。</li>
             </ul>
           </div>
         </div>
         <div class="callout" style="border-left-color:var(--accent);background:rgba(0,87,255,0.04);">
-          <b>总结：</b>通用 LLM 难以覆盖跨境实时政策与合规要求——<b>SZ-HK Hub</b> 以多智能体 + RAG + MCP 构建专业决策闭环，让跨境生活更准确、更实时、更合规。
+          <b>总结：</b>General LLM 难以覆盖跨境实时政策与合规要求——<b>SZ-HK Hub</b> 以多智能体 + RAG + MCP 构建专业决策闭环，让跨境生活更准确、更实时、更合规。
         </div>
       </div>
       <div class="footer"><span><b>请求：</b>请支持开题与资源协同</span><span>谢谢 · 期待反馈</span></div>
