@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SZ-HK Hub 开题报告</title>
+  <title>SZ-HK Hub Proposal</title>
   <style>
     :root {
       --bg: #f9f9fc;
@@ -26,7 +26,7 @@
       padding: 0;
       background: var(--bg);
       color: var(--ink);
-      font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", "Inter", sans-serif;
+      font-family: "Inter", "Helvetica Neue", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", "Inter", sans-serif;
     }
 
     .deck {
@@ -577,42 +577,42 @@
   <main class="deck">
     <section class="slide cover-slide" aria-label="封面">
       <div class="cover-bg" aria-hidden="true"></div>
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>开题报告</div><div class="page">01 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Proposal</div><div class="page">01 / 12</div></div>
       <div class="content">
         <div class="cover-hero">
           <div>
             <p class="eyebrow">Proposal 2026</p>
             <h1>SZ-HK Hub</h1>
-            <h2 style="border:none;padding-left:0;">深港跨境专业生活助手<br><span style="font-size:0.6em;color:var(--muted)">Cross-border Professional Life Assistant</span></h2>
-            <p class="lead">面向跨境金融、文旅活动与政策通关的垂直领域智能决策助手。<br><span style="font-size:0.8em;color:var(--muted)">Vertical intelligent decision assistant for finance, events, and border policies.</span></p>
+            <h2 style="border:none;padding-left:0;">Cross-border Professional Life Assistant<br><span style="font-size:0.6em;color:var(--muted);font-weight:500;">深港跨境专业决策助手</span><br><span style="font-size:0.6em;color:var(--muted)">Cross-border Professional Life Assistant</span></h2>
+            <p class="lead">Vertical intelligent decision assistant for finance, events, and border policies.<br><span style="font-size:0.85em;color:var(--muted)">面向跨境金融、文旅活动与政策通关的垂直领域智能决策助手</span></p>
             <div class="chips">
-              <span class="chip">多智能体协作</span>
-              <span class="chip">高级 RAG</span>
-              <span class="chip">实时工具调用</span>
+              <span class="chip">Multi-Agent</span>
+              <span class="chip">Advanced RAG</span>
+              <span class="chip">Real-time MCP Tools</span>
             </div>
-            <div class="callout">目标：把“能回答”升级为“能决策、可验证、可合规”。</div>
+            <div class="callout"><b>Goal:</b> Upgrade from "can answer" to "can decide, verify, and comply." (能决策、可验证、可合规)</div>
           </div>
         </div>
       </div>
-      <div class="footer"><span><b>主题词：</b>跨境生活 / 合规决策 / 双城协同</span><span>版本 1.0.0</span></div>
+      <div class="footer"><span><b>Keywords:</b> Cross-border / Compliance / Synergy</span><span>Ver 1.0.0</span></div>
     </section>
 
     <section class="slide" aria-label="背景痛点">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>背景与痛点</div><div class="page">02 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Background & Pain Points</div><div class="page">02 / 12</div></div>
       <div class="content">
-        <h2>现实挑战：信息碎片、实时性差、合规风险高<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Challenges: Fragmented Info, Poor Timeliness, High Compliance Risk</span></h2>
+        <h2>Challenges: Fragmented Info, Poor Timeliness, High Compliance Risk<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">现实挑战：信息碎片、实时性差、合规风险高</span></h2>
         <div class="cols-2">
           <div class="panel">
             <ul class="list">
-              <li>政策、口岸、金融服务更新频繁，用户难以持续跟踪。<br><span style="font-size:0.85em;color:var(--muted)">Frequent policy updates make tracking difficult.</span></li>
-              <li>实时数据（汇率、人流、班次）缺失导致决策失误。<br><span style="font-size:0.85em;color:var(--muted)">Lack of real-time data leads to poor decisions.</span></li>
-              <li>跨境金融合规边界模糊，General LLM 容易产生幻觉。<br><span style="font-size:0.85em;color:var(--muted)">LLM hallucination on obscure cross-border compliance.</span></li>
-              <li>跨域信息分散在政府、银行、交通与活动平台。<br><span style="font-size:0.85em;color:var(--muted)">Information is scattered across isolated platforms.</span></li>
+              Frequent policy updates make tracking difficult.<br><span style="font-size:0.85em;color:var(--muted)">政策、口岸、金融服务更新频繁，用户难以持续跟踪。</span>
+              Lack of real-time data leads to poor decisions.<br><span style="font-size:0.85em;color:var(--muted)">实时数据（汇率、人流、班次）缺失导致决策失误。</span>
+              LLM hallucination on obscure cross-border compliance.<br><span style="font-size:0.85em;color:var(--muted)">跨境金融合规边界模糊，General LLM 容易产生幻觉。</span>
+              Information is scattered across isolated platforms.<br><span style="font-size:0.85em;color:var(--muted)">跨域信息分散在政府、银行、交通与活动平台。</span>
             </ul>
           </div>
           <div class="diagram-shell">
-            <div class="diagram-title">港深双城痛点示意</div>
-            <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="港深双城痛点示意">
+            <div class="diagram-title">SZ-HK Pain Points Overview</div>
+            <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="SZ-HK Pain Points Overview">
               <defs>
                 <filter id="g-b"><feGaussianBlur stdDeviation="1"/></filter>
               </defs>
@@ -647,29 +647,29 @@
             </svg>
           </div>
         </div>
-        <div class="callout">问题本质：缺一个“跨境专业决策中枢”。</div>
+        <div class="callout"><b>Core Issue:</b> Missing a specialized "Cross-Border Decision Hub."</div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>先抛出现实痛点，再强调General LLM 的局限</span><span>时长 45 秒</span></div>
     </section>
 
     <section class="slide" aria-label="目标定位">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>目标与定位</div><div class="page">03 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Goals & Positioning</div><div class="page">03 / 12</div></div>
       <div class="content">
-        <h2>为什么要做“跨境Domain Agent”？<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Why Build a Domain-Specific Agent?</span></h2>
+        <h2>Why Build a Domain-Specific Agent?<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">为什么要构建垂直领域的跨境 Agent？</span></h2>
         <div class="cols-2">
           <div class="panel">
-            <h3>产品定位<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Product Positioning</span></h3>
-            <p>面向跨境决策的垂直领域助手，聚焦“金融合规 + 出行 + 活动”。<br><span style="font-size:0.85em;color:var(--muted)">Vertical assistant focused on financial compliance, travel routing, and event planning.</span></p>
-            <h3>核心目标<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Core Goals</span></h3>
+            <h3>Product Positioning<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 产品定位</span></h3>
+            Vertical assistant focused on financial compliance, travel routing, and event planning.<br><span style="font-size:0.85em;color:var(--muted)">面向跨境决策的垂直领域助手，聚焦“金融合规 + 出行 + 活动”。</span>
+            <h3>Core Goals<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 核心目标</span></h3>
             <ul class="list">
-              <li>准确：基于权威数据源，减少幻觉。<br><span style="font-size:0.85em;color:var(--muted)">Accuracy: Authoritative sources reduce hallucinations.</span></li>
-              <li>实时：接入动态数据与实时工具。<br><span style="font-size:0.85em;color:var(--muted)">Real-time: Plug into dynamic tools and data.</span></li>
-              <li>合规：提供风险提示与边界提醒。<br><span style="font-size:0.85em;color:var(--muted)">Compliance: Output clear risk and boundary alerts.</span></li>
-              <li>可验证：输出依据可追溯。<br><span style="font-size:0.85em;color:var(--muted)">Verifiable: Traceable output evidence.</span></li>
+              Accuracy: Authoritative sources reduce hallucinations.<br><span style="font-size:0.85em;color:var(--muted)">准确：基于权威Data Sources，减少幻觉。</span>
+              Real-time: Plug into dynamic tools and data.<br><span style="font-size:0.85em;color:var(--muted)">实时：接入动态数据与实时工具。</span>
+              Compliance: Output clear risk and boundary alerts.<br><span style="font-size:0.85em;color:var(--muted)">合规：提供风险提示与边界提醒。</span>
+              Verifiable: Traceable output evidence.<br><span style="font-size:0.85em;color:var(--muted)">可验证：输出依据可追溯。</span>
             </ul>
           </div>
           <div class="diagram-shell">
-            <div class="diagram-title">通用模型 → 专业决策助手</div>
+            <div class="diagram-title">General LLM → Domain Assistant</div>
             <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="通用到专业">
               <defs>
                 <filter id="g-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -698,82 +698,82 @@
             </svg>
           </div>
         </div>
-        <div class="callout">定位一句话：跨境决策不只是“答案”，而是“可执行方案”。</div>
+        <div class="callout"><b>Positioning:</b> Cross-border planning is not just "answers", but "executable solutions."</div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>强调“垂直+可验证”的差异化</span><span>时长 45 秒</span></div>
     </section>
 
     <section class="slide" aria-label="用户画像">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>用户画像与场景</div><div class="page">04 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>User Personas & Scenarios</div><div class="page">04 / 12</div></div>
       <div class="content spread-content">
-        <h2>核心用户与高频跨境场景<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Target Users & High-Frequency Scenarios</span></h2>
+        <h2>Target Users & High-Frequency Scenarios<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">核心用户与高频跨境全覆盖场景</span></h2>
         <div class="cols-3">
           <div class="panel">
-            <h3>跨境金融人群<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Finance Users</span></h3>
-            <p>关注开户流程、合规限制与资产配置。<br><span style="font-size:0.85em;color:var(--muted)">Focus on account opening & regulations.</span></p>
+            <h3>Finance Users<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 金融客群</span></h3>
+            Focus on account opening & regulations.<br><span style="font-size:0.85em;color:var(--muted)">关注开户流程、合规限制与资产配置。</span>
           </div>
           <div class="panel">
-            <h3>文旅活动人群<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Event Goers</span></h3>
-            <p>需要快速获取活动信息与路线规划。<br><span style="font-size:0.85em;color:var(--muted)">Require quick event info & conflict detection.</span></p>
+            <h3>Event Goers<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 演艺活动人群</span></h3>
+            Require quick event info & conflict detection.<br><span style="font-size:0.85em;color:var(--muted)">需要快速获取活动信息与路线规划。</span>
           </div>
           <div class="panel">
-            <h3>通勤商务人群<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Commuters</span></h3>
-            <p>高频过关、重视通关效率与最优决策。<br><span style="font-size:0.85em;color:var(--muted)">Value routing efficiency & border flow.</span></p>
+            <h3>Commuters<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 通勤商务人群</span></h3>
+            Value routing efficiency & border flow.<br><span style="font-size:0.85em;color:var(--muted)">高频过关、重视通关效率与最优决策。</span>
           </div>
         </div>
         <div class="image-row" style="margin-top:12px;">
           <div class="image-card">
             <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg'); background-position:center top;">
               <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
-                <strong style="font-size:13px; color:#fff;">图4.1 跨境金融服务</strong>
+                <strong style="font-size:13px; color:#fff;">Fig 4.1 Cross-border Finance</strong>
               </div>
             </div>
           </div>
           <div class="image-card">
             <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg');">
               <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
-                <strong style="font-size:13px; color:#fff;">图4.2 文旅活动</strong>
+                <strong style="font-size:13px; color:#fff;">Fig 4.2 Events & Arts</strong>
               </div>
             </div>
           </div>
           <div class="image-card">
             <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/33897861/pexels-photo-33897861.jpeg');">
               <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
-                <strong style="font-size:13px; color:#fff;">图4.3 通勤场景</strong>
+                <strong style="font-size:13px; color:#fff;">Fig 4.3 Daily Commute</strong>
               </div>
             </div>
           </div>
         </div>
 
         <div class="panel light">
-          <h3>典型场景</h3>
-          <p>“去西九龙看演唱会并顺便开户”——跨场景需求需要拆解、验证、并行处理。</p>
+          <h3>Typical Scenario</h3>
+          <p>"Go to West Kowloon for a concert & open a bank account" — cross-domain routing requires decomposition, verification, and parallel execution.</p>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>用一个真实用户故事快速建立共鸣</span><span>时长 40 秒</span></div>
     </section>
 
     <section class="slide" aria-label="核心功能">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>核心功能</div><div class="page">05 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Core Functions</div><div class="page">05 / 12</div></div>
       <div class="content spread-content">
-        <h2>三大能力模块，覆盖跨境决策全链路<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">3 Core Modules: Full-Link Cross-Border Decision Making</span></h2>
+        <h2>3 Core Modules: Full-Link Decision Stack<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">三大能力模块，覆盖跨境决策全链路</span></h2>
         <div class="cols-3">
           <div class="panel">
-            <h3>跨境金融导航<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Finance Guide</span></h3>
-            <p>基于最新 RAG 知识库输出开户指南与合规建议。<br><span style="font-size:0.85em;color:var(--muted)">Provide account setup guides & compliance alerts using RAG.</span></p>
+            <h3>Finance Guide<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 跨境金融导航</span></h3>
+            Provide account setup guides & compliance alerts using RAG.<br><span style="font-size:0.85em;color:var(--muted)">基于最新 RAG 知识库输出开户指南与合规建议。</span>
           </div>
           <div class="panel">
-            <h3>活动自动化<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Event Automation</span></h3>
-            <p>自动解析海报与官网信息，完成日程冲突检测。<br><span style="font-size:0.85em;color:var(--muted)">Parse posters/websites automatically for conflict detection.</span></p>
+            <h3>Event Automation<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 活动冲突检测</span></h3>
+            Parse posters/websites automatically for conflict detection.<br><span style="font-size:0.85em;color:var(--muted)">自动解析海报与官网信息，完成日程冲突检测。</span>
           </div>
           <div class="panel">
-            <h3>实时决策支持<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Real-time Support</span></h3>
-            <p>接入汇率、口岸人流、港铁班次，推荐最优路径。<br><span style="font-size:0.85em;color:var(--muted)">Fetch real-time FX, border flow, and MRT schedules for routing.</span></p>
+            <h3>Real-time Support<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 实时决策支持</span></h3>
+            Fetch real-time FX, border flow, and MRT schedules for routing.<br><span style="font-size:0.85em;color:var(--muted)">接入汇率、口岸人流、港铁班次，推荐最优路径。</span>
           </div>
         </div>
         <div class="diagram-shell">
-          <div class="diagram-title">功能模块总览</div>
-          <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="功能模块总览">
+          <div class="diagram-title">Module Overview</div>
+          <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="Module Overview">
             <!-- 中心枢纽 -->
             <circle cx="180" cy="120" r="40" fill="rgba(0,87,255,0.08)" stroke="rgba(0,87,255,0.3)" stroke-width="1.5"/>
             <circle cx="180" cy="120" r="28" fill="rgba(0,87,255,0.05)" stroke="rgba(0,87,255,0.15)" stroke-width="0.8"/>
@@ -806,21 +806,21 @@
     </section>
 
     <section class="slide" aria-label="技术架构">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>技术架构</div><div class="page">06 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Technical Architecture</div><div class="page">06 / 12</div></div>
       <div class="content">
-        <h2>技术架构：多智能体 + RAG + MCP<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Technical Architecture: Multi-Agent + RAG + MCP Plugins</span></h2>
+        <h2>Technical Architecture: Agent + RAG + MCP<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">技术架构组合与插件调度体系</span></h2>
         <div class="cols-2">
           <div class="panel">
             <ul class="list">
-              <li>Planner Agent：任务拆解、步骤规划。<br><span style="font-size:0.85em;color:var(--muted)">Task decomposition and planning.</span></li>
-              <li>Verifier Agent：反思审查、合规校验。<br><span style="font-size:0.85em;color:var(--muted)">Self-reflection and compliance auditing.</span></li>
-              <li>高级 RAG：动态数据源与检索评估。<br><span style="font-size:0.85em;color:var(--muted)">Advanced RAG with dynamic source evaluation.</span></li>
-              <li>MCP Server：封装核心实时小工具。<br><span style="font-size:0.85em;color:var(--muted)">Encapsulated real-time tools via MCP protocols.</span></li>
-              <li>Safety Guardrails：敏感词与合规红线。<br><span style="font-size:0.85em;color:var(--muted)">Safety guardrails for sensitive info.</span></li>
+              Task decomposition and planning.<br><span style="font-size:0.85em;color:var(--muted)">Planner Agent：任务拆解、步骤规划。</span>
+              Self-reflection and compliance auditing.<br><span style="font-size:0.85em;color:var(--muted)">Verifier Agent：反思审查、合规校验。</span>
+              Advanced RAG with dynamic source evaluation.<br><span style="font-size:0.85em;color:var(--muted)">Advanced RAG：动态Data Sources与检索评估。</span>
+              Encapsulated real-time tools via MCP protocols.<br><span style="font-size:0.85em;color:var(--muted)">MCP Server：封装核心实时小工具。</span>
+              Safety guardrails for sensitive info.<br><span style="font-size:0.85em;color:var(--muted)">Safety Guardrails：敏感词与合规红线。</span>
             </ul>
           </div>
           <div class="diagram-shell">
-            <div class="diagram-title">全栈技术架构 · LLM 应用技术栈总览</div>
+            <div class="diagram-title">Full-Stack Architecture Overview</div>
             <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg" aria-label="LLM全栈技术架构">
               <defs>
                 <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -877,7 +877,7 @@
               <text x="290" y="167" text-anchor="middle" font-size="9.5" fill="#ff8fab">Border</text>
               <rect x="196" y="174" width="126" height="14" rx="4" fill="rgba(255,20,147,0.08)" stroke="rgba(255,20,147,0.15)" stroke-width="0.8"/>
               <text x="259" y="184" text-anchor="middle" font-size="12" fill="#b89040">Routing / MTR Schedule</text>
-              <!-- Layer 5: 数据源 -->
+              <!-- Layer 5: Data Sources -->
               <rect x="24" y="200" width="312" height="40" rx="8" fill="rgba(0,87,255,0.02)" stroke="rgba(0,87,255,0.08)" stroke-width="0.8"/>
               <text x="36" y="216" font-size="13" fill="#6b6b80" font-weight="700">05 Data Sources</text>
               <text x="80" y="216" font-size="9.5" fill="#6b6b80">HK Govt</text>
@@ -897,27 +897,27 @@
             </svg>
           </div>
         </div>
-        <div class="callout">架构原则：信息可追溯、流程可回放、建议可审查。</div>
+        <div class="callout"><b>Architecture Principles:</b> Traceable info, replayable workflow, auditable advice.</div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>强调“工具层 + 合规层”是差异化壁垒</span><span>时长 50 秒</span></div>
     </section>
 
     <section class="slide" aria-label="Agent流程">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Agent 工作流</div><div class="page">07 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Agent Workflow</div><div class="page">07 / 12</div></div>
       <div class="content">
-        <h2>Agent 工作流机制<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Agent Workflow: Decompose → Call → Verify</span></h2>
+        <h2>Agent Workflow: Decompose → Route → Verify<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Agent 智能体核心工作流机制</span></h2>
         <div class="cols-2">
           <div class="panel">
-            <h3>协作优势<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Workflow Advantages</span></h3>
+            <h3>Workflow Advantages<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 协作优势</span></h3>
             <ul class="list">
-              <li>复杂任务可拆解为并行子任务。<br><span style="font-size:0.85em;color:var(--muted)">Decompose complex needs into parallel queries.</span></li>
-              <li>实时工具调用，减少模型幻觉。<br><span style="font-size:0.85em;color:var(--muted)">Real-time tools replace pure LLM hallucination.</span></li>
-              <li>独立 Verifier 负责合规自检。<br><span style="font-size:0.85em;color:var(--muted)">Stand-alone Verifier for safety verification.</span></li>
-              <li>输出包含依据来源，便于用户复核。<br><span style="font-size:0.85em;color:var(--muted)">Evidence-backed outputs build trust.</span></li>
+              Decompose complex needs into parallel queries.<br><span style="font-size:0.85em;color:var(--muted)">复杂任务可拆解为并行子任务。</span>
+              Real-time tools replace pure LLM hallucination.<br><span style="font-size:0.85em;color:var(--muted)">Real-time MCP Tools，减少模型幻觉。</span>
+              Stand-alone Verifier for safety verification.<br><span style="font-size:0.85em;color:var(--muted)">独立 Verifier 负责合规自检。</span>
+              Evidence-backed outputs build trust.<br><span style="font-size:0.85em;color:var(--muted)">输出包含依据来源，便于用户复核。</span>
             </ul>
           </div>
           <div class="diagram-shell">
-            <div class="diagram-title">多 Agent 协作流程 · 从用户查询到可执行方案</div>
+            <div class="diagram-title">Multi-Agent Workflow: From Query to Plan</div>
             <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="Agent 协作流程">
               <defs>
                 <marker id="af" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#0057ff"/></marker>
@@ -968,35 +968,35 @@
             </svg>
           </div>
         </div>
-        <div class="callout">协作机制确保输出“可执行、可审计、可纠错”。</div>
+        <div class="callout"><b>Mechanism:</b> Ensures outputs are executable, auditable, and self-correcting.</div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>用具体任务举例（如开户 + 活动 + 通关）</span><span>时长 45 秒</span></div>
     </section>
 
     <section class="slide" aria-label="RAG数据">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>RAG 数据与评估</div><div class="page">08 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>RAG Data & Evaluation</div><div class="page">08 / 12</div></div>
       <div class="content">
-        <h2>RAG：合规与知识底座<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">RAG: The Baseline of Trust and Rules</span></h2>
+        <h2>RAG: The Baseline of Trust & Compliance<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">RAG 架构：合规与知识可信底座</span></h2>
         <div class="cols-2">
           <div class="panel">
-            <h3>数据源<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Data Sources</span></h3>
+            <h3>Data Sources<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 数据源</span></h3>
             <ul class="list">
-              <li>香港特区政府政策与通关指南。</li>
-              <li>ZA Bank 等数字银行开户与合规说明。</li>
-              <li>港铁/MTR 官方时刻与公告。</li>
-              <li>专业论坛与动态 PDF 资料。</li>
+              <li>HK Govt Policies & Border Guidelines.<br><span style="font-size:0.85em;color:var(--muted)">香港特区政府政策与通关指南</span></li>
+              <li>Virtual Banks Setup & Compliance.<br><span style="font-size:0.85em;color:var(--muted)">ZA Bank 等数字银行开户与合规说明</span></li>
+              <li>MTR Official Schedules & Notices.<br><span style="font-size:0.85em;color:var(--muted)">港铁官方时刻与动态公告</span></li>
+              <li>Professional Forums & Dynamic PDFs.<br><span style="font-size:0.85em;color:var(--muted)">垂直跨境论坛与专业指南文档</span></li>
             </ul>
           </div>
           <div class="stack">
             <div class="photo-slot wide" style="padding:0; overflow:hidden;">
                 <div class="image-fill" style="background-image:url('image1.png'); min-height:160px;">
                   <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:12px; border-radius:8px; margin:12px;">
-                    <strong style="font-size:15px; color:#fff; display:block;">图5 数据源入口截图</strong>
+                    <strong style="font-size:15px; color:#fff; display:block;">图5 Data Sources入口截图</strong>
                   </div>
                 </div>
             </div>
             <div class="diagram-shell">
-              <div class="diagram-title">RAG Search链路 · 从数据采集到检索增强</div>
+              <div class="diagram-title">RAG Pipeline: From Ingestion to Retrieval</div>
               <svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" aria-label="RAG Search链路">
                 <defs>
                   <marker id="ar-rag" markerWidth="6" markerHeight="6" refX="4" refY="2" orient="auto"><path d="M0,0 L0,4 L5,2 z" fill="#0057ff"/></marker>
@@ -1036,17 +1036,17 @@
     </section>
 
     <section class="slide" aria-label="MCP工具">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>MCP Tools层</div><div class="page">09 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>MCP Tools Layer</div><div class="page">09 / 12</div></div>
       <div class="content">
-        <h2>MCP Tools层：把信息转成行动<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">MCP Tools: Translating Info into Action</span></h2>
+        <h2>MCP Tools: Translating Info into Action<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">MCP 工具层：跨域服务的实时调用抽象</span></h2>
         <div class="cols-2">
           <div class="panel">
-            <h3>核心能力<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Core Capabilities</span></h3>
+            <h3>Core Capabilities<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 核心能力</span></h3>
             <ul class="list">
-              <li>实时汇率转换与支付建议。<br><span style="font-size:0.85em;color:var(--muted)">Real-time FX & Payment advice.</span></li>
-              <li>口岸人流量与排队预测。<br><span style="font-size:0.85em;color:var(--muted)">Border crossing flow & queue prediction.</span></li>
-              <li>Google Maps 路径规划。<br><span style="font-size:0.85em;color:var(--muted)">Transit & pedestrian route planning.</span></li>
-              <li>港铁班次与末班车提醒。<br><span style="font-size:0.85em;color:var(--muted)">MTR schedules and last-train alerts.</span></li>
+              Real-time FX & Payment advice.<br><span style="font-size:0.85em;color:var(--muted)">实时汇率转换与支付建议。</span>
+              Border crossing flow & queue prediction.<br><span style="font-size:0.85em;color:var(--muted)">口岸人流量与排队预测。</span>
+              Transit & pedestrian route planning.<br><span style="font-size:0.85em;color:var(--muted)">Google Maps 路径规划。</span>
+              MTR schedules and last-train alerts.<br><span style="font-size:0.85em;color:var(--muted)">港铁班次与末班车提醒。</span>
             </ul>
             <div class="chips">
               <span class="chip">FX Rate</span>
@@ -1058,7 +1058,7 @@
           <div class="stack">
             <div class="photo-slot wide" style="padding:12px;">
               <div class="diagram-shell" style="padding:12px;">
-                <div class="diagram-title large">实时数据流概念</div>
+                <div class="diagram-title large">Real-Time Data Streaming via MCP</div>
                 <svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" aria-label="MCP 实时数据流示意" style="width:100%; height:320px;">
                   <defs>
                     <marker id="arrow-big" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L8,4 z" fill="#0057ff"/></marker>
@@ -1095,10 +1095,10 @@
 
                   <text x="325" y="132" font-size="14" fill="#6b6b80">Pipeline</text>
                 </svg>
-                <div style="font-size:13px; color:var(--muted); margin-top:8px;">图注：用更大的节点和更少的文字展示完整数据流逻辑。</div>
+                <div style="font-size:13px; color:var(--muted); margin-top:8px;">Note: End-to-end info flow from Query to Verified Route.</div>
               </div>
             </div>
-            <div class="callout">输出结果可直接给出“通关时间 + 路线 + 支付方案”。</div>
+            <div class="callout"><b>Output:</b> Tangible combo of "Clearance Time + Route + Payment Schema."</div>
           </div>
         </div>
       </div>
@@ -1106,59 +1106,59 @@
     </section>
 
     <section class="slide" aria-label="测试策略">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>TDD-for-AI</div><div class="page">10 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>TDD for AI</div><div class="page">10 / 12</div></div>
       <div class="content">
-        <h2>测试：保障模型可控性<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Testing: Guarantee AI Controllability</span></h2>
+        <h2>Testing: Guaranteeing Controllability<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">多维联合测试，确保输出安全、可复现</span></h2>
         <div class="cols-3">
           <div class="panel">
-            <h3>检索准确性测试<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Retrieval QA Test</span></h3>
+            <h3>Retrieval QA Test<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 检索准确性测试</span></h3>
             <p>验证问题下 RAG 返回片段。<br><span style="font-size:0.85em;color:var(--muted);">Verify proper document hit for query.</span></p>
           </div>
           <div class="panel">
-            <h3>路径轨迹测试<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Tracing Test</span></h3>
+            <h3>Workflow Tracing<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 路径轨迹校验</span></h3>
             <p>记录并校验调用工具。<br><span style="font-size:0.85em;color:var(--muted);">Validate tools using logic trace.</span></p>
           </div>
           <div class="panel">
-            <h3>Ollama 本地回退<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| Fallback Test</span></h3>
+            <h3>Local Fallback<span style="font-size:0.7em;font-weight:400;color:var(--muted);margin-left:8px;">| 离线状态回退</span></h3>
             <p>无 API 时保持基础问答。<br><span style="font-size:0.85em;color:var(--muted);">Keep simple chat logic w/o API.</span></p>
           </div>
         </div>
         <div class="panel light">
-          <p><b>质量目标：</b>稳定性可量化、可回归、可复现，确保开题后可持续迭代。</p>
+          <p><b>Quality Goal:</b> Stability should be quantifiable, regressive, and reproducible to guarantee iteration safety.</p>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>突出“可测即可信”</span><span>时长 40 秒</span></div>
     </section>
 
     <section class="slide" aria-label="当前阶段">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>当前阶段与迭代方向</div><div class="page">11 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Current Stage & Micro-iterations</div><div class="page">11 / 12</div></div>
       <div class="content">
-        <h2>当前阶段与计划<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Current Status & Milestones</span></h2>
+        <h2>Current Status & Milestones<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">当前验证阶段与下一阶段迭代焦点</span></h2>
         <div class="cols-2">
           <div class="panel">
-            <h3>已完成探索</h3>
+            <h3>Completed Explorations</h3>
             <ul class="list">
-              <li>项目定位与用户场景确认。</li>
-              <li>技术选型：Agent + RAG + MCP 架构方案。</li>
-              <li>跨境合规与数据源初步调研。</li>
+              <li>Validated product positioning & core user stories.</li>
+              <li>Architected the Multi-Agent + RAG + MCP design.</li>
+              <li>跨境合规与Data Sources初步调研。</li>
             </ul>
-            <h3>当前焦点</h3>
+            <h3>Current Focus</h3>
             <ul class="list">
-              <li>搭建最小可用原型，走通 Planner → Tools → Verifier 闭环。</li>
-              <li>优先接入 2-3 个核心数据源（港府政策 + 港铁 + 汇率）。</li>
-              <li>建立基础测试框架，保障检索与行为可测。</li>
+              <li>Build MVP loop: Planner → Tools → Verifier.</li>
+              <li>优先接入 2-3 个核心Data Sources（港府政策 + 港铁 + 汇率）。</li>
+              <li>Setup baseline evaluation framework for outputs.</li>
             </ul>
           </div>
           <div class="stack">
             <div class="panel green-tint">
-              <h3 style="color:var(--green);">迭代原则</h3>
+              <h3 style="color:var(--green);">Iteration Principles</h3>
               <ul class="list">
-                <li>从窄场景切入，逐步扩展覆盖范围。</li>
-                <li>每轮迭代产出可验证 Demo，避免过度设计。</li>
-                <li>测试先行，功能后补。</li>
+                <li>Start from narrow scenarios, scale gradually.<br><span style="font-size:0.85em;color:var(--muted)">从窄场景切入，逐步扩展</span></li>
+                <li>Output verifiable demos per sprint.<br><span style="font-size:0.85em;color:var(--muted)">产出可验证 Demo，避免过度设计</span></li>
+                <li>Test-driven design priority.<br><span style="font-size:0.85em;color:var(--muted)">测试先行，体验后置补充</span></li>
               </ul>
             </div>
-            <div class="callout">方向比速度重要——先跑通，再跑快。</div>
+            <div class="callout"><b>Mindset:</b> Direction over raw speed — complete the loop before optimizing it.</div>
           </div>
         </div>
       </div>
@@ -1166,32 +1166,32 @@
     </section>
 
     <section class="slide" aria-label="总结">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>总结与展望</div><div class="page">12 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Conclusion & Outlook</div><div class="page">12 / 12</div></div>
       <div class="content">
-        <h2>跨境决策助手<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">Conclusion: Decision Ready</span></h2>
+        <h2>Conclusion: Decision Ready<br><span style="font-size:0.65em;font-weight:400;color:var(--muted);margin-top:4px;display:block;">总结：重塑跨境智能决策流程</span></h2>
         <div class="cols-even">
           <div class="panel">
-            <h3>项目核心主张</h3>
+            <h3>Core Value Proposition</h3>
             <ul class="list">
-              <li>面向深港跨境高净值生活场景的垂直 AI 助手。</li>
-              <li>多智能体协作 + 高级 RAG + MCP 实时工具的差异化架构。</li>
-              <li>合规可验证、信息可追溯、输出可执行。</li>
+              <li>Vertical AI assistant for SZ-HK cross-border scenarios.</li>
+              <li>Multi-Agent + Advanced RAG + MCP 实时工具的差异化架构。</li>
+              <li>Compliant, traceable info, and actionable execution plans.</li>
             </ul>
           </div>
           <div class="panel light">
-            <h3>需要支持的方向</h3>
+            <h3>Asks & Support Resources</h3>
             <ul class="list">
-              <li>数据源对接授权与合规咨询。</li>
-              <li>MCP Tools开发与实时接口方案。</li>
-              <li>测试环境与算力资源。</li>
+              <li>Data Sources对接授权与合规咨询。</li>
+              <li>Rapid integration interfaces for MCP tools.</li>
+              <li>Testing environments and computational quotas.</li>
             </ul>
           </div>
         </div>
         <div class="callout" style="border-left-color:var(--accent);background:rgba(0,87,255,0.04);">
-          <b>总结：</b>General LLM 难以覆盖跨境实时政策与合规要求——<b>SZ-HK Hub</b> 以多智能体 + RAG + MCP 构建专业决策闭环，让跨境生活更准确、更实时、更合规。
+          <b>Summary:</b> General LLMs struggle with real-time border policies globally — <b>SZ-HK Hub</b> provides a closed-loop reliable decision engine using Multi-Agents + RAG + MCP, ensuring cross-border flow is accurate and seamless.
         </div>
       </div>
-      <div class="footer"><span><b>请求：</b>请支持开题与资源协同</span><span>谢谢 · 期待反馈</span></div>
+      <div class="footer"><span><b>Request:</b> Looking forward to feedback & resources.</span><span>Thank You</span></div>
     </section>
   </main>
 
