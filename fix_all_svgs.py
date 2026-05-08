@@ -1,63 +1,54 @@
 import re
 
 with open('generated-html/sz-hk-hub-proposal/03-slides.html', 'r', encoding='utf-8') as f:
-    text = f.read()
+    html = f.read()
 
-# SVG 1
-text = text.replace('⚠ 信息孤岛', '⚠ Info Silos')
-text = text.replace('⚠ 实时缺失', '⚠ No Real-time')
-text = text.replace('>香港</text>', '>Hong Kong</text>')
-text = text.replace('>深圳</text>', '>Shenzhen</text>')
-text = text.replace('政策碎片化', 'Fragmented Policy')
-text = text.replace('合规模糊', 'Unclear Compliance')
-text = text.replace('信息滞后', 'Information Lag')
-text = text.replace('数据断联', 'Data Disconnect')
-text = text.replace('缺一个「跨境专业决策中枢」', 'Missing Domain-Specific Agent')
+# Slide 2: Pain Points
+html = html.replace('<rect x="104" y="86" width="72" height="22"', '<rect x="90" y="86" width="105" height="22"')
+html = html.replace('<text x="140" y="100" text-anchor="middle" font-size="12" fill="#ff8fab">Fragmented Policy</text>', '<text x="142" y="100" text-anchor="middle" font-size="10" fill="#ff8fab">Fragmented Policy</text>')
 
-# SVG 2
-text = text.replace('通用 LLM', 'General LLM')
-text = text.replace('✗ 易产生幻觉', '✗ Hallucination')
-text = text.replace('✗ 合规风险高', '✗ High Risk')
-text = text.replace('✗ 信息不实时', '✗ Stale Info')
-text = text.replace('✗ 不可追溯', '✗ Untraceable')
-text = text.replace('专业 Agent', 'Domain Agent')
-text = text.replace('✓ 可验证检索', '✓ Verified RAG')
-text = text.replace('✓ 合规护栏', '✓ Safety Guardrails')
-text = text.replace('✓ 实时工具', '✓ Real-time MCP')
-text = text.replace('✓ 可追溯', '✓ Traceable Output')
+html = html.replace('<rect x="184" y="86" width="72" height="22"', '<rect x="200" y="86" width="105" height="22"')
+html = html.replace('<text x="220" y="100" text-anchor="middle" font-size="12" fill="#ff8fab">Unclear Compliance</text>', '<text x="252" y="100" text-anchor="middle" font-size="10" fill="#ff8fab">Unclear Compliance</text>')
 
-# SVG 5 (Slide 7 - Agent Workflow)
-text = text.replace('👤 用户查询', '👤 User Query')
-text = text.replace('Planner · 任务拆解 &amp; 步骤规划', 'Planner: Decompose &amp; Plan')
-text = text.replace('意图识别 → 子任务分解 → 依赖排序', 'Intent → Subtasks → Dependencies')
-text = text.replace('RAG 检索', 'RAG Search')
-text = text.replace('知识库查询', 'Knowledge Base')
-text = text.replace('MCP 工具', 'MCP Tools')
-text = text.replace('实时数据调用', 'Real-time API')
-text = text.replace('LLM 推理', 'LLM Core')
-text = text.replace('逻辑推理', 'Reasoning')
-text = text.replace('Verifier · 合规审查 &amp; 逻辑校验', 'Verifier: Audit &amp; Validate')
-text = text.replace('幻觉检测 → 合规检查 → 依据溯源', 'Anti-Hallucination → Compliance → Trace')
-text = text.replace('反馈修正', 'Fallback/Retry')
-text = text.replace('✅ 可执行方案输出', '✅ Final Executable Plan')
+html = html.replace('<rect x="104" y="130" width="72" height="22"', '<rect x="90" y="130" width="105" height="22"')
+html = html.replace('<text x="140" y="144" text-anchor="middle" font-size="12" fill="#f08080">Information Lag</text>', '<text x="142" y="144" text-anchor="middle" font-size="10" fill="#f08080">Information Lag</text>')
 
-# SVG 6 (Slide 8 - RAG)
-text = text.replace('📥 数据采集', '📥 Data Collection')
-text = text.replace('爬虫 / API / PDF', 'Crawler / API / PDF')
-text = text.replace('🔧 处理', '🔧 Processing')
-text = text.replace('清洗 / 切分 / 去重', 'Clean / Chunk / Dedupe')
-text = text.replace('向量化处理', 'Embedding')
-text = text.replace('>向量库</text>', '>Vector DB</text>')
-text = text.replace('🔍 检索阶段：', '🔍 Retrieval Stage:')
-text = text.replace('Query → 向量召回 → 重排序 → 上下文组装', 'Query → Vector Recall → Rerank → Context Assembly')
-text = text.replace('📊 评估指标：Hit Rate / MRR', '📊 Metrics: Hit Rate / MRR')
+html = html.replace('<rect x="184" y="130" width="72" height="22"', '<rect x="200" y="130" width="105" height="22"')
+html = html.replace('<text x="220" y="144" text-anchor="middle" font-size="12" fill="#f08080">Data Disconnect</text>', '<text x="252" y="144" text-anchor="middle" font-size="10" fill="#f08080">Data Disconnect</text>')
 
-# Layout and font-size check
-text = text.replace('font-size="7"', 'font-size="9"')
-text = text.replace('font-size="8"', 'font-size="10"')
-text = text.replace('font-size="9"', 'font-size="11"')
-text = text.replace('font-size="10"', 'font-size="12"')
-text = text.replace('font-size="11"', 'font-size="13"')
+html = html.replace('<text x="180" y="62" text-anchor="middle" font-size="12" fill="#ff1493">⚠ Info Silos</text>', '<text x="180" y="62" text-anchor="middle" font-size="12" fill="#ff1493">⚠ Info Silos</text>')
+
+# Slide 5: Core Functions
+html = html.replace('<rect x="6" y="28" width="96" height="70"', '<rect x="10" y="28" width="110" height="70"')
+html = html.replace('<text x="54" y="52"', '<text x="65" y="52"')
+html = html.replace('<text x="54" y="70"', '<text x="65" y="70"')
+html = html.replace('<text x="54" y="84"', '<text x="65" y="84"')
+
+html = html.replace('<rect x="258" y="28" width="96" height="70"', '<rect x="240" y="28" width="110" height="70"')
+html = html.replace('<text x="306" y="52"', '<text x="295" y="52"')
+html = html.replace('<text x="306" y="70"', '<text x="295" y="70"')
+html = html.replace('<text x="306" y="84"', '<text x="295" y="84"')
+
+# Slide 6: Architecture
+html = html.replace('<rect x="36" y="84" width="64"', '<rect x="36" y="84" width="68"')
+html = html.replace('<rect x="108" y="84" width="64"', '<rect x="110" y="84" width="65"')
+html = html.replace('<rect x="180" y="84" width="64"', '<rect x="180" y="84" width="65"')
+html = html.replace('<text x="68" y="115" text-anchor="middle" font-size="12" fill="#b080a0">Decompose</text>', '<text x="70" y="115" text-anchor="middle" font-size="10" fill="#b080a0">Decompose</text>')
+html = html.replace('<text x="140" y="115" text-anchor="middle" font-size="12" fill="#b080a0">Audit·Check</text>', '<text x="142" y="115" text-anchor="middle" font-size="10" fill="#b080a0">Audit·Check</text>')
+
+# Slide 7: Agent Workflow
+html = html.replace('<text x="180" y="78" text-anchor="middle" font-size="13" fill="#b080a0">Intent → Subtasks → Dependencies</text>', '<text x="180" y="78" text-anchor="middle" font-size="11" fill="#b080a0">Intent → Subtasks → Dependencies</text>')
+html = html.replace('<text x="180" y="192" text-anchor="middle" font-size="13" fill="#6aa88a">Anti-Hallucination → Compliance → Trace</text>', '<text x="180" y="192" text-anchor="middle" font-size="11" fill="#6aa88a">Guards → Compliance → Evidence</text>')
+
+# Slide 8: RAG
+html = html.replace('<text x="147" y="46" text-anchor="middle" font-size="13" fill="#7a5a90">Clean / Chunk / Dedupe</text>', '<text x="147" y="46" text-anchor="middle" font-size="11" fill="#7a5a90">Clean / Chunk / Dedupe</text>')
+html = html.replace('<text x="128" y="97" font-size="12" fill="#6b6b80">Query → Vector Recall → Rerank → Context Assembly</text>', '<text x="128" y="97" font-size="10" fill="#6b6b80">Query → Vector Recall → Rerank → Assembly</text>')
+
+# Slide 9: MCP Pipeline
+html = html.replace('<rect x="210" y="72" width="160"', '<rect x="210" y="72" width="150"')
+html = html.replace('<rect x="400" y="40" width="200"', '<rect x="390" y="40" width="230"')
+html = html.replace('<text x="325" y="132" font-size="14" fill="#6b6b80">Pipeline</text>', '<text x="325" y="145" font-size="14" fill="#6b6b80">Pipeline</text>')
+
 
 with open('generated-html/sz-hk-hub-proposal/03-slides.html', 'w', encoding='utf-8') as f:
-    f.write(text)
+    f.write(html)
