@@ -39,7 +39,13 @@
 
     /* ── 霓虹块：极简纯色装饰 ── */
     .wave-bg {
-      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .slide {
@@ -65,7 +71,7 @@
       background-image: url('https://images.pexels.com/photos/34087666/pexels-photo-34087666.jpeg');
       background-size: cover;
       background-position: center center;
-      opacity: 0.22;
+      opacity: 0.85;
       pointer-events: none;
     }
 
@@ -83,14 +89,15 @@
     .cover-hero {
       position: absolute;
       left: 7%;
-      top: 31%;
-      width: 46%;
-      max-width: 620px;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(0, 87, 255, 0.14);
+      top: 28%;
+      width: 48%;
+      max-width: 640px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 18px;
-      box-shadow: 0 16px 48px rgba(26, 26, 46, 0.12);
-      padding: 4.2%;
+      box-shadow: 0 20px 50px rgba(26, 26, 46, 0.15);
+      padding: 4.5%;
       display: grid;
       gap: 16px;
     }
@@ -161,21 +168,21 @@
     }
 
     .content {
-      padding: 5% 3.5% 2%;
-      display: grid;
-      gap: 2.2%;
-      align-content: start;
+      padding: 3% 4% 2.5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      gap: 3%;
+      height: 100%;
       min-height: 0;
       position: relative;
       z-index: 1;
     }
     .content.spread-content {
-      align-content: space-between;
-      padding-top: 4.2%;
-      padding-bottom: 3.2%;
+      justify-content: space-between;
     }
     /* 内容较少的页用居中垂直对齐 */
-    .content.center-v { align-content: center; }
+    .content.center-v { justify-content: center; }
 
     h1, h2, h3, p, ul { margin: 0; }
 
@@ -194,6 +201,7 @@
       padding-left: 1.2%;
       position: relative;
       margin-bottom: 0.4%;
+      flex-shrink: 0;
     }
     h2::before {
       content: '';
@@ -247,9 +255,12 @@
 
     .cols-2 {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 42% 55%;
+      justify-content: space-between;
       gap: 2.4%;
-      align-items: start;
+      align-items: stretch;
+      flex: 1;
+      min-height: 0;
     }
 
     .cols-3 {
@@ -257,6 +268,8 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2.2%;
       align-items: stretch;
+      flex: 1;
+      min-height: 0;
     }
 
     .cols-even {
@@ -264,16 +277,21 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 2.2%;
       align-items: stretch;
+      flex: 1;
+      min-height: 0;
     }
 
     .panel {
       border: 1px solid var(--line);
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
       border-radius: 12px;
-      padding: 2% 2.2%;
-      display: grid;
-      gap: 1.4%;
-      align-content: start;
+      padding: 3.5% 4%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3%;
+      height: 100%;
     }
 
     .panel.light {
@@ -323,24 +341,30 @@
 
     .callout {
       border-left: 3px solid var(--pink);
-      background: #fff4fa;
+      background: rgba(255, 244, 250, 0.85);
+      backdrop-filter: blur(8px);
       padding: 1.4% 1.8%;
       border-radius: 8px;
       font-size: clamp(14px, 1.25vw, 17px);
       color: #4a4a6a;
+      flex-shrink: 0;
+      margin-top: auto; /* force bottom alignment in some flex contexts if needed */
     }
 
     .photo-slot {
       border: 1px dashed rgba(0, 87, 255, 0.25);
       border-radius: 12px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
       min-height: 0;
       padding: 4% 3%;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 2%;
       align-content: center;
-      justify-items: center;
+      justify-content: center;
       text-align: center;
+      height: 100%;
     }
 
     /* 可用于把外链图片以封面裁切填充 */
@@ -378,17 +402,22 @@
     .diagram-shell {
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
       min-height: 0;
-      padding: 1.2% 1.5%;
+      padding: 2% 2%;
       display: flex;
       flex-direction: column;
-      gap: 1%;
-      align-items: stretch;
+      gap: 2%;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
 
     .diagram-shell svg {
       width: 100%;
+      height: auto;
+      max-height: 100%;
       flex: 1;
       display: block;
     }
@@ -426,8 +455,12 @@
     }
 
     .stack {
-      display: grid;
-      gap: 2%;
+      display: flex;
+      flex-direction: column;
+      gap: 3%;
+      height: 100%;
+      flex: 1;
+      min-height: 0;
     }
 
     .tag {
@@ -955,8 +988,7 @@
             <div class="photo-slot wide" style="padding:0; overflow:hidden;">
                 <div class="image-fill" style="background-image:url('image1.png'); min-height:160px;">
                   <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:12px; border-radius:8px; margin:12px;">
-                    <strong style="font-size:15px; color:#fff; display:block; margin-bottom:6px;">图5 数据源入口截图</strong>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.9);">示例占位图（可替换为港府/银行/港铁官网截图）</div>
+                    <strong style="font-size:15px; color:#fff; display:block;">图5 数据源入口截图</strong>
                   </div>
                 </div>
             </div>
