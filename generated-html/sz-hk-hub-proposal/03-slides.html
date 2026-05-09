@@ -429,6 +429,13 @@
     .image-card { aspect-ratio: 16/9; width: 100%; border-radius: 10px; overflow: hidden; }
     .image-card .image-fill { min-height: 0; height: 100%; }
 
+    /* Ensure top panels sit above large diagrams to avoid visual occlusion */
+    .cols-3 { position: relative; z-index: 3; }
+    .cols-3 .panel { position: relative; z-index: 3; }
+
+    .diagram-shell { position: relative; z-index: 1; margin-top: 2.2%; }
+    .diagram-shell svg { max-height: 320px; height: auto; display: block; }
+
     .photo-slot strong {
       font-size: clamp(13px, 1.2vw, 16px);
       color: var(--accent);
