@@ -1011,7 +1011,7 @@
       <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>RAG 数据与评估 · RAG &amp; Evaluation</div><div class="page">08 / 12</div></div>
       <div class="content">
         <h2>高级 RAG：保障合规与实时性的知识底座<span class="en">Advanced RAG: Knowledge Foundation for Compliance &amp; Real-Time</span></h2>
-        <div class="cols-2">
+        <div class="cols-2" style="grid-template-columns:38% 59%;">
           <div class="panel">
             <h3>核心数据源<span class="en">Core Data Sources</span></h3>
             <ul class="list">
@@ -1022,45 +1022,45 @@
             </ul>
           </div>
           <div class="stack">
-            <div class="photo-slot wide" style="padding:0; overflow:hidden;">
-                <div class="image-fill" style="background-image:url('image1.png'); min-height:140px; background-size:contain; background-color:#f0f2f5;">
-                  <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.35)); padding:10px; border-radius:6px; margin:8px; align-self:flex-end;">
+            <div class="photo-slot wide" style="padding:0; overflow:hidden; flex:0 0 62%;">
+                <div class="image-fill" style="background-image:url('image1.png'); min-height:0; height:100%; background-size:cover; background-position:top center; background-color:#f0f2f5;">
+                  <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.4)); padding:10px; border-radius:6px; margin:8px; align-self:flex-end;">
                     <strong style="font-size:13px; color:#fff; display:block;">图5 数据源 · Data Sources</strong>
                   </div>
                 </div>
             </div>
-            <div class="diagram-shell">
+            <div class="diagram-shell" style="flex:0 0 auto; padding:1% 1.5%;">
               <div class="diagram-title">RAG 检索链路 · 从数据采集到检索增强</div>
-              <svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" aria-label="RAG 检索链路">
+              <svg viewBox="0 0 360 130" xmlns="http://www.w3.org/2000/svg" aria-label="RAG 检索链路">
                 <defs>
                   <marker id="ar-rag" markerWidth="6" markerHeight="6" refX="4" refY="2" orient="auto"><path d="M0,0 L0,4 L5,2 z" fill="#0057ff"/></marker>
                 </defs>
                 <!-- 数据采集 -->
-                <rect x="8" y="8" width="68" height="52" rx="8" fill="rgba(0,87,255,0.04)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
-                <text x="42" y="28" text-anchor="middle" font-size="9" fill="#7a9dd8">📥 Ingest</text>
-                <text x="42" y="46" text-anchor="middle" font-size="7" fill="#6b6b80">Crawl / API / PDF</text>
-                <line x1="76" y1="34" x2="86" y2="34" stroke="rgba(0,87,255,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
+                <rect x="8" y="6" width="68" height="44" rx="8" fill="rgba(0,87,255,0.04)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
+                <text x="42" y="24" text-anchor="middle" font-size="9" fill="#7a9dd8">📥 Ingest</text>
+                <text x="42" y="40" text-anchor="middle" font-size="7" fill="#6b6b80">Crawl/API/PDF</text>
+                <line x1="76" y1="28" x2="86" y2="28" stroke="rgba(0,87,255,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- 数据处理 -->
-                <rect x="88" y="8" width="68" height="52" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-                <text x="122" y="28" text-anchor="middle" font-size="9" fill="#d8a0c0">🔧 Process</text>
-                <text x="122" y="46" text-anchor="middle" font-size="7" fill="#7a5a90">Clean / Chunk / Dedup</text>
-                <line x1="156" y1="34" x2="168" y2="34" stroke="rgba(255,20,147,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
+                <rect x="88" y="6" width="68" height="44" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
+                <text x="122" y="24" text-anchor="middle" font-size="9" fill="#d8a0c0">🔧 Process</text>
+                <text x="122" y="40" text-anchor="middle" font-size="7" fill="#7a5a90">Clean/Chunk</text>
+                <line x1="156" y1="28" x2="168" y2="28" stroke="rgba(255,20,147,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- Embedding -->
-                <rect x="170" y="8" width="68" height="52" rx="8" fill="rgba(0,201,167,0.04)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
-                <text x="204" y="28" text-anchor="middle" font-size="9" fill="#80c8a0">🧠 Embed</text>
-                <text x="204" y="46" text-anchor="middle" font-size="7" fill="#6b9d8b">Vectorize</text>
-                <line x1="238" y1="34" x2="250" y2="34" stroke="rgba(0,201,167,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
+                <rect x="170" y="6" width="68" height="44" rx="8" fill="rgba(0,201,167,0.04)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
+                <text x="204" y="24" text-anchor="middle" font-size="9" fill="#80c8a0">🧠 Embed</text>
+                <text x="204" y="40" text-anchor="middle" font-size="7" fill="#6b9d8b">Vectorize</text>
+                <line x1="238" y1="28" x2="250" y2="28" stroke="rgba(0,201,167,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- Vector DB -->
-                <rect x="252" y="8" width="50" height="52" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-                <text x="277" y="28" text-anchor="middle" font-size="9" fill="#ff8fab">🗄️</text>
-                <text x="277" y="46" text-anchor="middle" font-size="7" fill="#b080a0">Vector DB</text>
+                <rect x="252" y="6" width="50" height="44" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
+                <text x="277" y="24" text-anchor="middle" font-size="9" fill="#ff8fab">🗄️</text>
+                <text x="277" y="40" text-anchor="middle" font-size="7" fill="#b080a0">Vector DB</text>
                 <!-- 检索阶段 -->
-                <rect x="30" y="76" width="300" height="34" rx="8" fill="rgba(0,87,255,0.03)" stroke="rgba(0,87,255,0.12)" stroke-width="0.8"/>
-                <text x="60" y="97" font-size="8" fill="#7a9dd8">🔍 Retrieval:</text>
-                <text x="128" y="97" font-size="8" fill="#6b6b80">Query → Recall → Rerank → Context</text>
+                <rect x="30" y="60" width="300" height="28" rx="8" fill="rgba(0,87,255,0.03)" stroke="rgba(0,87,255,0.12)" stroke-width="0.8"/>
+                <text x="60" y="78" font-size="8" fill="#7a9dd8">🔍 Retrieval:</text>
+                <text x="128" y="78" font-size="8" fill="#6b6b80">Query → Recall → Rerank → Context</text>
                 <!-- 评估 -->
-                <rect x="60" y="120" width="240" height="32" rx="8" fill="rgba(0,201,167,0.05)" stroke="rgba(0,201,167,0.15)" stroke-width="0.8"/>
-                <text x="115" y="140" font-size="8" fill="#80c8a0">📊 Metrics: Hit Rate / MRR</text>
+                <rect x="60" y="94" width="240" height="28" rx="8" fill="rgba(0,201,167,0.05)" stroke="rgba(0,201,167,0.15)" stroke-width="0.8"/>
+                <text x="115" y="112" font-size="8" fill="#80c8a0">📊 Metrics: Hit Rate / MRR</text>
               </svg>
             </div>
           </div>
@@ -1169,7 +1169,7 @@
       <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>当前阶段与迭代 · Current Progress</div><div class="page">11 / 12</div></div>
       <div class="content">
         <h2>聚焦核心链路，验证技术可行性<span class="en">Focus on Core Pipeline, Prove Technical Feasibility</span></h2>
-        <div class="cols-2">
+        <div class="cols-2" style="grid-template-columns:38% 59%;">
           <div class="panel">
             <h3>已完成探索<span class="en">Completed</span></h3>
             <ul class="list">
@@ -1185,22 +1185,22 @@
             </ul>
           </div>
           <div class="stack">
-            <div class="photo-slot" style="padding:0; overflow:hidden; border-radius:10px;">
-                <div class="image-fill" style="background-image:url('image2.png'); min-height:0; height:180px; background-size:contain; background-color:#f5f5f8;">
-                  <div style="background:rgba(0,0,0,0.3); padding:6px 10px; border-radius:4px; margin:6px;">
+            <div class="photo-slot" style="padding:0; overflow:hidden; border-radius:10px; flex:0 0 55%;">
+                <div class="image-fill" style="background-image:url('image2.png'); min-height:0; height:100%; background-size:cover; background-position:top center; background-color:#f5f5f8;">
+                  <div style="background:rgba(0,0,0,0.35); padding:6px 10px; border-radius:4px; margin:6px; align-self:flex-start;">
                     <strong style="font-size:11px; color:#fff;">图7 MVP 原型 · Prototype</strong>
                   </div>
                 </div>
             </div>
-            <div class="panel green-tint">
-              <h3 style="color:var(--green);">迭代原则<span class="en" style="color:var(--muted);">Iteration Principles</span></h3>
+            <div class="panel green-tint" style="flex:0 0 auto; padding:1.8% 2.2%;">
+              <h3 style="color:var(--green); font-size:clamp(14px,1.4vw,18px);">迭代原则<span class="en" style="color:var(--muted);">Iteration Principles</span></h3>
               <ul class="list">
                 <li>从窄场景切入，逐步扩展覆盖范围。<span class="en">Start narrow, expand coverage gradually.</span></li>
                 <li>每轮迭代产出可验证 Demo，避免过度设计。<span class="en">Each iteration delivers a verifiable demo; avoid over-engineering.</span></li>
                 <li>测试先行，功能后补。<span class="en">Test first, features follow.</span></li>
               </ul>
             </div>
-            <div class="callout">方向比速度重要——先跑通，再跑快。<span class="en">Direction over speed — make it work first, then make it fast.</span></div>
+            <div class="callout" style="padding:1% 1.5%;">方向比速度重要——先跑通，再跑快。<span class="en">Direction over speed — make it work first, then make it fast.</span></div>
           </div>
         </div>
       </div>
