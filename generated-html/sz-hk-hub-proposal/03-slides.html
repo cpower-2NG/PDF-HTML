@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SZ-HK Hub 开题报告 / Proposal</title>
+  <title>SZ-HK Hub 开题报告</title>
   <style>
     :root {
-      --bg: #f9f9fc;
+      --bg: #f8f5f0;
       --paper: #ffffff;
       --ink: #1a1a2e;
-      --muted: #62627a;
-      --accent: #2e68ff;
-      --pink: #ff338c;
-      --green: #05d5aa;
-      --line: rgba(46, 104, 255, 0.15);
-      --shadow: 0 16px 48px rgba(26, 26, 46, 0.08);
+      --muted: #6b6b80;
+      --accent: #0057ff;
+      --pink: #ff1493;
+      --green: #00c9a7;
+      --line: rgba(0, 87, 255, 0.1);
+      --shadow: 0 12px 40px rgba(26, 26, 46, 0.08);
       --radius: 16px;
       --slide-w: 1280px;
     }
@@ -24,7 +24,11 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--bg);
+      background:
+        radial-gradient(ellipse at 18% 12%, rgba(255, 20, 147, 0.04), transparent 42%),
+        radial-gradient(ellipse at 82% 88%, rgba(0, 87, 255, 0.05), transparent 40%),
+        radial-gradient(ellipse at 50% 50%, rgba(0, 201, 167, 0.03), transparent 50%),
+        var(--bg);
       color: var(--ink);
       font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", "Inter", sans-serif;
     }
@@ -32,20 +36,22 @@
     .deck {
       width: min(100vw, var(--slide-w));
       margin: 0 auto;
-      padding: 1.8%;
+      padding: 18px;
       display: grid;
-      gap: 1.8%;
+      gap: 16px;
     }
 
-    /* ── 霓虹块：极简纯色装饰 ── */
+    /* ── 界限流动：贯穿页面的波浪装饰 ── */
     .wave-bg {
       position: absolute;
-      bottom: 0;
-      left: 0;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.3;
+    }
+    .wave-bg svg {
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      z-index: 0;
     }
 
     .slide {
@@ -57,66 +63,8 @@
       box-shadow: var(--shadow);
       overflow: hidden;
       display: grid;
-      grid-template-rows: 7% 1fr 3.5%;
+      grid-template-rows: 50px 1fr 30px;
       position: relative;
-    }
-
-    .cover-slide {
-      overflow: hidden;
-    }
-
-    .cover-slide .cover-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.pexels.com/photos/34087666/pexels-photo-34087666.jpeg');
-      background-size: cover;
-      background-position: center center;
-      opacity: 0.85;
-      pointer-events: none;
-    }
-
-    .cover-slide .content,
-    .cover-slide .topbar,
-    .cover-slide .footer {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cover-slide .content {
-      padding: 0;
-    }
-
-    .cover-hero {
-      position: absolute;
-      left: 5%;
-      top: 22%;
-      width: 52%;
-      max-width: 680px;
-      background: rgba(255, 255, 255, 0.68);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 18px;
-      box-shadow: 0 20px 50px rgba(26, 26, 46, 0.15);
-      padding: 3.5%;
-      display: grid;
-      gap: 12px;
-    }
-
-    .cover-hero::after {
-      content: '';
-      position: absolute;
-      right: -24px;
-      bottom: -24px;
-      width: 64px;
-      height: 64px;
-      background: var(--pink);
-      border-radius: 16px;
-      opacity: 0.15;
-    }
-
-    .cover-hero > div {
-      position: relative;
-      z-index: 1;
     }
 
     .slide::before {
@@ -124,16 +72,17 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: var(--pink);
+      background: linear-gradient(90deg, var(--pink), var(--accent), var(--green));
+      opacity: 0.5;
     }
 
     .topbar {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
-      padding: 0 3%;
-      color: #3f3f58;
-      background: #f4f7ff;
+      padding: 0 22px;
+      color: #4a4a6a;
+      background: rgba(0, 87, 255, 0.03);
       border-bottom: 1px solid var(--line);
     }
 
@@ -141,7 +90,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: clamp(14px, 1.3vw, 18px);
+      font-size: 16px;
       font-weight: 700;
       letter-spacing: 0.03em;
       white-space: nowrap;
@@ -150,7 +99,7 @@
     }
 
     .city-pill {
-      font-size: clamp(9px, 0.8vw, 11px);
+      font-size: 10px;
       letter-spacing: 0.15em;
       padding: 3px 10px;
       border-radius: 999px;
@@ -161,105 +110,80 @@
     }
 
     .topbar .page {
-      font-size: clamp(12px, 1.05vw, 14px);
+      font-size: 13px;
       font-weight: 600;
       opacity: 0.5;
       font-variant-numeric: tabular-nums;
     }
 
     .content {
-      padding: 2% 3.5% 1.8%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      gap: 1.8%;
-      height: 100%;
+      padding: 16px 24px 10px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
       min-height: 0;
       position: relative;
       z-index: 1;
     }
-    .content.spread-content {
-      justify-content: space-between;
-    }
-    .content.center-v { justify-content: center; }
 
     h1, h2, h3, p, ul { margin: 0; }
 
     h1 {
-      font-size: clamp(34px, 4.6vw, 58px);
-      line-height: 1.05;
+      font-size: 56px;
+      line-height: 1.02;
       letter-spacing: -0.03em;
-      color: var(--ink);
+      background: linear-gradient(135deg, #1a1a2e 0%, var(--accent) 50%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     h2 {
-      font-size: clamp(22px, 2.4vw, 32px);
-      line-height: 1.22;
+      font-size: 30px;
+      line-height: 1.18;
       letter-spacing: -0.02em;
       color: #2a2a4a;
-      padding-left: 1.2%;
+      padding-left: 14px;
       position: relative;
-      margin-bottom: 0;
-      flex-shrink: 0;
     }
     h2::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 5px;
-      bottom: 5px;
-      width: 5px;
-      border-radius: 3px;
-      background: var(--pink);
-    }
-    h2 .en {
-      display: block;
-      font-size: clamp(12px, 1.1vw, 16px);
-      font-weight: 400;
-      color: var(--muted);
-      letter-spacing: 0;
-      margin-top: 0.3%;
+      top: 4px;
+      bottom: 4px;
+      width: 4px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--pink), var(--accent));
     }
 
     h3 {
-      font-size: clamp(16px, 1.6vw, 22px);
+      font-size: 17px;
       color: var(--accent);
-      line-height: 1.3;
+      line-height: 1.35;
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
-    h3 .en {
-      font-size: clamp(10px, 0.8vw, 12px);
-      font-weight: 400;
-      color: var(--muted);
+      gap: 6px;
     }
 
     h3::before {
       content: '';
       display: inline-block;
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--pink);
       flex-shrink: 0;
     }
 
     p {
-      font-size: clamp(13px, 1.2vw, 17px);
-      line-height: 1.5;
+      font-size: 16px;
+      line-height: 1.56;
       color: var(--muted);
-    }
-    p .en {
-      display: block;
-      font-size: clamp(10px, 0.85vw, 12px);
-      line-height: 1.4;
-      color: #8888a0;
-      margin-top: 0.15em;
     }
 
     .eyebrow {
-      font-size: clamp(10px, 0.9vw, 12px);
+      font-size: 11px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--pink);
@@ -267,88 +191,62 @@
     }
 
     .lead {
-      font-size: clamp(14px, 1.4vw, 19px);
+      font-size: 20px;
       line-height: 1.5;
       color: #3a3a58;
-    }
-    .lead .en {
-      display: block;
-      font-size: clamp(11px, 0.9vw, 13px);
-      color: #8888a0;
-      margin-top: 0.2em;
     }
 
     .cols-2 {
       display: grid;
-      grid-template-columns: 42% 55%;
-      justify-content: space-between;
-      gap: 1.8%;
-      align-items: stretch;
-      flex: 1;
-      min-height: 0;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: start;
     }
 
     .cols-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.6%;
+      gap: 12px;
       align-items: stretch;
-      flex: 1;
-      min-height: 0;
     }
 
     .cols-even {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.6%;
+      gap: 12px;
       align-items: stretch;
-      flex: 1;
-      min-height: 0;
     }
 
     .panel {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 87, 255, 0.02);
       border-radius: 12px;
-      padding: 2.5% 3%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 2%;
-      height: 100%;
-      overflow-y: auto;
-    }
-    .content > .panel {
-      height: auto;
+      padding: 12px 14px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
     }
 
     .panel.light {
-      background: rgba(255, 247, 251, 0.85);
-      border-color: rgba(255, 20, 147, 0.16);
+      background: rgba(255, 20, 147, 0.03);
+      border-color: rgba(255, 20, 147, 0.12);
     }
 
     .panel.green-tint {
-      background: rgba(240, 255, 251, 0.85);
-      border-color: rgba(0, 201, 167, 0.18);
+      background: rgba(0, 201, 167, 0.03);
+      border-color: rgba(0, 201, 167, 0.15);
     }
 
     .list {
-      padding-left: 2.5%;
+      padding-left: 20px;
       display: grid;
-      gap: 0.6%;
+      gap: 5px;
     }
 
     .list li {
-      font-size: clamp(13px, 1.15vw, 16px);
-      line-height: 1.45;
+      font-size: 16px;
+      line-height: 1.5;
       color: #3a3a58;
-    }
-    .list li .en {
-      display: block;
-      font-size: clamp(10px, 0.8vw, 12px);
-      color: #8888a0;
-      line-height: 1.3;
     }
 
     .list li::marker {
@@ -359,131 +257,89 @@
     .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 1%;
+      gap: 8px;
     }
 
     .chip {
       border-radius: 999px;
-      padding: 0.5% 1.4%;
-      background: #eef4ff;
+      padding: 4px 12px;
+      background: rgba(0, 87, 255, 0.05);
       color: var(--accent);
-      font-size: clamp(10px, 0.9vw, 13px);
+      font-size: 12px;
       font-weight: 600;
       border: 1px solid rgba(0, 87, 255, 0.15);
     }
-    .chip.pink { background: #ffe7f4; color: var(--pink); border-color: rgba(255, 20, 147, 0.2); }
-    .chip.green { background: #e6fbf7; color: #008b74; border-color: rgba(0, 201, 167, 0.2); }
+    .chip.pink { background: rgba(255, 20, 147, 0.06); color: var(--pink); border-color: rgba(255, 20, 147, 0.2); }
+    .chip.green { background: rgba(0, 201, 167, 0.06); color: var(--green); border-color: rgba(0, 201, 167, 0.2); }
 
     .callout {
       border-left: 3px solid var(--pink);
-      background: rgba(255, 244, 250, 0.85);
-      backdrop-filter: blur(8px);
-      padding: 1.4% 1.8%;
+      background: rgba(255, 20, 147, 0.04);
+      padding: 10px 14px;
       border-radius: 8px;
-      font-size: clamp(13px, 1.1vw, 16px);
-      line-height: 1.45;
+      font-size: 15px;
       color: #4a4a6a;
-      flex-shrink: 0;
-    }
-    .callout .en {
-      display: block;
-      font-size: clamp(10px, 0.8vw, 12px);
-      color: #8888a0;
-      margin-top: 0.15em;
     }
 
     .photo-slot {
       border: 1px dashed rgba(0, 87, 255, 0.25);
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(8px);
-      min-height: 0;
-      padding: 4% 3%;
-      display: flex;
-      flex-direction: column;
-      gap: 2%;
+      background: linear-gradient(135deg, rgba(255, 20, 147, 0.04), rgba(0, 87, 255, 0.03));
+      min-height: 120px;
+      padding: 10px;
+      display: grid;
+      gap: 6px;
       align-content: center;
-      justify-content: center;
+      justify-items: center;
       text-align: center;
-      height: 100%;
     }
-
-    /* 可用于把外链图片以封面裁切填充 */
-    .image-fill {
-      width: 100%;
-      height: 100%;
-      min-height: 180px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 10px;
-      box-shadow: 0 0 0 1px rgba(0, 87, 255, 0.08) inset;
-      display: flex;
-      align-items: end;
-      justify-content: start;
-      padding: 12px;
-      color: var(--ink);
-    }
-
-    .image-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .image-card { aspect-ratio: 16/9; width: 100%; border-radius: 10px; overflow: hidden; }
-    .image-card .image-fill { min-height: 0; height: 100%; }
-
-    /* Ensure top panels sit above large diagrams to avoid visual occlusion */
-    .cols-3 { position: relative; z-index: 50; margin-bottom: 1.6rem; }
-    .cols-3 .panel { position: relative; z-index: 50; background: #ffffff; }
-
-    /* Push diagram lower and constrain its height so it cannot overlap the panels */
-    .diagram-shell { position: relative; z-index: 0; margin-top: 220px; overflow: hidden; }
-    .diagram-shell svg { max-height: 300px; height: auto; display: block; width:100%; }
 
     .photo-slot strong {
-      font-size: clamp(13px, 1.2vw, 16px);
+      font-size: 15px;
       color: var(--accent);
     }
 
     .photo-slot span {
-      font-size: clamp(11px, 0.95vw, 13px);
+      font-size: 12px;
       color: var(--muted);
-      max-width: 28ch;
+      max-width: 26ch;
+    }
+
+    .photo-slot.wide {
+      aspect-ratio: 16 / 9;
     }
 
     .diagram-shell {
       border: 1px solid var(--line);
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(8px);
-      min-height: 0;
-      padding: 1.5% 1.5%;
+      background: rgba(0, 87, 255, 0.02);
+      min-height: 150px;
+      padding: 8px;
       display: flex;
       flex-direction: column;
-      gap: 1.5%;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
+      gap: 6px;
+      align-items: stretch;
     }
 
     .diagram-shell svg {
       width: 100%;
-      height: auto;
-      max-height: 100%;
       flex: 1;
       display: block;
     }
 
     .diagram-title {
-      font-size: clamp(9px, 0.8vw, 11px);
+      font-size: 11px;
       font-weight: 700;
       color: var(--accent);
       text-align: center;
-      letter-spacing: 0.03em;
-      opacity: 1;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
     }
 
     .footer {
-      font-size: clamp(9px, 0.7vw, 11px);
+      font-size: 11px;
       color: #9999b0;
-      padding: 0.4% 3%;
+      padding: 4px 22px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -493,30 +349,19 @@
     .cover-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 2.8%;
+      gap: 16px;
       align-items: stretch;
     }
 
     .cover-right {
       display: grid;
-      gap: 2.8%;
+      gap: 12px;
       align-content: start;
     }
 
     .stack {
-      display: flex;
-      flex-direction: column;
-      gap: 2%;
-      height: 100%;
-      flex: 1;
-      min-height: 0;
-    }
-
-    .sub {
-      font-size: clamp(10px, 0.8vw, 12px);
-      color: var(--muted);
-      font-weight: 400;
-      line-height: 1.4;
+      display: grid;
+      gap: 10px;
     }
 
     .tag {
@@ -625,43 +470,52 @@
   </div>
 
   <main class="deck">
-    <section class="slide cover-slide" aria-label="封面">
-      <div class="cover-bg" aria-hidden="true"></div>
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>开题报告 · Proposal</div><div class="page">01 / 12</div></div>
+    <section class="slide" aria-label="封面">
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>开题报告</div><div class="page">01 / 12</div></div>
       <div class="content">
-        <div class="cover-hero">
+        <div class="cover-grid">
           <div>
             <p class="eyebrow">Proposal 2026</p>
             <h1>SZ-HK Hub</h1>
-            <h2>深港跨境专业生活助手<span class="en">Shenzhen-Hong Kong Cross-Border Life Assistant</span></h2>
-            <p class="lead">面向跨境金融、文旅活动与政策通关的垂直领域智能决策助手。<span class="en">A vertical AI assistant for cross-border finance, travel, and policy navigation.</span></p>
+            <h2>深港跨境专业生活助手</h2>
+            <p class="lead">面向跨境金融、文旅活动与政策通关的垂直领域智能决策助手。</p>
             <div class="chips">
               <span class="chip">多智能体协作</span>
-              <span class="chip">Agent + RAG</span>
-              <span class="chip">实时工具调用 · Live Tools</span>
+              <span class="chip">高级 RAG</span>
+              <span class="chip">实时工具调用</span>
             </div>
-            <div class="callout">目标：把“能回答”升级为“能决策、可验证、可合规”。<span class="en">From "can answer" to "can decide, verify &amp; comply".</span></div>
+            <div class="callout">目标：把“能回答”升级为“能决策、可验证、可合规”。</div>
+          </div>
+          <div class="cover-right">
+            <div class="photo-slot wide">
+              <strong>图1 港深双城天际线</strong>
+              <span>维港 + 深圳湾/前海夜景组合主视觉</span>
+            </div>
+            <div class="photo-slot">
+              <strong>图2 口岸/跨境交通场景</strong>
+              <span>福田/罗湖口岸、港铁/跨境巴士</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="footer"><span><b>主题词：</b>跨境生活 / 合规决策 / 双城协同<span class="sub">Cross-Border Life · Compliance · Twin-City</span></span><span>v1.0.0</span></div>
+      <div class="footer"><span><b>主题词：</b>跨境生活 / 合规决策 / 双城协同</span><span>版本 1.0.0</span></div>
     </section>
 
     <section class="slide" aria-label="背景痛点">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>背景与痛点 · Background &amp; Pain Points</div><div class="page">02 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>背景与痛点</div><div class="page">02 / 12</div></div>
       <div class="content">
-        <h2>双城生活的现实挑战<span class="en">Cross-Border Life: Fragmented Info, Poor Real-Time Data, Compliance Risks</span></h2>
+        <h2>双城生活的现实挑战：信息碎片、实时性差、合规风险高</h2>
         <div class="cols-2">
           <div class="panel">
             <ul class="list">
-              <li>政策、口岸、金融服务更新频繁，用户难以持续跟踪。<span class="en">Policies, port services, and financial rules change fast — hard to track.</span></li>
-              <li>实时数据（汇率、人流、班次）缺失导致决策失误。<span class="en">Missing real-time data (FX rates, crowd, schedules) leads to bad decisions.</span></li>
-              <li>跨境金融合规边界模糊，通用 LLM 容易产生幻觉。<span class="en">Cross-border compliance rules are vague; general LLMs hallucinate.</span></li>
-              <li>跨域信息分散在政府、银行、交通与活动平台。<span class="en">Info scattered across gov, banks, transit, and event platforms.</span></li>
+              <li>政策、口岸、金融服务更新频繁，用户难以持续跟踪。</li>
+              <li>实时数据（汇率、人流、班次）缺失导致决策失误。</li>
+              <li>跨境金融合规边界模糊，通用 LLM 容易产生幻觉。</li>
+              <li>跨域信息分散在政府、银行、交通与活动平台。</li>
             </ul>
           </div>
           <div class="diagram-shell">
-            <div class="diagram-title">港深双城痛点示意 · Pain Point Map</div>
+            <div class="diagram-title">港深双城痛点示意</div>
             <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="港深双城痛点示意">
               <defs>
                 <filter id="g-b"><feGaussianBlur stdDeviation="1"/></filter>
@@ -671,67 +525,67 @@
               <!-- 双城连线 -->
               <line x1="84" y1="120" x2="276" y2="120" stroke="rgba(0,87,255,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
               <!-- 矛盾/痛点标记 -->
-              <text x="180" y="62" text-anchor="middle" font-size="8" fill="#ff1493">⚠ Info Silos</text>
-              <text x="180" y="198" text-anchor="middle" font-size="8" fill="#ff1493">⚠ No Real-Time</text>
+              <text x="180" y="62" text-anchor="middle" font-size="8" fill="#ff1493">⚠ 信息孤岛</text>
+              <text x="180" y="198" text-anchor="middle" font-size="8" fill="#ff1493">⚠ 实时缺失</text>
               <!-- 城市圆 -->
               <circle cx="84" cy="120" r="44" fill="rgba(0,87,255,0.06)" stroke="rgba(0,87,255,0.4)" stroke-width="1.5"/>
               <circle cx="84" cy="120" r="44" fill="none" stroke="rgba(0,87,255,0.1)" stroke-width="6" filter="url(#g-b)"/>
               <circle cx="276" cy="120" r="44" fill="rgba(255,20,147,0.06)" stroke="rgba(255,20,147,0.4)" stroke-width="1.5"/>
               <circle cx="276" cy="120" r="44" fill="none" stroke="rgba(255,20,147,0.1)" stroke-width="6" filter="url(#g-b)"/>
               <text x="84" y="116" text-anchor="middle" font-size="18" fill="#0057ff" font-weight="700">HK</text>
-              <text x="84" y="134" text-anchor="middle" font-size="9" fill="#6b6b80">Hong Kong</text>
+              <text x="84" y="134" text-anchor="middle" font-size="9" fill="#6b6b80">香港</text>
               <text x="276" y="116" text-anchor="middle" font-size="18" fill="#ff6b9d" font-weight="700">SZ</text>
-              <text x="276" y="134" text-anchor="middle" font-size="9" fill="#7a5a90">Shenzhen</text>
+              <text x="276" y="134" text-anchor="middle" font-size="9" fill="#7a5a90">深圳</text>
               <!-- 痛点标签 -->
               <rect x="104" y="86" width="72" height="22" rx="4" fill="rgba(255,20,147,0.08)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-              <text x="140" y="100" text-anchor="middle" font-size="8" fill="#ff8fab">Fragmented Policies</text>
+              <text x="140" y="100" text-anchor="middle" font-size="8" fill="#ff8fab">政策碎片化</text>
               <rect x="184" y="86" width="72" height="22" rx="4" fill="rgba(255,20,147,0.08)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-              <text x="220" y="100" text-anchor="middle" font-size="8" fill="#ff8fab">Vague Rules</text>
+              <text x="220" y="100" text-anchor="middle" font-size="8" fill="#ff8fab">合规模糊</text>
               <rect x="104" y="130" width="72" height="22" rx="4" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>
-              <text x="140" y="144" text-anchor="middle" font-size="8" fill="#f08080">Outdated Info</text>
+              <text x="140" y="144" text-anchor="middle" font-size="8" fill="#f08080">信息滞后</text>
               <rect x="184" y="130" width="72" height="22" rx="4" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.2)" stroke-width="0.8"/>
-              <text x="220" y="144" text-anchor="middle" font-size="8" fill="#f08080">Data Gaps</text>
+              <text x="220" y="144" text-anchor="middle" font-size="8" fill="#f08080">数据断联</text>
               <!-- 核心结论 -->
               <rect x="60" y="210" width="240" height="22" rx="11" fill="rgba(0,87,255,0.06)" stroke="rgba(0,87,255,0.15)" stroke-width="0.8"/>
-              <text x="180" y="224" text-anchor="middle" font-size="8" fill="#8899bb">Missing a Cross-Border Decision Hub</text>
+              <text x="180" y="224" text-anchor="middle" font-size="8" fill="#8899bb">缺一个「跨境专业决策中枢」</text>
             </svg>
           </div>
         </div>
-        <div class="callout">问题本质：缺一个“跨境专业决策中枢”。<span class="en">Core issue: we need a cross-border decision hub.</span></div>
+        <div class="callout">问题本质：缺一个“跨境专业决策中枢”。</div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>先抛出现实痛点，再强调通用 LLM 的局限</span><span>时长 45 秒</span></div>
     </section>
 
     <section class="slide" aria-label="目标定位">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>目标与定位 · Goals &amp; Positioning</div><div class="page">03 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>目标与定位</div><div class="page">03 / 12</div></div>
       <div class="content">
-        <h2>为什么要做“跨境专业 Agent”<span class="en">Why a Cross-Border Professional Agent?</span></h2>
+        <h2>为什么要做“跨境专业 Agent”</h2>
         <div class="cols-2">
           <div class="panel">
-            <h3>产品定位<span class="en">Product Positioning</span></h3>
-            <p>面向跨境高净值生活与决策的垂直领域助手。<span class="en">A vertical assistant for cross-border high-net-worth life, focused on finance + travel + events.</span></p>
-            <h3>核心目标<span class="en">Core Goals</span></h3>
+            <h3>产品定位</h3>
+            <p>面向跨境高净值生活与决策的垂直领域助手，聚焦“金融合规 + 出行路径 + 活动安排”。</p>
+            <h3>核心目标</h3>
             <ul class="list">
-              <li>准确：基于权威数据源，减少幻觉。<span class="en">Accurate: authoritative sources, less hallucination.</span></li>
-              <li>实时：接入动态数据与实时工具。<span class="en">Real-time: dynamic data and live tools.</span></li>
-              <li>合规：提供风险提示与边界提醒。<span class="en">Compliant: risk alerts and boundary warnings.</span></li>
-              <li>可验证：输出依据可追溯。<span class="en">Verifiable: traceable output sources.</span></li>
+              <li>准确：基于权威数据源，减少幻觉。</li>
+              <li>实时：接入动态数据与实时工具。</li>
+              <li>合规：提供风险提示与边界提醒。</li>
+              <li>可验证：输出依据可追溯。</li>
             </ul>
           </div>
           <div class="diagram-shell">
-            <div class="diagram-title">通用模型 → 专业决策助手 · General LLM → Professional Agent</div>
+            <div class="diagram-title">通用模型 → 专业决策助手</div>
             <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" aria-label="通用到专业">
               <defs>
                 <filter id="g-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
               </defs>
               <!-- 左侧：通用 LLM -->
               <rect x="20" y="50" width="130" height="140" rx="16" fill="rgba(0,87,255,0.02)" stroke="rgba(0,87,255,0.1)" stroke-width="1"/>
-              <text x="85" y="80" text-anchor="middle" font-size="13" fill="#6b6b80" font-weight="700">General LLM</text>
+              <text x="85" y="80" text-anchor="middle" font-size="13" fill="#6b6b80" font-weight="700">通用 LLM</text>
               <line x1="40" y1="90" x2="130" y2="90" stroke="rgba(0,87,255,0.06)" stroke-width="0.5"/>
-              <text x="85" y="108" text-anchor="middle" font-size="9" fill="#ef4444">✗ Hallucinates</text>
-              <text x="85" y="128" text-anchor="middle" font-size="9" fill="#ef4444">✗ High Risk</text>
-              <text x="85" y="148" text-anchor="middle" font-size="9" fill="#ef4444">✗ Stale Data</text>
-              <text x="85" y="168" text-anchor="middle" font-size="9" fill="#ef4444">✗ Untraceable</text>
+              <text x="85" y="108" text-anchor="middle" font-size="9" fill="#ef4444">✗ 易产生幻觉</text>
+              <text x="85" y="128" text-anchor="middle" font-size="9" fill="#ef4444">✗ 合规风险高</text>
+              <text x="85" y="148" text-anchor="middle" font-size="9" fill="#ef4444">✗ 信息不实时</text>
+              <text x="85" y="168" text-anchor="middle" font-size="9" fill="#ef4444">✗ 不可追溯</text>
               <!-- 箭头过渡 -->
               <line x1="150" y1="120" x2="200" y2="120" stroke="rgba(0,87,255,0.3)" stroke-width="1.5"/>
               <polygon points="200,115 210,120 200,125" fill="rgba(0,87,255,0.4)"/>
@@ -739,86 +593,66 @@
               <text x="175" y="136" text-anchor="middle" font-size="7" fill="#0057ff">+Tools</text>
               <!-- 右侧：专业 Agent -->
               <rect x="210" y="50" width="130" height="140" rx="16" fill="rgba(0,87,255,0.04)" stroke="rgba(0,87,255,0.25)" stroke-width="1.2" filter="url(#g-glow)"/>
-              <text x="275" y="80" text-anchor="middle" font-size="13" fill="#0057ff" font-weight="700">Agent</text>
+              <text x="275" y="80" text-anchor="middle" font-size="13" fill="#0057ff" font-weight="700">专业 Agent</text>
               <line x1="230" y1="90" x2="320" y2="90" stroke="rgba(0,87,255,0.1)" stroke-width="0.5"/>
-              <text x="275" y="108" text-anchor="middle" font-size="9" fill="#00c9a7">✓ Verified Search</text>
-              <text x="275" y="128" text-anchor="middle" font-size="9" fill="#00c9a7">✓ Guardrails</text>
-              <text x="275" y="148" text-anchor="middle" font-size="9" fill="#00c9a7">✓ Live Tools</text>
-              <text x="275" y="168" text-anchor="middle" font-size="9" fill="#00c9a7">✓ Traceable</text>
+              <text x="275" y="108" text-anchor="middle" font-size="9" fill="#00c9a7">✓ 可验证检索</text>
+              <text x="275" y="128" text-anchor="middle" font-size="9" fill="#00c9a7">✓ 合规护栏</text>
+              <text x="275" y="148" text-anchor="middle" font-size="9" fill="#00c9a7">✓ 实时工具</text>
+              <text x="275" y="168" text-anchor="middle" font-size="9" fill="#00c9a7">✓ 可追溯</text>
             </svg>
           </div>
         </div>
-        <div class="callout">定位一句话：跨境决策不只是“答案”，而是“可执行方案”。<span class="en">Not just answers — actionable plans.</span></div>
+        <div class="callout">定位一句话：跨境决策不只是“答案”，而是“可执行方案”。</div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>强调“垂直+可验证”的差异化</span><span>时长 45 秒</span></div>
     </section>
 
     <section class="slide" aria-label="用户画像">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>用户画像与场景 · Personas &amp; Scenarios</div><div class="page">04 / 12</div></div>
-      <div class="content spread-content">
-        <h2>三类核心用户，覆盖高频跨境场景<span class="en">Three User Personas, High-Frequency Cross-Border Scenarios</span></h2>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>用户画像与场景</div><div class="page">04 / 12</div></div>
+      <div class="content">
+        <h2>三类核心用户，覆盖高频跨境场景</h2>
         <div class="cols-3">
           <div class="panel">
-            <h3>跨境金融用户<span class="en">Finance User</span></h3>
-            <p>关注开户流程、合规限制、支付渠道与资产配置。<span class="en">Account opening, compliance, payments, asset allocation.</span></p>
+            <h3>跨境金融用户</h3>
+            <p>关注开户流程、合规限制、支付渠道与资产配置。</p>
           </div>
           <div class="panel">
-            <h3>文旅活动人群<span class="en">Travel &amp; Events</span></h3>
-            <p>需要快速获取活动信息、排期冲突检测与路线规划。<span class="en">Quick event info, schedule conflict detection, route planning.</span></p>
+            <h3>文旅活动人群</h3>
+            <p>需要快速获取活动信息、排期冲突检测与路线规划。</p>
           </div>
           <div class="panel">
-            <h3>通勤商务人群<span class="en">Commuter &amp; Business</span></h3>
-            <p>高频过关、重视通关效率与最优路径决策。<span class="en">Frequent border crossing, needs fast clearance and optimal routes.</span></p>
+            <h3>通勤商务人群</h3>
+            <p>高频过关、重视通关效率与最优路径决策。</p>
           </div>
         </div>
-        <div class="image-row" style="margin-top:12px;">
-          <div class="image-card">
-            <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/8363135/pexels-photo-8363135.jpeg'); background-position:center top;">
-              <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
-                <strong style="font-size:12px; color:#fff;">图4.1 跨境金融 · Finance</strong>
-              </div>
-            </div>
-          </div>
-          <div class="image-card">
-            <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/2263436/pexels-photo-2263436.jpeg');">
-              <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
-                <strong style="font-size:12px; color:#fff;">图4.2 文旅活动 · Events</strong>
-              </div>
-            </div>
-          </div>
-          <div class="image-card">
-            <div class="image-fill" style="background-image:url('https://images.pexels.com/photos/33897861/pexels-photo-33897861.jpeg');">
-              <div style="background:rgba(0,0,0,0.35); padding:8px; border-radius:6px; margin:8px;">
-                <strong style="font-size:12px; color:#fff;">图4.3 通勤场景 · Commute</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div class="panel light">
-          <h3>典型场景<span class="en">Typical Scenario</span></h3>
-          <p>“去西九龙看演唱会并顺便开户”——跨场景需求需要拆解、验证、并行处理。<span class="en">"Concert at West Kowloon + open a bank account" — cross-scenario needs parallel handling.</span></p>
+          <h3>典型场景</h3>
+          <p>“去西九龙打卡并参加比赛，顺便开户”——跨场景需求需要拆解、验证、并行处理。</p>
+        </div>
+        <div class="photo-slot">
+          <strong>图4 用户场景实拍</strong>
+          <span>跨境金融/活动/通勤场景组合图</span>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>用一个真实用户故事快速建立共鸣</span><span>时长 40 秒</span></div>
     </section>
 
     <section class="slide" aria-label="核心功能">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>核心功能 · Core Features</div><div class="page">05 / 12</div></div>
-      <div class="content spread-content">
-        <h2>三大能力模块，覆盖跨境决策全链路<span class="en">Three Core Modules for End-to-End Cross-Border Decision</span></h2>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>核心功能</div><div class="page">05 / 12</div></div>
+      <div class="content">
+        <h2>三大能力模块，覆盖跨境决策全链路</h2>
         <div class="cols-3">
           <div class="panel">
-            <h3>跨境金融导航<span class="en">Finance Navigator</span></h3>
-            <p>基于最新 RAG 知识库输出开户指南与合规建议。<span class="en">RAG-powered account opening guides and compliance tips.</span></p>
+            <h3>跨境金融导航</h3>
+            <p>基于最新 RAG 知识库输出开户指南与合规建议。</p>
           </div>
           <div class="panel">
-            <h3>活动/情报自动化<span class="en">Event Intelligence</span></h3>
-            <p>自动解析海报与官网信息，完成日程冲突检测。<span class="en">Auto-parse posters and official sites; detect schedule conflicts.</span></p>
+            <h3>活动/情报自动化</h3>
+            <p>自动解析海报与官网信息，完成日程冲突检测。</p>
           </div>
           <div class="panel">
-            <h3>实时决策支持<span class="en">Real-Time Decision</span></h3>
-            <p>接入汇率、口岸人流、港铁班次，推荐最优路径。<span class="en">FX rates, border flow, MTR schedules — optimal route suggestions.</span></p>
+            <h3>实时决策支持</h3>
+            <p>接入汇率、口岸人流、港铁班次，推荐最优路径。</p>
           </div>
         </div>
         <div class="diagram-shell">
@@ -828,24 +662,24 @@
             <circle cx="180" cy="120" r="40" fill="rgba(0,87,255,0.08)" stroke="rgba(0,87,255,0.3)" stroke-width="1.5"/>
             <circle cx="180" cy="120" r="28" fill="rgba(0,87,255,0.05)" stroke="rgba(0,87,255,0.15)" stroke-width="0.8"/>
             <text x="180" y="118" text-anchor="middle" font-size="11" fill="#0057ff" font-weight="700">SZ-HK Hub</text>
-            <text x="180" y="134" text-anchor="middle" font-size="8" fill="#6b6b80">Decision Engine</text>
+            <text x="180" y="134" text-anchor="middle" font-size="8" fill="#6b6b80">核心决策引擎</text>
             <!-- 三个模块向外辐射 -->
             <!-- 金融 -->
             <rect x="6" y="28" width="96" height="70" rx="10" fill="rgba(255,20,147,0.06)" stroke="rgba(255,20,147,0.25)" stroke-width="1"/>
             <text x="54" y="52" text-anchor="middle" font-size="10" fill="#ff6b9d" font-weight="700">🏦 跨境金融</text>
-            <text x="54" y="70" text-anchor="middle" font-size="7" fill="#7a5a90">Account</text>
-            <text x="54" y="84" text-anchor="middle" font-size="7" fill="#7a5a90">Compliance</text>
+            <text x="54" y="70" text-anchor="middle" font-size="7" fill="#7a5a90">开户导航</text>
+            <text x="54" y="84" text-anchor="middle" font-size="7" fill="#7a5a90">合规提示</text>
             <line x1="102" y1="70" x2="140" y2="106" stroke="rgba(255,20,147,0.2)" stroke-width="1"/>
             <!-- 文旅 -->
             <rect x="258" y="28" width="96" height="70" rx="10" fill="rgba(0,201,167,0.06)" stroke="rgba(0,201,167,0.25)" stroke-width="1"/>
             <text x="306" y="52" text-anchor="middle" font-size="10" fill="#00c9a7" font-weight="700">🎭 文旅活动</text>
-            <text x="306" y="70" text-anchor="middle" font-size="7" fill="#6b9d8b">Parsing</text>
-            <text x="306" y="84" text-anchor="middle" font-size="7" fill="#6b9d8b">Detection</text>
+            <text x="306" y="70" text-anchor="middle" font-size="7" fill="#6b9d8b">海报解析</text>
+            <text x="306" y="84" text-anchor="middle" font-size="7" fill="#6b9d8b">冲突检测</text>
             <line x1="258" y1="70" x2="220" y2="106" stroke="rgba(0,201,167,0.2)" stroke-width="1"/>
             <!-- 实时 -->
             <rect x="100" y="162" width="160" height="52" rx="10" fill="rgba(255,20,147,0.06)" stroke="rgba(255,20,147,0.25)" stroke-width="1"/>
             <text x="180" y="186" text-anchor="middle" font-size="10" fill="#ff1493" font-weight="700">🚇 实时决策支持</text>
-            <text x="180" y="204" text-anchor="middle" font-size="7" fill="#b080a0">FX / Border / MTR / Route</text>
+            <text x="180" y="204" text-anchor="middle" font-size="7" fill="#b080a0">汇率 / 口岸人流 / 港铁 / 路径规划</text>
             <line x1="180" y1="160" x2="180" y2="162" stroke="rgba(255,20,147,0.2)" stroke-width="1"/>
             <!-- 技术标签 -->
             <rect x="140" y="10" width="80" height="16" rx="8" fill="rgba(0,87,255,0.05)" stroke="rgba(0,87,255,0.15)" stroke-width="0.6"/>
@@ -857,105 +691,118 @@
     </section>
 
     <section class="slide" aria-label="技术架构">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>技术架构 · Architecture</div><div class="page">06 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>技术架构</div><div class="page">06 / 12</div></div>
       <div class="content">
-        <h2>多智能体 + 高级 RAG + MCP 实时工具的组合架构<span class="en">Multi-Agent + Advanced RAG + MCP Tool Architecture</span></h2>
+        <h2>多智能体 + 高级 RAG + MCP 实时工具的组合架构</h2>
         <div class="cols-2">
           <div class="panel">
             <ul class="list">
-              <li>Planner Agent：任务拆解、步骤规划。<span class="en">Task decomposition, step planning.</span></li>
-              <li>Verifier Agent：反思审查、合规校验。<span class="en">Reflection, review, compliance checks.</span></li>
-              <li>高级 RAG：动态数据源与检索评估。<span class="en">Dynamic data sources, retrieval evaluation.</span></li>
-              <li>MCP Server：封装实时汇率、口岸人流、路径规划。<span class="en">Real-time FX, border flow, route planning via MCP.</span></li>
-              <li>Safety Guardrails：敏感词与合规红线。<span class="en">Sensitive content filters, compliance red lines.</span></li>
+              <li>Planner Agent：任务拆解、步骤规划。</li>
+              <li>Verifier Agent：反思审查、合规校验。</li>
+              <li>高级 RAG：动态数据源与检索评估。</li>
+              <li>MCP Server：封装实时汇率、口岸人流、路径规划。</li>
+              <li>Safety Guardrails：敏感词与合规红线。</li>
             </ul>
           </div>
           <div class="diagram-shell">
             <div class="diagram-title">全栈技术架构 · LLM 应用技术栈总览</div>
-            <svg viewBox="0 0 360 260" xmlns="http://www.w3.org/2000/svg" aria-label="LLM全栈技术架构">
+            <svg viewBox="0 0 360 248" xmlns="http://www.w3.org/2000/svg" aria-label="LLM全栈技术架构">
               <defs>
-                <linearGradient id="gl1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="rgba(0,87,255,0.08)"/><stop offset="100%" stop-color="rgba(0,87,255,0.02)"/></linearGradient>
-                <linearGradient id="gl2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="rgba(255,20,147,0.1)"/><stop offset="100%" stop-color="rgba(255,20,147,0.02)"/></linearGradient>
+                <linearGradient id="g-layer1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0057ff" stop-opacity="0.2"/><stop offset="100%" stop-color="#0057ff" stop-opacity="0.05"/></linearGradient>
+                <linearGradient id="g-layer2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff1493" stop-opacity="0.2"/><stop offset="100%" stop-color="#ff1493" stop-opacity="0.05"/></linearGradient>
+                <linearGradient id="g-layer3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c9a7" stop-opacity="0.2"/><stop offset="100%" stop-color="#00c9a7" stop-opacity="0.05"/></linearGradient>
+                <linearGradient id="g-layer4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff1493" stop-opacity="0.2"/><stop offset="100%" stop-color="#ff1493" stop-opacity="0.05"/></linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
               </defs>
-              <!-- 01 UI Layer -->
-              <rect x="8" y="6" width="344" height="38" rx="6" fill="url(#gl1)" stroke="rgba(0,87,255,0.2)" stroke-width="1"/>
-              <text x="18" y="21" font-size="9" fill="#0057ff" font-weight="700">01 UI Layer</text>
-              <rect x="96" y="12" width="52" height="16" rx="4" fill="rgba(0,87,255,0.08)"/>
-              <text x="122" y="23" text-anchor="middle" font-size="8" fill="#3357a0">Web UI</text>
-              <rect x="154" y="12" width="44" height="16" rx="4" fill="rgba(0,87,255,0.08)"/>
-              <text x="176" y="23" text-anchor="middle" font-size="8" fill="#3357a0">API</text>
-              <rect x="204" y="12" width="44" height="16" rx="4" fill="rgba(0,87,255,0.08)"/>
-              <text x="226" y="23" text-anchor="middle" font-size="8" fill="#3357a0">Chat</text>
-              <line x1="178" y1="44" x2="178" y2="52" stroke="rgba(0,87,255,0.3)" stroke-width="1"/>
-              <!-- 02 Agent Orchestration -->
-              <rect x="8" y="54" width="344" height="68" rx="6" fill="url(#gl2)" stroke="rgba(255,20,147,0.2)" stroke-width="1"/>
-              <text x="18" y="68" font-size="9" fill="#ff1493" font-weight="700">02 Agent Orchestration</text>
-              <rect x="14" y="76" width="72" height="40" rx="6" fill="rgba(255,20,147,0.1)" stroke="rgba(255,20,147,0.25)"/>
-              <text x="50" y="94" text-anchor="middle" font-size="9" fill="#ff6b9d" font-weight="700">Planner</text>
-              <text x="50" y="109" text-anchor="middle" font-size="7" fill="#b080a0">Decompose</text>
-              <rect x="96" y="76" width="72" height="40" rx="6" fill="rgba(255,20,147,0.1)" stroke="rgba(255,20,147,0.25)"/>
-              <text x="132" y="94" text-anchor="middle" font-size="9" fill="#ff6b9d" font-weight="700">Verifier</text>
-              <text x="132" y="109" text-anchor="middle" font-size="7" fill="#b080a0">Review</text>
-              <rect x="178" y="76" width="72" height="40" rx="6" fill="rgba(255,20,147,0.1)" stroke="rgba(255,20,147,0.25)"/>
-              <text x="214" y="94" text-anchor="middle" font-size="9" fill="#ff6b9d" font-weight="700">Router</text>
-              <text x="214" y="109" text-anchor="middle" font-size="7" fill="#b080a0">Dispatch</text>
-              <rect x="260" y="76" width="84" height="40" rx="6" fill="rgba(0,87,255,0.08)" stroke="rgba(0,87,255,0.2)"/>
-              <text x="302" y="94" text-anchor="middle" font-size="9" fill="#0057ff" font-weight="700">LLM Core</text>
-              <text x="302" y="109" text-anchor="middle" font-size="7" fill="#6b6b80">GPT-4 / DeepSeek</text>
-              <!-- arrows in layer 2 -->
-              <line x1="86" y1="96" x2="96" y2="96" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
-              <line x1="168" y1="96" x2="178" y2="96" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
-              <line x1="250" y1="96" x2="260" y2="96" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
-              <line x1="302" y1="116" x2="302" y2="128" stroke="rgba(0,87,255,0.25)" stroke-width="1"/>
-              <!-- 03 RAG Layer + 04 MCP Tools side by side -->
-              <rect x="8" y="130" width="166" height="68" rx="6" fill="rgba(0,201,167,0.04)" stroke="rgba(0,201,167,0.2)" stroke-width="1"/>
-              <text x="18" y="144" font-size="9" fill="#00c9a7" font-weight="700">03 RAG Layer</text>
-              <rect x="16" y="150" width="56" height="18" rx="4" fill="rgba(0,201,167,0.08)"/>
-              <text x="44" y="162" text-anchor="middle" font-size="8" fill="#008b74">Embedding</text>
-              <rect x="78" y="150" width="64" height="18" rx="4" fill="rgba(0,201,167,0.08)"/>
-              <text x="110" y="162" text-anchor="middle" font-size="8" fill="#008b74">Vector DB</text>
-              <text x="90" y="190" text-anchor="middle" font-size="7" fill="#6b9d8b">Qdrant / Chroma / FAISS</text>
-              <rect x="186" y="130" width="166" height="68" rx="6" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="1"/>
-              <text x="196" y="144" font-size="9" fill="#ff1493" font-weight="700">04 MCP Tools</text>
-              <rect x="194" y="150" width="52" height="18" rx="4" fill="rgba(255,20,147,0.08)"/>
-              <text x="220" y="162" text-anchor="middle" font-size="8" fill="#a03060">FX Rate</text>
-              <rect x="252" y="150" width="64" height="18" rx="4" fill="rgba(255,20,147,0.08)"/>
-              <text x="284" y="162" text-anchor="middle" font-size="8" fill="#a03060">Border</text>
-              <text x="268" y="190" text-anchor="middle" font-size="7" fill="#b080a0">Route · MTR Schedule</text>
-              <!-- 05 Data Sources -->
-              <rect x="8" y="208" width="344" height="44" rx="6" fill="rgba(0,87,255,0.02)" stroke="rgba(0,87,255,0.08)"/>
-              <text x="18" y="226" font-size="9" fill="#6b6b80" font-weight="700">05 Data Sources</text>
-              <text x="86" y="226" font-size="8" fill="#6b6b80">Gov</text>
-              <text x="128" y="226" font-size="8" fill="#6b6b80">Banks</text>
-              <text x="178" y="226" font-size="8" fill="#6b6b80">MTR</text>
-              <text x="228" y="226" font-size="8" fill="#6b6b80">Events</text>
-              <text x="286" y="226" font-size="8" fill="#6b6b80">Forums</text>
-              <!-- vertical connectors -->
-              <line x1="90" y1="198" x2="90" y2="208" stroke="rgba(0,201,167,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
-              <line x1="268" y1="198" x2="268" y2="208" stroke="rgba(255,20,147,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
-              <!-- flow arrows between layers -->
-              <polygon points="178,48 174,48 178,52 182,48" fill="rgba(0,87,255,0.3)"/>
-              <polygon points="178,122 174,122 178,128 182,122" fill="rgba(255,20,147,0.25)"/>
+              <!-- Layer 1: 用户交互层 -->
+              <rect x="24" y="8" width="312" height="44" rx="8" fill="url(#g-layer1)" stroke="rgba(0,87,255,0.3)" stroke-width="1.2"/>
+              <text x="36" y="26" font-size="9" fill="#0057ff" font-weight="700">01 交互层</text>
+              <rect x="36" y="30" width="56" height="18" rx="4" fill="rgba(0,87,255,0.12)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
+              <text x="64" y="43" text-anchor="middle" font-size="9" fill="#a0c0e0">Web UI</text>
+              <rect x="98" y="30" width="56" height="18" rx="4" fill="rgba(0,87,255,0.12)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
+              <text x="126" y="43" text-anchor="middle" font-size="9" fill="#a0c0e0">API</text>
+              <rect x="160" y="30" width="56" height="18" rx="4" fill="rgba(0,87,255,0.12)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
+              <text x="188" y="43" text-anchor="middle" font-size="9" fill="#a0c0e0">Chat</text>
+              <line x1="36" y1="52" x2="36" y2="58" stroke="rgba(0,87,255,0.3)" stroke-width="1"/>
+              <!-- Layer 2: 智能编排层 -->
+              <rect x="24" y="60" width="312" height="68" rx="8" fill="url(#g-layer2)" stroke="rgba(255,20,147,0.3)" stroke-width="1.2"/>
+              <text x="36" y="78" font-size="9" fill="#ff1493" font-weight="700">02 智能编排层 (Agent Orchestration)</text>
+              <!-- Planner -->
+              <rect x="36" y="84" width="64" height="38" rx="6" fill="rgba(255,20,147,0.15)" stroke="rgba(255,20,147,0.3)" stroke-width="0.8"/>
+              <text x="68" y="100" text-anchor="middle" font-size="9" fill="#ff6b9d" font-weight="700">Planner</text>
+              <text x="68" y="115" text-anchor="middle" font-size="7" fill="#b080a0">任务拆解</text>
+              <!-- Verifier -->
+              <rect x="108" y="84" width="64" height="38" rx="6" fill="rgba(255,20,147,0.15)" stroke="rgba(255,20,147,0.3)" stroke-width="0.8"/>
+              <text x="140" y="100" text-anchor="middle" font-size="9" fill="#ff6b9d" font-weight="700">Verifier</text>
+              <text x="140" y="115" text-anchor="middle" font-size="7" fill="#b080a0">审查·合规</text>
+              <!-- Router -->
+              <rect x="180" y="84" width="64" height="38" rx="6" fill="rgba(255,20,147,0.15)" stroke="rgba(255,20,147,0.3)" stroke-width="0.8"/>
+              <text x="212" y="100" text-anchor="middle" font-size="9" fill="#ff6b9d" font-weight="700">Router</text>
+              <text x="212" y="115" text-anchor="middle" font-size="7" fill="#b080a0">工具路由</text>
+              <!-- LLM Core -->
+              <rect x="252" y="84" width="74" height="38" rx="6" fill="rgba(0,87,255,0.1)" stroke="rgba(0,87,255,0.25)" stroke-width="0.8"/>
+              <text x="289" y="100" text-anchor="middle" font-size="9" fill="#0057ff" font-weight="700">LLM Core</text>
+              <text x="289" y="115" text-anchor="middle" font-size="7" fill="#6b6b80">GPT-4 / DeepSeek</text>
+              <!-- Arrows -->
+              <line x1="100" y1="103" x2="108" y2="103" stroke="rgba(255,20,147,0.4)" stroke-width="1"/>
+              <line x1="172" y1="103" x2="180" y2="103" stroke="rgba(255,20,147,0.4)" stroke-width="1"/>
+              <line x1="244" y1="103" x2="252" y2="103" stroke="rgba(255,20,147,0.4)" stroke-width="1"/>
+              <line x1="289" y1="128" x2="289" y2="134" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
+              <!-- Layer 3: RAG + 知识层 -->
+              <rect x="24" y="134" width="148" height="60" rx="8" fill="url(#g-layer3)" stroke="rgba(0,201,167,0.3)" stroke-width="1.2"/>
+              <text x="34" y="150" font-size="9" fill="#00c9a7" font-weight="700">03 RAG 知识层</text>
+              <rect x="32" y="156" width="56" height="16" rx="4" fill="rgba(0,201,167,0.1)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
+              <text x="60" y="167" text-anchor="middle" font-size="8" fill="#6bd6b0">Embedding</text>
+              <rect x="94" y="156" width="64" height="16" rx="4" fill="rgba(0,201,167,0.1)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
+              <text x="126" y="167" text-anchor="middle" font-size="8" fill="#6bd6b0">Vector DB</text>
+              <rect x="32" y="174" width="126" height="14" rx="4" fill="rgba(0,201,167,0.08)" stroke="rgba(0,201,167,0.15)" stroke-width="0.8"/>
+              <text x="95" y="184" text-anchor="middle" font-size="7" fill="#6aa88a">Qdrant / Chroma / FAISS</text>
+              <!-- Layer 3b: MCP 工具层 -->
+              <rect x="188" y="134" width="148" height="60" rx="8" fill="url(#g-layer4)" stroke="rgba(255,20,147,0.3)" stroke-width="1.2"/>
+              <text x="198" y="150" font-size="9" fill="#ff1493" font-weight="700">04 MCP 工具层</text>
+              <rect x="196" y="156" width="56" height="16" rx="4" fill="rgba(255,20,147,0.1)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
+              <text x="224" y="167" text-anchor="middle" font-size="8" fill="#ff8fab">汇率</text>
+              <rect x="258" y="156" width="64" height="16" rx="4" fill="rgba(255,20,147,0.1)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
+              <text x="290" y="167" text-anchor="middle" font-size="8" fill="#ff8fab">口岸人流</text>
+              <rect x="196" y="174" width="126" height="14" rx="4" fill="rgba(255,20,147,0.08)" stroke="rgba(255,20,147,0.15)" stroke-width="0.8"/>
+              <text x="259" y="184" text-anchor="middle" font-size="7" fill="#b89040">路径规划 / MTR 时刻</text>
+              <!-- Layer 5: 数据源 -->
+              <rect x="24" y="200" width="312" height="40" rx="8" fill="rgba(0,87,255,0.02)" stroke="rgba(0,87,255,0.08)" stroke-width="0.8"/>
+              <text x="36" y="216" font-size="9" fill="#6b6b80" font-weight="700">05 数据源</text>
+              <text x="80" y="216" font-size="8" fill="#6b6b80">港府政策</text>
+              <text x="130" y="216" font-size="8" fill="#6b6b80">银行合规</text>
+              <text x="180" y="216" font-size="8" fill="#6b6b80">港铁 MTR</text>
+              <text x="230" y="216" font-size="8" fill="#6b6b80">活动平台</text>
+              <text x="280" y="216" font-size="8" fill="#6b6b80">论坛 PDF</text>
+              <!-- Connection arrows -->
+              <line x1="98" y1="134" x2="98" y2="200" stroke="rgba(0,201,167,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+              <line x1="262" y1="134" x2="262" y2="200" stroke="rgba(255,20,147,0.15)" stroke-width="1" stroke-dasharray="3 3"/>
+              <!-- Vertical flow arrows -->
+              <polygon points="180,56 176,56 180,60 184,56" fill="rgba(0,87,255,0.3)"/>
+              <polygon points="180,130 176,130 180,134 184,130" fill="rgba(255,20,147,0.3)"/>
+              <!-- Arrow between RAG and MCP to Agent -->
+              <line x1="98" y1="134" x2="155" y2="130" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
+              <line x1="262" y1="134" x2="205" y2="130" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
             </svg>
           </div>
         </div>
-        <div class="callout">架构原则：信息可追溯、流程可回放、建议可审查。<span class="en">Architecture principle: traceable info, replayable flows, reviewable advice.</span></div>
+        <div class="callout">架构原则：信息可追溯、流程可回放、建议可审查。</div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>强调“工具层 + 合规层”是差异化壁垒</span><span>时长 50 秒</span></div>
     </section>
 
     <section class="slide" aria-label="Agent流程">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Agent 工作流 · Agent Workflow</div><div class="page">07 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>Agent 工作流</div><div class="page">07 / 12</div></div>
       <div class="content">
-        <h2>任务拆解 → 工具调用 → 自我审查的协作机制<span class="en">Decompose → Execute → Verify: Agent Collaboration</span></h2>
+        <h2>任务拆解 → 工具调用 → 自我审查的协作机制</h2>
         <div class="cols-2">
           <div class="panel">
-            <h3>协作优势<span class="en">Collaboration Advantages</span></h3>
+            <h3>协作优势</h3>
             <ul class="list">
-              <li>复杂跨境任务可拆解为并行子任务。<span class="en">Complex cross-border tasks break into parallel sub-tasks.</span></li>
-              <li>工具调用带来实时数据，减少“拍脑袋”。<span class="en">Tool calls bring real-time data, less guesswork.</span></li>
-              <li>Verifier 负责合规与逻辑自检。<span class="en">Verifier handles compliance and logic checks.</span></li>
-              <li>输出包含依据来源，便于复核。<span class="en">Output includes source references for easy review.</span></li>
+              <li>复杂跨境任务可拆解为并行子任务。</li>
+              <li>工具调用带来实时数据，减少“拍脑袋”。</li>
+              <li>Verifier 负责合规与逻辑自检。</li>
+              <li>输出包含依据来源，便于复核。</li>
             </ul>
           </div>
           <div class="diagram-shell">
@@ -967,12 +814,12 @@
               </defs>
               <!-- 用户查询入口 -->
               <rect x="130" y="10" width="100" height="28" rx="14" fill="rgba(0,87,255,0.1)" stroke="rgba(0,87,255,0.3)" stroke-width="1"/>
-              <text x="180" y="29" text-anchor="middle" font-size="11" fill="#0057ff" font-weight="600">👤 User Query</text>
+              <text x="180" y="29" text-anchor="middle" font-size="11" fill="#0057ff" font-weight="600">👤 用户查询</text>
               <line x1="180" y1="38" x2="180" y2="48" stroke="rgba(0,87,255,0.4)" stroke-width="1.5" marker-end="url(#af)"/>
               <!-- Planner -->
               <rect x="100" y="50" width="160" height="36" rx="8" fill="rgba(255,20,147,0.12)" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
-              <text x="180" y="64" text-anchor="middle" font-size="10" fill="#ff6b9d" font-weight="700">Planner · Decompose &amp; Plan</text>
-              <text x="180" y="78" text-anchor="middle" font-size="7" fill="#b080a0">Intent → Sub-tasks → Ordering</text>
+              <text x="180" y="64" text-anchor="middle" font-size="10" fill="#ff6b9d" font-weight="700">Planner · 任务拆解 &amp; 步骤规划</text>
+              <text x="180" y="78" text-anchor="middle" font-size="7" fill="#b080a0">意图识别 → 子任务分解 → 依赖排序</text>
               <!-- Branch to 3 parallel tools -->
               <line x1="180" y1="86" x2="180" y2="98" stroke="rgba(255,20,147,0.3)" stroke-width="1"/>
               <line x1="180" y1="98" x2="60" y2="98" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
@@ -982,14 +829,14 @@
               <line x1="300" y1="98" x2="300" y2="108" stroke="rgba(255,20,147,0.3)" stroke-width="1" marker-end="url(#af-p)"/>
               <!-- Tools row -->
               <rect x="20" y="110" width="80" height="34" rx="6" fill="rgba(0,87,255,0.06)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
-              <text x="60" y="126" text-anchor="middle" font-size="9" fill="#6b9dff">RAG</text>
-              <text x="60" y="138" text-anchor="middle" font-size="7" fill="#6b6b80">Vector Search</text>
+              <text x="60" y="126" text-anchor="middle" font-size="9" fill="#6b9dff">RAG 检索</text>
+              <text x="60" y="138" text-anchor="middle" font-size="7" fill="#6b6b80">知识库查询</text>
               <rect x="140" y="110" width="80" height="34" rx="6" fill="rgba(0,201,167,0.06)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
-              <text x="180" y="126" text-anchor="middle" font-size="9" fill="#6bd6b0">MCP Tools</text>
-              <text x="180" y="138" text-anchor="middle" font-size="7" fill="#6b9d8b">Live Data</text>
+              <text x="180" y="126" text-anchor="middle" font-size="9" fill="#6bd6b0">MCP 工具</text>
+              <text x="180" y="138" text-anchor="middle" font-size="7" fill="#6b9d8b">实时数据调用</text>
               <rect x="260" y="110" width="80" height="34" rx="6" fill="rgba(255,20,147,0.06)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-              <text x="300" y="126" text-anchor="middle" font-size="9" fill="#ff8fab">LLM</text>
-              <text x="300" y="138" text-anchor="middle" font-size="7" fill="#b080a0">Reasoning</text>
+              <text x="300" y="126" text-anchor="middle" font-size="9" fill="#ff8fab">LLM 推理</text>
+              <text x="300" y="138" text-anchor="middle" font-size="7" fill="#b080a0">逻辑推理</text>
               <!-- Converge to Verifier -->
               <line x1="60" y1="144" x2="60" y2="154" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
               <line x1="180" y1="144" x2="180" y2="154" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
@@ -998,95 +845,96 @@
               <line x1="180" y1="154" x2="180" y2="162" stroke="rgba(255,20,147,0.3)" stroke-width="1" marker-end="url(#af-p)"/>
               <!-- Verifier -->
               <rect x="100" y="164" width="160" height="34" rx="8" fill="rgba(0,201,167,0.1)" stroke="rgba(0,201,167,0.3)" stroke-width="1"/>
-              <text x="180" y="178" text-anchor="middle" font-size="10" fill="#00c9a7" font-weight="700">Verifier · Compliance &amp; Logic</text>
-              <text x="180" y="192" text-anchor="middle" font-size="7" fill="#6aa88a">Hallucination → Compliance → Trace</text>
+              <text x="180" y="178" text-anchor="middle" font-size="10" fill="#00c9a7" font-weight="700">Verifier · 合规审查 &amp; 逻辑校验</text>
+              <text x="180" y="192" text-anchor="middle" font-size="7" fill="#6aa88a">幻觉检测 → 合规检查 → 依据溯源</text>
               <!-- Feedback loop -->
               <path d="M 100 181 Q 16 181 16 68 Q 16 55 100 68" fill="none" stroke="rgba(255,20,147,0.3)" stroke-width="1" stroke-dasharray="3 3"/>
-              <text x="8" y="128" font-size="7" fill="#ff8fab" transform="rotate(-90,8,128)">Feedback</text>
+              <text x="8" y="128" font-size="7" fill="#ff8fab" transform="rotate(-90,8,128)">反馈修正</text>
               <!-- Output -->
               <line x1="180" y1="198" x2="180" y2="210" stroke="rgba(0,201,167,0.4)" stroke-width="1.5" marker-end="url(#af)"/>
               <rect x="110" y="212" width="140" height="24" rx="12" fill="rgba(0,87,255,0.08)" stroke="rgba(0,87,255,0.2)" stroke-width="1"/>
-              <text x="180" y="228" text-anchor="middle" font-size="10" fill="#0057ff" font-weight="700">✅ Actionable Plan</text>
+              <text x="180" y="228" text-anchor="middle" font-size="10" fill="#0057ff" font-weight="700">✅ 可执行方案输出</text>
             </svg>
           </div>
         </div>
-        <div class="callout">协作机制确保输出“可执行、可审计、可纠错”。<span class="en">Ensures actionable, auditable, correctable output.</span></div>
+        <div class="callout">协作机制确保输出“可执行、可审计、可纠错”。</div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>用具体任务举例（如开户 + 活动 + 通关）</span><span>时长 45 秒</span></div>
     </section>
 
-        <section class="slide" aria-label="RAG数据">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>RAG 数据与评估 · RAG &amp; Evaluation</div><div class="page">08 / 12</div></div>
+    <section class="slide" aria-label="RAG数据">
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>RAG 数据与评估</div><div class="page">08 / 12</div></div>
       <div class="content">
-        <h2>高级 RAG：保障合规与实时性的知识底座<span class="en">Advanced RAG: Knowledge Foundation for Compliance &amp; Real-Time</span></h2>
-        <div class="cols-2" style="grid-template-columns:42% 55%;">
+        <h2>高级 RAG：保障合规与实时性的知识底座</h2>
+        <div class="cols-2">
+          <div class="panel">
+            <h3>核心数据源</h3>
+            <ul class="list">
+              <li>香港特区政府政策与通关指南。</li>
+              <li>ZA Bank 等数字银行开户与合规说明。</li>
+              <li>港铁/MTR 官方时刻与公告。</li>
+              <li>专业论坛与动态 PDF 资料。</li>
+            </ul>
+            <h3>评估指标</h3>
+            <p>第 10 周提交 Hit Rate 与 MRR 检索质量报告。</p>
+          </div>
           <div class="stack">
-            <div class="panel">
-              <h3>核心数据源<span class="en">Core Data Sources</span></h3>
-              <ul class="list">
-                <li>香港特区政府政策与通关指南。<span class="en">HK government policies and clearance guides.</span></li>
-                <li>ZA Bank 等数字银行开户与合规说明。<span class="en">Digital bank (ZA Bank etc.) account opening &amp; compliance.</span></li>
-                <li>港铁/MTR 官方时刻与公告。<span class="en">MTR official schedules and announcements.</span></li>
-                <li>专业论坛与动态 PDF 资料。<span class="en">Professional forums and dynamic PDF resources.</span></li>
-              </ul>
+            <div class="photo-slot wide">
+              <strong>图5 数据源入口截图</strong>
+              <span>港府 / 银行 / 港铁官网或 PDF 页面</span>
             </div>
             <div class="diagram-shell">
-              <div class="diagram-title">RAG 检索链路 · RAG Pipeline</div>
-              <svg viewBox="0 0 360 130" xmlns="http://www.w3.org/2000/svg" aria-label="RAG 检索链路">
+              <div class="diagram-title">RAG 检索链路 · 从数据采集到检索增强</div>
+              <svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" aria-label="RAG 检索链路">
                 <defs>
                   <marker id="ar-rag" markerWidth="6" markerHeight="6" refX="4" refY="2" orient="auto"><path d="M0,0 L0,4 L5,2 z" fill="#0057ff"/></marker>
                 </defs>
                 <!-- 数据采集 -->
-                <rect x="8" y="6" width="68" height="44" rx="8" fill="rgba(0,87,255,0.04)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
-                <text x="42" y="24" text-anchor="middle" font-size="9" fill="#7a9dd8">📥 Ingest</text>
-                <text x="42" y="40" text-anchor="middle" font-size="7" fill="#6b6b80">Crawl/API/PDF</text>
-                <line x1="76" y1="28" x2="86" y2="28" stroke="rgba(0,87,255,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
+                <rect x="8" y="8" width="82" height="52" rx="8" fill="rgba(0,87,255,0.04)" stroke="rgba(0,87,255,0.2)" stroke-width="0.8"/>
+                <text x="49" y="28" text-anchor="middle" font-size="9" fill="#7a9dd8">📥 数据采集</text>
+                <text x="49" y="46" text-anchor="middle" font-size="7" fill="#6b6b80">爬虫 / API / PDF</text>
+                <line x1="90" y1="34" x2="104" y2="34" stroke="rgba(0,87,255,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- 数据处理 -->
-                <rect x="88" y="6" width="68" height="44" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-                <text x="122" y="24" text-anchor="middle" font-size="9" fill="#d8a0c0">🔧 Process</text>
-                <text x="122" y="40" text-anchor="middle" font-size="7" fill="#7a5a90">Clean/Chunk</text>
-                <line x1="156" y1="28" x2="168" y2="28" stroke="rgba(255,20,147,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
+                <rect x="106" y="8" width="82" height="52" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
+                <text x="147" y="28" text-anchor="middle" font-size="9" fill="#d8a0c0">🔧 处理</text>
+                <text x="147" y="46" text-anchor="middle" font-size="7" fill="#7a5a90">清洗 / 切分 / 去重</text>
+                <line x1="188" y1="34" x2="202" y2="34" stroke="rgba(255,20,147,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- Embedding -->
-                <rect x="170" y="6" width="68" height="44" rx="8" fill="rgba(0,201,167,0.04)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
-                <text x="204" y="24" text-anchor="middle" font-size="9" fill="#80c8a0">🧠 Embed</text>
-                <text x="204" y="40" text-anchor="middle" font-size="7" fill="#6b9d8b">Vectorize</text>
-                <line x1="238" y1="28" x2="250" y2="28" stroke="rgba(0,201,167,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
+                <rect x="204" y="8" width="82" height="52" rx="8" fill="rgba(0,201,167,0.04)" stroke="rgba(0,201,167,0.2)" stroke-width="0.8"/>
+                <text x="245" y="28" text-anchor="middle" font-size="9" fill="#80c8a0">🧠 Embedding</text>
+                <text x="245" y="46" text-anchor="middle" font-size="7" fill="#6b9d8b">向量化处理</text>
+                <line x1="286" y1="34" x2="300" y2="34" stroke="rgba(0,201,167,0.2)" stroke-width="1" marker-end="url(#ar-rag)"/>
                 <!-- Vector DB -->
-                <rect x="252" y="6" width="50" height="44" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
-                <text x="277" y="24" text-anchor="middle" font-size="9" fill="#ff8fab">🗄️</text>
-                <text x="277" y="40" text-anchor="middle" font-size="7" fill="#b080a0">Vector DB</text>
+                <rect x="302" y="8" width="50" height="52" rx="8" fill="rgba(255,20,147,0.04)" stroke="rgba(255,20,147,0.2)" stroke-width="0.8"/>
+                <text x="327" y="28" text-anchor="middle" font-size="9" fill="#ff8fab">🗄️</text>
+                <text x="327" y="46" text-anchor="middle" font-size="7" fill="#b080a0">向量库</text>
                 <!-- 检索阶段 -->
-                <rect x="30" y="60" width="300" height="28" rx="8" fill="rgba(0,87,255,0.03)" stroke="rgba(0,87,255,0.12)" stroke-width="0.8"/>
-                <text x="60" y="78" font-size="8" fill="#7a9dd8">🔍 Retrieval:</text>
-                <text x="128" y="78" font-size="8" fill="#6b6b80">Query → Recall → Rerank → Context</text>
+                <rect x="30" y="76" width="300" height="34" rx="8" fill="rgba(0,87,255,0.03)" stroke="rgba(0,87,255,0.12)" stroke-width="0.8"/>
+                <text x="60" y="97" font-size="8" fill="#7a9dd8">🔍 检索阶段：</text>
+                <text x="128" y="97" font-size="8" fill="#6b6b80">Query → 向量召回 → 重排序 → 上下文组装</text>
                 <!-- 评估 -->
-                <rect x="60" y="94" width="240" height="28" rx="8" fill="rgba(0,201,167,0.05)" stroke="rgba(0,201,167,0.15)" stroke-width="0.8"/>
-                <text x="115" y="112" font-size="8" fill="#80c8a0">📊 Metrics: Hit Rate / MRR</text>
+                <rect x="60" y="120" width="240" height="32" rx="8" fill="rgba(0,201,167,0.05)" stroke="rgba(0,201,167,0.15)" stroke-width="0.8"/>
+                <text x="115" y="140" font-size="8" fill="#80c8a0">📊 评估指标：Hit Rate / MRR</text>
               </svg>
             </div>
           </div>
-          <div class="photo-slot wide" style="padding:0; overflow:hidden;">
-              <div class="image-fill" style="background-image:url('image1.png'); min-height:0; height:90%; background-size:cover; background-position:top center; background-color:#f0f2f5;">
-                <div style="background:linear-gradient(180deg,transparent,rgba(0,0,0,0.4)); padding:10px; border-radius:6px; margin:8px; align-self:flex-end;">
-                  <strong style="font-size:13px; color:#fff; display:block;">图5 数据源 · Data Sources </strong>
-                </div>
-              </div>
-          </div>
         </div>
       </div>
-      <div class="footer"><span><b>讲述建议：</b>强调"权威源+检索评估"是可信基础</span><span>时长 50 秒</span></div>
-    </section><section class="slide" aria-label="MCP工具">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>MCP 工具层 · MCP Tool Layer</div><div class="page">09 / 12</div></div>
+      <div class="footer"><span><b>讲述建议：</b>强调“权威源+检索评估”是可信基础</span><span>时长 50 秒</span></div>
+    </section>
+
+    <section class="slide" aria-label="MCP工具">
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>MCP 工具层</div><div class="page">09 / 12</div></div>
       <div class="content">
-        <h2>实时决策工具箱：把信息转成行动<span class="en">Real-Time Decision Toolkit: From Data to Action</span></h2>
+        <h2>实时决策工具箱：把信息转成行动</h2>
         <div class="cols-2">
           <div class="panel">
-            <h3>接入能力<span class="en">Capabilities</span></h3>
+            <h3>接入能力</h3>
             <ul class="list">
-              <li>实时汇率转换与支付建议。<span class="en">Real-time FX conversion and payment advice.</span></li>
-              <li>口岸人流量与排队预测。<span class="en">Border checkpoint flow and queue prediction.</span></li>
-              <li>Google Maps 路径规划。<span class="en">Google Maps route planning.</span></li>
-              <li>港铁班次与末班车提醒。<span class="en">MTR timetable and last-train alerts.</span></li>
+              <li>实时汇率转换与支付建议。</li>
+              <li>口岸人流量与排队预测。</li>
+              <li>Google Maps 路径规划。</li>
+              <li>港铁班次与末班车提醒。</li>
             </ul>
             <div class="chips">
               <span class="chip">FX Rate</span>
@@ -1096,50 +944,11 @@
             </div>
           </div>
           <div class="stack">
-            <div class="photo-slot wide" style="padding:12px;">
-              <div class="diagram-shell" style="padding:12px;">
-                <div class="diagram-title large">实时数据流概念</div>
-                <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" aria-label="MCP 实时数据流示意" style="width:100%; height:280px;">
-                  <defs>
-                    <marker id="arrow-big" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto"><path d="M0,0 L0,8 L8,4 z" fill="#0057ff"/></marker>
-                  </defs>
-                  <!-- User Query -->
-                  <rect x="20" y="40" width="140" height="64" rx="10" fill="#eaf2ff" stroke="#0057ff" stroke-width="2"/>
-                  <text x="90" y="68" text-anchor="middle" font-size="16" fill="#0057ff" font-weight="700">User Query</text>
-                  <text x="90" y="88" text-anchor="middle" font-size="11" fill="#55708d">Finance / Travel / Events</text>
-                  <!-- Planner -->
-                  <rect x="200" y="40" width="140" height="64" rx="10" fill="#fff0f8" stroke="#ff1493" stroke-width="2"/>
-                  <text x="270" y="68" text-anchor="middle" font-size="16" fill="#ff1493" font-weight="700">Planner</text>
-                  <text x="270" y="88" text-anchor="middle" font-size="11" fill="#8a5c77">Decompose Tasks</text>
-                  <!-- RAG (above) -->
-                  <rect x="380" y="10" width="150" height="56" rx="10" fill="#eefdf9" stroke="#00c9a7" stroke-width="2"/>
-                  <text x="455" y="36" text-anchor="middle" font-size="16" fill="#00a88c" font-weight="700">RAG Engine</text>
-                  <text x="455" y="56" text-anchor="middle" font-size="10" fill="#5e8f7e">Retrieval · Embedding</text>
-                  <!-- MCP Tools (below RAG) -->
-                  <rect x="380" y="110" width="280" height="70" rx="10" fill="#eef4ff" stroke="#0057ff" stroke-width="2"/>
-                  <text x="520" y="140" text-anchor="middle" font-size="16" fill="#0057ff" font-weight="700">MCP Tools</text>
-                  <text x="520" y="164" text-anchor="middle" font-size="11" fill="#49617d">FX Rate · Border Flow · Route · MTR Schedule</text>
-                  <!-- Verifier -->
-                  <rect x="700" y="40" width="140" height="64" rx="10" fill="#fff0f8" stroke="#ff1493" stroke-width="2"/>
-                  <text x="770" y="68" text-anchor="middle" font-size="16" fill="#ff1493" font-weight="700">Verifier</text>
-                  <text x="770" y="88" text-anchor="middle" font-size="11" fill="#8a5c77">Verify &amp; Correct</text>
-                  <!-- Output -->
-                  <rect x="700" y="140" width="140" height="64" rx="10" fill="#fff6e8" stroke="#ff8a00" stroke-width="2"/>
-                  <text x="770" y="168" text-anchor="middle" font-size="16" fill="#ff8a00" font-weight="700">Output</text>
-                  <text x="770" y="188" text-anchor="middle" font-size="11" fill="#8c6b3f">Time · Route · Pay</text>
-                  <!-- Arrows -->
-                  <line x1="160" y1="72" x2="200" y2="72" stroke="#0057ff" stroke-width="3" marker-end="url(#arrow-big)"/>
-                  <line x1="340" y1="72" x2="380" y2="38" stroke="#0057ff" stroke-width="3" marker-end="url(#arrow-big)"/>
-                  <line x1="455" y1="66" x2="455" y2="110" stroke="#00c9a7" stroke-width="3" marker-end="url(#arrow-big)"/>
-                  <line x1="660" y1="160" x2="700" y2="72" stroke="#ff1493" stroke-width="3" marker-end="url(#arrow-big)"/>
-                  <line x1="770" y1="104" x2="770" y2="140" stroke="#ff8a00" stroke-width="3" marker-end="url(#arrow-big)"/>
-                  <!-- Flow label -->
-                  <text x="455" y="260" text-anchor="middle" font-size="13" fill="#6b6b80">Flow: Decompose → Retrieve → Execute → Verify → Output</text>
-                </svg>
-                <div style="font-size:12px; color:var(--muted); margin-top:6px;">图注 · Note: End-to-end data flow with simplified labels.</div>
-              </div>
+            <div class="photo-slot wide">
+              <strong>图6 实时数据可视化</strong>
+              <span>口岸人流/汇率/路线规划界面</span>
             </div>
-            <div class="callout">输出结果可直接给出“通关时间 + 路线 + 支付方案”。<span class="en">Output: clearance time + route + payment plan.</span></div>
+            <div class="callout">输出结果可直接给出“通关时间 + 路线 + 支付方案”。</div>
           </div>
         </div>
       </div>
@@ -1147,94 +956,89 @@
     </section>
 
     <section class="slide" aria-label="测试策略">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>TDD-for-AI · Testing</div><div class="page">10 / 12</div></div>
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>TDD-for-AI</div><div class="page">10 / 12</div></div>
       <div class="content">
-        <h2>pytest 用例保障模型可控性<span class="en">Ensuring Model Reliability with pyTest</span></h2>
+        <h2>pytest 用例保障模型可控性</h2>
         <div class="cols-3">
           <div class="panel">
-            <h3>检索准确性测试<span class="en">Retrieval Accuracy</span></h3>
-            <p>验证特定政策问题下，RAG 是否返回正确文档片段。<span class="en">Verify RAG returns correct documents for policy queries.</span></p>
+            <h3>检索准确性测试</h3>
+            <p>验证特定政策问题下，RAG 是否返回正确文档片段。</p>
           </div>
           <div class="panel">
-            <h3>Agent 行为路径测试<span class="en">Agent Behavior Trace</span></h3>
-            <p>记录任务 Trace，检查逻辑跳转与工具调用链。<span class="en">Record task traces; check logic flow and tool call chains.</span></p>
+            <h3>Agent 行为路径测试</h3>
+            <p>记录任务 Trace，检查逻辑跳转与工具调用链。</p>
           </div>
           <div class="panel">
-            <h3>Ollama 回退测试<span class="en">Ollama Fallback</span></h3>
-            <p>断网或无 API Key 时保持基础问答能力。<span class="en">Maintain basic Q&amp;A when offline or without API keys.</span></p>
+            <h3>Ollama 回退测试</h3>
+            <p>断网或无 API Key 时保持基础问答能力。</p>
           </div>
         </div>
         <div class="panel light">
-          <p><b>质量目标：</b>稳定性可量化、可回归、可复现。<span class="en"><b>Quality goal:</b> measurable, reproducible, sustainable.</span></p>
+          <p><b>质量目标：</b>稳定性可量化、可回归、可复现，确保开题后可持续迭代。</p>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>突出“可测即可信”</span><span>时长 40 秒</span></div>
     </section>
 
-        <section class="slide" aria-label="当前阶段">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>当前阶段与迭代 · Current Progress</div><div class="page">11 / 12</div></div>
+    <section class="slide" aria-label="当前阶段">
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>当前阶段与迭代方向</div><div class="page">11 / 12</div></div>
       <div class="content">
-        <h2>聚焦核心链路，验证技术可行性<span class="en">Focus on Core Pipeline, Prove Technical Feasibility</span></h2>
-        <div class="cols-2" style="grid-template-columns:42% 55%;">
-          <div class="stack">
-            <div class="panel">
-              <h3>已完成探索<span class="en">Completed</span></h3>
-              <ul class="list">
-                <li>项目定位与用户场景确认。<span class="en">Project positioning and user scenarios confirmed.</span></li>
-                <li>技术选型：Agent + RAG + MCP 架构方案。<span class="en">Tech stack: Agent + RAG + MCP.</span></li>
-                <li>跨境合规与数据源初步调研。<span class="en">Compliance and data source research done.</span></li>
-              </ul>
-              <h3>当前焦点<span class="en">Current Focus</span></h3>
-              <ul class="list">
-                <li>搭建最小可用原型，走通 Planner → Tools → Verifier 闭环。<span class="en">Build MVP; complete Planner → Tools → Verifier loop.</span></li>
-                <li>优先接入 2-3 个核心数据源（港府政策 + 港铁 + 汇率）。<span class="en">Integrate 2-3 core sources first (gov policies, MTR, FX).</span></li>
-                <li>建立基础测试框架，保障检索与行为可测。<span class="en">Set up basic test framework for retrieval and behavior.</span></li>
-              </ul>
-            </div>
-            <div class="panel green-tint" style="padding:1.8% 2.2%;">
-              <h3 style="color:var(--green); font-size:clamp(14px,1.4vw,18px);">迭代原则<span class="en" style="color:var(--muted);">Iteration Principles</span></h3>
-              <ul class="list">
-                <li>从窄场景切入，逐步扩展覆盖范围。<span class="en">Start narrow, expand coverage gradually.</span></li>
-                <li>每轮迭代产出可验证 Demo，避免过度设计。<span class="en">Each iteration delivers a verifiable demo; avoid over-engineering.</span></li>
-                <li>测试先行，功能后补。<span class="en">Test first, features follow.</span></li>
-              </ul>
-            </div>
-            <div class="callout" style="padding:1% 1.5%;">方向比速度重要——先跑通，再跑快。<span class="en">Direction over speed — make it work first, then make it fast.</span></div>
+        <h2>聚焦核心链路，验证技术可行性</h2>
+        <div class="cols-2">
+          <div class="panel">
+            <h3>已完成探索</h3>
+            <ul class="list">
+              <li>项目定位与用户场景确认。</li>
+              <li>技术选型：Agent + RAG + MCP 架构方案。</li>
+              <li>跨境合规与数据源初步调研。</li>
+            </ul>
+            <h3>当前焦点</h3>
+            <ul class="list">
+              <li>搭建最小可用原型，走通 Planner → Tools → Verifier 闭环。</li>
+              <li>优先接入 2-3 个核心数据源（港府政策 + 港铁 + 汇率）。</li>
+              <li>建立基础测试框架，保障检索与行为可测。</li>
+            </ul>
           </div>
-          <div class="photo-slot wide" style="padding:0; overflow:hidden;">
-              <div class="image-fill" style="background-image:url('image2.png'); min-height:0; height:100%; background-size:cover; background-position:top center; background-color:#f5f5f8;">
-                <div style="background:rgba(0,0,0,0.35); padding:6px 10px; border-radius:4px; margin:6px; align-self:flex-start;">
-                  <strong style="font-size:11px; color:#fff;">图7 MVP 原型 · Prototype</strong>
-                </div>
-              </div>
+          <div class="stack">
+            <div class="panel green-tint">
+              <h3 style="color:var(--green);">迭代原则</h3>
+              <ul class="list">
+                <li>从窄场景切入，逐步扩展覆盖范围。</li>
+                <li>每轮迭代产出可验证 Demo，避免过度设计。</li>
+                <li>测试先行，功能后补。</li>
+              </ul>
+            </div>
+            <div class="callout">方向比速度重要——先跑通，再跑快。</div>
           </div>
         </div>
       </div>
       <div class="footer"><span><b>讲述建议：</b>诚实评估现状，突出"可行即可信"的务实态度</span><span>时长 45 秒</span></div>
-    </section><section class="slide" aria-label="总结">
-      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>总结与展望 · Summary</div><div class="page">12 / 12</div></div>
+    </section>
+
+    <section class="slide" aria-label="总结">
+      <div class="topbar"><div class="label"><span class="city-pill">SZ · HK</span>总结与展望</div><div class="page">12 / 12</div></div>
       <div class="content">
-        <h2>跨境决策助手：从"能回答"到"能决策"<span class="en">Cross-Border Assistant: From Answering to Deciding</span></h2>
+        <h2>跨境决策助手：从"能回答"到"能决策"</h2>
         <div class="cols-even">
           <div class="panel">
-            <h3>项目核心主张<span class="en">Core Proposition</span></h3>
+            <h3>项目核心主张</h3>
             <ul class="list">
-              <li>面向深港跨境高净值生活场景的垂直 AI 助手。<span class="en">Vertical AI assistant for SZ-HK cross-border life.</span></li>
-              <li>多智能体协作 + 高级 RAG + MCP 实时工具的差异化架构。<span class="en">Multi-agent + Advanced RAG + MCP tool architecture.</span></li>
-              <li>合规可验证、信息可追溯、输出可执行。<span class="en">Verifiable, traceable, actionable output.</span></li>
+              <li>面向深港跨境高净值生活场景的垂直 AI 助手。</li>
+              <li>多智能体协作 + 高级 RAG + MCP 实时工具的差异化架构。</li>
+              <li>合规可验证、信息可追溯、输出可执行。</li>
             </ul>
           </div>
           <div class="panel light">
-            <h3>需要支持的方向<span class="en">Support Needed</span></h3>
+            <h3>需要支持的方向</h3>
             <ul class="list">
-              <li>数据源对接授权与合规咨询。<span class="en">Data source access authorization and compliance consulting.</span></li>
-              <li>MCP 工具开发与实时接口方案。<span class="en">MCP tool development and real-time API integration.</span></li>
-              <li>测试环境与算力资源。<span class="en">Test environment and compute resources.</span></li>
+              <li>数据源对接授权与合规咨询。</li>
+              <li>MCP 工具开发与实时接口方案。</li>
+              <li>测试环境与算力资源。</li>
             </ul>
           </div>
         </div>
         <div class="callout" style="border-left-color:var(--accent);background:rgba(0,87,255,0.04);">
-          <b>总结：</b>通用 LLM 难以覆盖跨境实时政策与合规要求，<b>SZ-HK Hub</b> 以多智能体 + RAG + MCP 构建专业决策闭环。<span class="en">General LLMs cannot cover cross-border real-time policies and compliance — <b>SZ-HK Hub</b> uses multi-agent + RAG + MCP to build a professional decision loop.</span>
+          <b>总结：</b>通用 LLM 难以覆盖跨境实时政策与合规要求——<b>SZ-HK Hub</b> 以多智能体 + RAG + MCP 构建专业决策闭环，让跨境生活更准确、更实时、更合规。
         </div>
       </div>
       <div class="footer"><span><b>请求：</b>请支持开题与资源协同</span><span>谢谢 · 期待反馈</span></div>
@@ -1250,9 +1054,9 @@
           const wave = document.createElement('div');
           wave.className = 'wave-bg';
           wave.innerHTML = `<svg viewBox="0 0 1280 720" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,480 Q160,380 320,460 Q480,540 640,420 Q800,300 960,440 Q1120,580 1280,400 L1280,720 L0,720 Z" fill="rgba(46,104,255,0.06)"/>
-            <path d="M0,540 Q200,460 400,530 Q600,600 800,490 Q1000,380 1280,510 L1280,720 L0,720 Z" fill="rgba(255,51,140,0.05)"/>
-            <path d="M0,600 Q180,540 360,590 Q540,640 720,550 Q900,460 1280,570 L1280,720 L0,720 Z" fill="rgba(5,213,170,0.05)"/>
+            <path d="M0,480 Q160,380 320,460 Q480,540 640,420 Q800,300 960,440 Q1120,580 1280,400 L1280,720 L0,720 Z" fill="rgba(0,87,255,0.04)"/>
+            <path d="M0,540 Q200,460 400,530 Q600,600 800,490 Q1000,380 1280,510 L1280,720 L0,720 Z" fill="rgba(255,20,147,0.03)"/>
+            <path d="M0,600 Q180,540 360,590 Q540,640 720,550 Q900,460 1280,570 L1280,720 L0,720 Z" fill="rgba(0,201,167,0.03)"/>
           </svg>`;
           s.prepend(wave);
         });
