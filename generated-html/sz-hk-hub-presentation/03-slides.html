@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SZ-HK Hub · Capstone Defense</title>
+  <style>
+    /* ===== Theme Tokens ===== */
+    :root {
+      --teal: #0f766e;
+      --teal-deep: #0a5c55;
+      --teal-light: #e6f7f5;
+      --blue: #2563eb;
+      --blue-light: #eef3ff;
+      --pink: #e91e63;
+      --pink-light: #fce4ec;
+      --bg: #f8f9fa;
+      --paper: #ffffff;
+      --ink: #1a1a2e;
+      --muted: #5a5a72;
+      --soft: #9a9ab0;
+      --line: rgba(15, 118, 110, 0.14);
+      --shadow: 0 12px 40px rgba(26, 26, 46, 0.07);
+      --radius: 14px;
+      --slide-w: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter", "Segoe UI", "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .deck {
+      width: min(100vw, var(--slide-w));
+      margin: 0 auto;
+      padding: 1.6%;
+      display: grid;
+      gap: 1.6%;
+    }
+
+    /* ===== Slide Shell ===== */
+    .slide {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      position: relative;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* ===== Top Bar ===== */
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 0 2.8%;
+      height: 42px;
+      color: var(--teal);
+      background: var(--teal-light);
+      border-bottom: 1px solid rgba(15, 118, 110, 0.15);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .topbar .page {
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0.55;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ===== Content Area ===== */
+    .content {
+      padding: 1.8% 2.8% 1.4%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2%;
+      min-height: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .content.spread { justify-content: space-between; }
+    .content.center { justify-content: center; }
+
+    /* ===== Footer ===== */
+    .footer {
+      font-size: 10px;
+      color: var(--soft);
+      padding: 0.3% 2.8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ===== Typography ===== */
+    h1, h2, h3, p, ul { margin: 0; }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--teal-deep);
+    }
+
+    h2 {
+      font-size: clamp(22px, 2.6vw, 32px);
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+      color: var(--teal-deep);
+      flex-shrink: 0;
+      border-left: 4px solid var(--teal);
+      padding-left: 12px;
+    }
+    h2 .zh {
+      display: block;
+      font-size: clamp(11px, 1vw, 14px);
+      font-weight: 400;
+      color: var(--soft);
+      letter-spacing: 0;
+      margin-top: 2px;
+    }
+
+    h3 {
+      font-size: clamp(16px, 1.65vw, 21px);
+      color: var(--teal);
+      line-height: 1.35;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h3 .zh {
+      font-size: clamp(10px, 0.82vw, 12px);
+      font-weight: 400;
+      color: var(--soft);
+    }
+
+    p {
+      font-size: clamp(13px, 1.2vw, 16px);
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    p .zh, .zh {
+      display: block;
+      font-size: clamp(10px, 0.8vw, 12px);
+      color: var(--soft);
+      margin-top: 1px;
+    }
+
+    .eyebrow {
+      font-size: clamp(10px, 0.9vw, 12px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .lead {
+      font-size: clamp(15px, 1.45vw, 20px);
+      line-height: 1.5;
+      color: #3a3a58;
+    }
+
+    /* ===== Grid Layouts ===== */
+    .cols-2 { display: grid; grid-template-columns: 48% 48%; justify-content: space-between; gap: 1.2%; align-items: stretch; flex: 1; min-height: 0; }
+    .cols-even { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2%; align-items: stretch; flex: 1; min-height: 0; }
+    .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2%; align-items: stretch; flex: 1; min-height: 0; }
+    .cols-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1%; align-items: stretch; }
+    .cols-3-2 { display: grid; grid-template-columns: 3fr 2fr; gap: 1.2%; align-items: stretch; flex: 1; min-height: 0; }
+
+    /* ===== Cards & Panels ===== */
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 10px;
+      padding: 2.5% 3%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5%;
+      height: 100%;
+      overflow-y: auto;
+    }
+    .panel.teal { background: var(--teal-light); border-color: rgba(15, 118, 110, 0.18); }
+    .panel.blue { background: var(--blue-light); border-color: rgba(37, 99, 235, 0.15); }
+    .panel.pink { background: var(--pink-light); border-color: rgba(233, 30, 99, 0.15); }
+
+    /* ===== Lists ===== */
+    .list {
+      padding-left: 1.6em;
+      display: grid;
+      gap: 0.5%;
+      margin: 0;
+    }
+    .list li {
+      font-size: clamp(13px, 1.15vw, 16px);
+      line-height: 1.48;
+      color: var(--muted);
+    }
+    .list li .zh {
+      display: block;
+      font-size: clamp(9px, 0.75vw, 11px);
+      color: var(--soft);
+    }
+    .list li::marker { color: var(--teal); font-weight: 700; }
+
+    /* ===== Chips ===== */
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      border-radius: 999px;
+      padding: 4px 14px;
+      font-size: clamp(10px, 0.82vw, 12px);
+      font-weight: 600;
+      border: 1px solid;
+    }
+    .chip.teal { background: var(--teal-light); color: var(--teal); border-color: rgba(15,118,110,0.22); }
+    .chip.blue { background: var(--blue-light); color: var(--blue); border-color: rgba(37,99,235,0.18); }
+    .chip.pink { background: var(--pink-light); color: var(--pink); border-color: rgba(233,30,99,0.18); }
+
+    /* ===== Callout ===== */
+    .callout {
+      border-left: 3px solid var(--teal);
+      background: var(--teal-light);
+      padding: 1.2% 1.6%;
+      border-radius: 6px;
+      font-size: clamp(12px, 1.05vw, 15px);
+      line-height: 1.48;
+      color: var(--teal-deep);
+      flex-shrink: 0;
+    }
+    .callout.warn {
+      border-left-color: var(--pink);
+      background: var(--pink-light);
+      color: #880e4f;
+    }
+
+    /* ===== Table ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: clamp(11px, 1vw, 14px);
+      line-height: 1.45;
+    }
+    table th {
+      text-align: left;
+      padding: 6px 8px;
+      background: var(--teal-light);
+      color: var(--teal-deep);
+      font-weight: 700;
+      border-bottom: 2px solid rgba(15,118,110,0.2);
+    }
+    table td {
+      padding: 5px 8px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+    table td .zh {
+      font-size: clamp(9px, 0.7vw, 10px);
+      color: var(--soft);
+    }
+    table tr:last-child td { border-bottom: none; }
+
+    /* ===== Stat Bar ===== */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1%;
+      flex-shrink: 0;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 3% 2%;
+      border-radius: 10px;
+      background: var(--teal-light);
+      border: 1px solid rgba(15,118,110,0.15);
+    }
+    .stat-card .num {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+    }
+    .stat-card .label {
+      font-size: clamp(10px, 0.9vw, 13px);
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ===== SVG Container ===== */
+    .diagram-shell {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fafcfb;
+      padding: 1.2%;
+      display: flex;
+      flex-direction: column;
+      gap: 1%;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 0;
+    }
+    .diagram-shell svg {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      flex: 1;
+      display: block;
+    }
+    .diagram-title {
+      font-size: clamp(9px, 0.78vw, 11px);
+      font-weight: 700;
+      color: var(--teal);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    /* ===== Cover Slide ===== */
+    .cover-slide {
+      background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 40%, #14b8a6 100%);
+      border: none;
+      color: #fff;
+    }
+    .cover-slide .topbar {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .cover-slide .footer {
+      color: rgba(255,255,255,0.5);
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .cover-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 3%;
+    }
+    .cover-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 20px;
+      padding: 4% 5%;
+      max-width: 75%;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+    .cover-card h1 {
+      color: #fff;
+      font-size: clamp(36px, 4.8vw, 56px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .cover-card h1 .zh {
+      display: block;
+      font-size: clamp(14px, 1.5vw, 20px);
+      font-weight: 400;
+      opacity: 0.8;
+      color: rgba(255,255,255,0.85);
+      margin-top: 6px;
+    }
+    .cover-card .meta {
+      font-size: clamp(13px, 1.2vw, 17px);
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+    }
+    .cover-card .meta .zh {
+      display: block;
+      font-size: clamp(10px, 0.8vw, 12px);
+      opacity: 0.65;
+      color: rgba(255,255,255,0.7);
+    }
+    .cover-geo {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22%;
+      aspect-ratio: 1;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    /* ===== Q&A Slide ===== */
+    .qa-slide {
+      background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+      border: none;
+    }
+    .qa-slide .topbar { background: transparent; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .qa-slide .footer { color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.1); }
+    .qa-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 16px;
+    }
+    .qa-inner h1 { color: #fff; font-size: clamp(48px, 7vw, 80px); }
+    .qa-inner p { color: rgba(255,255,255,0.8); font-size: clamp(18px, 2vw, 26px); }
+
+    /* ===== Demo Flow Numbers ===== */
+    .demo-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1%;
+      flex: 1;
+    }
+    .demo-step {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 3% 3.5%;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .demo-step .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .demo-step h4 { margin: 0; font-size: clamp(13px, 1.1vw, 16px); color: var(--teal-deep); }
+    .demo-step p { font-size: clamp(10px, 0.85vw, 13px); }
+    .demo-step code {
+      font-family: "Fira Code", "JetBrains Mono", "Consolas", monospace;
+      font-size: clamp(9px, 0.72vw, 11px);
+      background: #f0f0f5;
+      padding: 1px 6px;
+      border-radius: 4px;
+      color: var(--muted);
+    }
+
+    /* ===== Time Bar ===== */
+    .time-bars { display: flex; flex-direction: column; gap: 10px; }
+    .time-bar {
+      display: grid;
+      grid-template-columns: 80px 1fr 50px;
+      align-items: center;
+      gap: 8px;
+      font-size: clamp(11px, 0.95vw, 14px);
+    }
+    .time-bar .bar-fill {
+      height: 20px;
+      border-radius: 10px;
+      background: var(--teal);
+      opacity: 0.75;
+    }
+    .time-bar .bar-label { font-weight: 600; color: var(--teal-deep); white-space: nowrap; }
+    .time-bar .bar-time { font-size: 11px; color: var(--soft); text-align: right; }
+
+    /* ===== Flow Chain (CSS) ===== */
+    .flow-chain {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      padding: 1% 0;
+    }
+    .flow-node {
+      background: var(--teal-light);
+      border: 1px solid rgba(15,118,110,0.2);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: clamp(10px, 0.88vw, 13px);
+      font-weight: 600;
+      color: var(--teal-deep);
+      text-align: center;
+      white-space: nowrap;
+    }
+    .flow-arrow {
+      font-size: clamp(14px, 1.2vw, 20px);
+      color: var(--teal);
+      margin: 0 4px;
+      font-weight: 700;
+    }
+
+    /* ===== Priority Badge ===== */
+    .pri { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; }
+    .pri.high { background: #fce4ec; color: #c62828; }
+    .pri.med { background: #fff3e0; color: #e65100; }
+    .pri.low { background: #e8eaf6; color: #283593; }
+
+    /* ===== Innovation Cards Grid ===== */
+    .inno-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1%; }
+    .inno-card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 3% 3.5%;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: var(--paper);
+    }
+    .inno-card .num {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+    }
+    .inno-card h4 { margin: 0; font-size: clamp(13px, 1.1vw, 16px); color: var(--teal-deep); }
+    .inno-card p { font-size: clamp(10px, 0.82vw, 13px); }
+
+    /* ===== Compliance Red Lines ===== */
+    .red-lines {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1%;
+    }
+    .red-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 2% 2.5%;
+      border-radius: 8px;
+      border: 1px solid rgba(233,30,99,0.2);
+      background: var(--pink-light);
+      font-size: clamp(11px, 0.92vw, 14px);
+      color: #880e4f;
+    }
+    .red-line .icon { font-size: 18px; flex-shrink: 0; }
+
+    /* ===== Print ===== */
+    @media print {
+      @page { size: landscape; margin: 0; }
+      html, body { background: #fff; }
+      .deck { width: 100%; padding: 0; gap: 0; }
+      .slide {
+        width: 100vw;
+        height: 100vh;
+        aspect-ratio: auto;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        page-break-after: always;
+        break-after: page;
+      }
+      .slide:last-child { page-break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="deck">
+
+<!-- ════════════════════════════════════════════ SLIDE 1 · COVER ════════════════════════════════════════════ -->
+<section class="slide cover-slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">1 / 18</span>
+  </div>
+  <div class="cover-content">
+    <div class="cover-card">
+      <h1>
+        SZ-HK Hub
+        <span class="zh">深港跨境专业生活助手 · AI-Powered Cross-Border Life Assistant</span>
+      </h1>
+      <div class="meta">
+        Large Language Models and Applications (IB00322) · Capstone Defense
+        <span class="zh">大语言模型及应用 · 期末项目答辩</span>
+      </div>
+      <div class="meta" style="margin-top:12px;">
+        [Member 1 · SID] &nbsp;·&nbsp; [Member 2 · SID]
+        <span class="zh">Spring 2026 · Week 18 &nbsp;|&nbsp; 2026 年春季学期 · 第 18 周</span>
+      </div>
+    </div>
+    <svg class="cover-geo" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+      <circle cx="100" cy="100" r="55" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="25" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+      <line x1="40" y1="60" x2="160" y2="140" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <line x1="60" y1="40" x2="140" y2="160" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 2 · AGENDA ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">2 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Agenda<span class="zh">目录</span></h2>
+    <div class="cols-2">
+      <div class="panel">
+        <div class="time-bars">
+          <div class="time-bar"><span class="bar-label">1. Background</span><div class="bar-fill" style="width:20%"></div><span class="bar-time">1.5′</span></div>
+          <div class="time-bar"><span class="bar-label">2. Features</span><div class="bar-fill" style="width:27%"></div><span class="bar-time">2′</span></div>
+          <div class="time-bar"><span class="bar-label">3. Architecture</span><div class="bar-fill" style="width:67%"></div><span class="bar-time">5′</span></div>
+          <div class="time-bar"><span class="bar-label">4. TDD Testing</span><div class="bar-fill" style="width:27%"></div><span class="bar-time">2′</span></div>
+          <div class="time-bar"><span class="bar-label">5. Guardrails</span><div class="bar-fill" style="width:20%"></div><span class="bar-time">1.5′</span></div>
+          <div class="time-bar"><span class="bar-label">6. Live Demo</span><div class="bar-fill" style="width:40%"></div><span class="bar-time">3′</span></div>
+          <div class="time-bar"><span class="bar-label">7. Innovation</span><div class="bar-fill" style="width:20%"></div><span class="bar-time">1.5′</span></div>
+          <div class="time-bar"><span class="bar-label">8. Q&amp;A</span><div class="bar-fill" style="width:27%"></div><span class="bar-time">2′</span></div>
+        </div>
+      </div>
+      <div class="panel teal">
+        <p class="lead" style="font-size:clamp(14px,1.2vw,17px);">Total: ~18 min + 2 min buffer</p>
+        <ul class="list">
+          <li>8 sections covering the full project lifecycle</li>
+          <li>Deep-dive on architecture (5 min) &mdash; the core</li>
+          <li>Live demo (3 min) &mdash; running system, not slides</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 3 · BACKGROUND ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">3 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Background &amp; Pain Points<span class="zh">项目背景与痛点</span></h2>
+    <div class="cols-2">
+      <div class="panel" style="gap:1.5%;">
+        <table>
+          <thead><tr><th style="width:32%">Pain Point</th><th style="width:32%">Why LLMs Fail</th><th>Our Solution</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Policy Hallucination</strong><span class="zh">政策幻觉</span></td><td>General LLMs lack latest visa &amp; customs policies<span class="zh">通用LLM不掌握最新签注海关政策</span></td><td>RAG with 10 authoritative docs, ChromaDB vector search<span class="zh">10篇权威语料+RAG向量检索</span></td></tr>
+            <tr><td><strong>Fragmented Data</strong><span class="zh">信息碎片化</span></td><td>Exchange rates, port traffic, MTR scattered across platforms<span class="zh">汇率口岸港铁分散在多平台</span></td><td>MCP protocol — 4 real-time APIs, one-stop aggregation<span class="zh">MCP协议统一4类API</span></td></tr>
+            <tr><td><strong>No Verification</strong><span class="zh">决策无验证</span></td><td>Route plans &amp; financial advice lack compliance checks<span class="zh">路线开户建议无合规审查</span></td><td>Reflection loop + Amap geocoding + keyword filter<span class="zh">自审查+高德验证+敏感词过滤</span></td></tr>
+            <tr><td><strong>Unstructured Images</strong><span class="zh">海报无法结构化</span></td><td>Event posters &amp; screenshots are dead pixels to text LLMs<span class="zh">活动海报对文本LLM不可读</span></td><td>Vision-LLM: event extraction + form parsing<span class="zh">多模态日程提取+表单识别</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel teal" style="justify-content:center;align-items:center;text-align:center;">
+        <div class="stat-card" style="background:var(--paper);width:100%;">
+          <div class="num" style="font-size:clamp(42px,6vw,68px);">600K+</div>
+          <div class="label" style="font-size:clamp(14px,1.4vw,18px);">daily cross-border travelers</div>
+          <div class="zh" style="margin-top:6px;">深港日均跨境客流超60万人次（2025入境处数据）</div>
+        </div>
+        <p style="margin-top:8px;font-size:clamp(11px,0.95vw,14px);">Covering commute, tourism, business, banking &amp; more</p>
+        <div class="zh">覆盖通勤、旅游、商务、开户等场景</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 4 · CORE FEATURES ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">4 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Core Features Overview<span class="zh">核心功能全景</span></h2>
+    <div class="cols-4" style="flex-shrink:0;">
+      <div class="panel teal"><h3>① Cross-Border Finance<span class="zh">跨境金融</span></h3><ul class="list"><li>Traditional &amp; virtual bank account opening<span class="zh">传统/虚拟银行开户</span></li><li>Compliance advice<span class="zh">合规建议</span></li><li>Currency declaration reminders<span class="zh">货币申报提醒</span></li><li>Forex limit alerts<span class="zh">外汇红线自动提醒</span></li></ul></div>
+      <div class="panel blue"><h3>② Event Intelligence<span class="zh">活动情报</span></h3><ul class="list"><li>Poster/screenshot schedule extraction<span class="zh">海报截图日程提取</span></li><li>Conflict auto-detection<span class="zh">活动冲突自动检测</span></li><li>Timeline auto-layout<span class="zh">时间线自动编排</span></li></ul></div>
+      <div class="panel teal"><h3>③ Real-Time Decision<span class="zh">实时决策</span></h3><ul class="list"><li>Live HKD↔CNY exchange rate<span class="zh">实时汇率</span></li><li>Port congestion (3-level)<span class="zh">口岸客流三级拥堵</span></li><li>MTR real-time (12 stations)<span class="zh">港铁12站实时</span></li></ul></div>
+      <div class="panel blue"><h3>④ Multimodal Parsing<span class="zh">多模态解析</span></h3><ul class="list"><li>Vision-LLM schedule structuring<span class="zh">日程结构化</span></li><li>Form field auto-recognition<span class="zh">表格字段自动识别</span></li><li>Fill-in suggestions<span class="zh">填单建议自动生成</span></li></ul></div>
+    </div>
+    <div class="callout" style="margin-top:1%;">
+      <strong>User Flow</strong> &mdash; Fill form (purpose / destination / time / budget) + optional poster upload →
+      <strong>AI Agent auto-orchestrates</strong> →
+      RAG retrieval → MCP real-time data → Vision schedule parsing →
+      <strong>LLM generates step-by-step plan</strong> with conflict alerts + compliance checks →
+      <strong>Reflection self-review (≤ 2 rounds)</strong> →
+      Final executable cross-border itinerary
+      <span class="zh">用户填写表单 → AI自动编排 → RAG+MCP+Vision融合 → LLM生成规划 → Reflection自审查 → 最终可执行方案</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 5 · TECHNICAL ARCHITECTURE ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">5 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Technical Architecture<span class="zh">技术架构总览 — 6 Technologies (A-Grade: 4+)</span></h2>
+    <div class="cols-3" style="flex-shrink:0;">
+      <div class="panel teal"><h3>① Prompt Engineering<span class="zh">提示工程</span></h3><p>5 specialized System Prompts (route / decompose / execute / generate / review) with Few-shot + JSON output<span class="zh">5个专用System Prompt+JSON结构化输出</span></p></div>
+      <div class="panel blue"><h3>② MCP Protocol<span class="zh">MCP协议</span></h3><p>4 unified tools (exchange rate / port / MTR / route) + file ops + Amap geocoding<span class="zh">4工具统一协议+高德地理编码</span></p></div>
+      <div class="panel teal"><h3>③ RAG Systems<span class="zh">RAG系统</span></h3><p>ChromaDB + 10 bilingual docs + hybrid search (keyword + semantic) + sub-task driven retrieval<span class="zh">ChromaDB+10篇双语+混合检索+子任务驱动</span></p></div>
+    </div>
+    <div class="cols-3" style="flex-shrink:0;">
+      <div class="panel blue"><h3>④ AI Agents (LangGraph)<span class="zh">AI Agent</span></h3><p>5-node StateGraph: route → decompose → execute → generate → review, with Reflection ≤ 2 rounds<span class="zh">5节点StateGraph+Reflection自审查</span></p></div>
+      <div class="panel teal"><h3>⑤ Multimodal<span class="zh">多模态</span></h3><p>Vision-LLM schedule extraction + form parsing, dual provider (OpenAI / Anthropic)<span class="zh">Vision-LLM日程+表单，双提供商</span></p></div>
+      <div class="panel pink"><h3>⑥ Safety Guardrails<span class="zh">安全护栏</span></h3><p>Rule-layer keyword filter + AI-layer compliance review + Reflection + location anti-hallucination<span class="zh">规则敏感词+AI合规审核+地点反幻觉</span></p></div>
+    </div>
+    <div class="diagram-shell" style="flex:1;">
+      <div class="diagram-title">Three-Layer Architecture</div>
+      <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+        <!-- Presentation Layer -->
+        <rect x="20" y="10" width="860" height="55" rx="8" fill="#e6f7f5" stroke="#0f766e" stroke-width="1.5"/>
+        <text x="450" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#0a5c55">Presentation Layer · Gradio Web UI (port 7860)</text>
+        <text x="450" y="52" text-anchor="middle" font-size="11" fill="#5a5a72">Unified Form + Dashboard + Plan Results + Review Details</text>
+        <!-- Down arrow -->
+        <line x1="450" y1="68" x2="450" y2="82" stroke="#0f766e" stroke-width="2" marker-end="url(#arrowT)"/>
+        <!-- AI Agent Layer -->
+        <rect x="20" y="85" width="860" height="80" rx="8" fill="#eef3ff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="450" y="107" text-anchor="middle" font-size="14" font-weight="700" fill="#1d4ed8">AI Agent Layer · LangGraph StateGraph</text>
+        <g transform="translate(60,118)">
+          <rect x="0" y="0" width="110" height="30" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1"/><text x="55" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#2563eb">route_intent</text>
+          <text x="115" y="20" font-size="14" fill="#2563eb">→</text>
+          <rect x="130" y="0" width="110" height="30" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1"/><text x="185" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#2563eb">decompose</text>
+          <text x="245" y="20" font-size="14" fill="#2563eb">→</text>
+          <rect x="260" y="0" width="110" height="30" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1"/><text x="315" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#2563eb">execute</text>
+          <text x="375" y="20" font-size="14" fill="#2563eb">→</text>
+          <rect x="390" y="0" width="110" height="30" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1"/><text x="445" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#2563eb">generate</text>
+          <text x="505" y="20" font-size="14" fill="#2563eb">→</text>
+          <rect x="520" y="0" width="110" height="30" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1"/><text x="575" y="20" text-anchor="middle" font-size="10" font-weight="600" fill="#2563eb">review</text>
+        </g>
+        <!-- Reflection arrow -->
+        <path d="M750,133 Q780,133 780,110 Q780,95 740,95" fill="none" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <text x="790" y="118" font-size="9" fill="#e91e63" font-weight="600">Reflection ≤2</text>
+        <!-- Down arrows to 3 layers -->
+        <line x1="180" y1="168" x2="180" y2="185" stroke="#0f766e" stroke-width="1.5"/>
+        <line x1="450" y1="168" x2="450" y2="185" stroke="#0f766e" stroke-width="1.5"/>
+        <line x1="720" y1="168" x2="720" y2="185" stroke="#0f766e" stroke-width="1.5"/>
+        <!-- Bottom 3 layers -->
+        <rect x="20" y="190" width="270" height="70" rx="8" fill="#f0faf8" stroke="#0f766e" stroke-width="1"/>
+        <text x="155" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#0a5c55">RAG Layer</text>
+        <text x="155" y="233" text-anchor="middle" font-size="9" fill="#5a5a72">ChromaDB + SentenceTransformers</text>
+        <text x="155" y="248" text-anchor="middle" font-size="9" fill="#5a5a72">10 docs · Hybrid Search</text>
+        <rect x="315" y="190" width="270" height="70" rx="8" fill="#f0faf8" stroke="#0f766e" stroke-width="1"/>
+        <text x="450" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#0a5c55">MCP Layer</text>
+        <text x="450" y="233" text-anchor="middle" font-size="9" fill="#5a5a72">Exchange Rate · Port Traffic</text>
+        <text x="450" y="248" text-anchor="middle" font-size="9" fill="#5a5a72">MTR Schedule · Route Planner + Amap</text>
+        <rect x="610" y="190" width="270" height="70" rx="8" fill="#f0faf8" stroke="#0f766e" stroke-width="1"/>
+        <text x="745" y="215" text-anchor="middle" font-size="12" font-weight="700" fill="#0a5c55">Multimodal Layer</text>
+        <text x="745" y="233" text-anchor="middle" font-size="9" fill="#5a5a72">Vision-LLM (OpenAI / Anthropic)</text>
+        <text x="745" y="248" text-anchor="middle" font-size="9" fill="#5a5a72">Event Extraction · Form Parsing</text>
+        <defs><marker id="arrowT" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0f766e"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 6 · AGENT WORKFLOW ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">6 / 18</span>
+  </div>
+  <div class="content">
+    <h2>LangGraph Agent Workflow<span class="zh">Agent 工作流详解 — 5-Node StateGraph + Reflection</span></h2>
+    <div class="cols-3-2">
+      <div class="panel">
+        <table>
+          <thead><tr><th>Node</th><th>Function</th><th>Key Tech</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1. route_intent</strong><span class="zh">意图路由</span></td><td>Determine which tools &amp; KB needed<span class="zh">判断需调用哪些工具和知识库</span></td><td>LLM JSON structured output</td></tr>
+            <tr><td><strong>2. decompose</strong><span class="zh">任务拆解</span></td><td>Break complex needs into 2-4 sub-queries<span class="zh">复杂需求拆为2-4个子查询</span></td><td>Sub-task driven retrieval</td></tr>
+            <tr><td><strong>3. execute</strong><span class="zh">并行执行</span></td><td>Trigger RAG + MCP tools + Vision simultaneously<span class="zh">同时触发RAG+MCP+Vision</span></td><td>Parallel async calls</td></tr>
+            <tr><td><strong>4. generate</strong><span class="zh">规划生成</span></td><td>Fuse KB + real-time data → 5-8 step plan<span class="zh">融合知识库+实时数据→可执行计划</span></td><td>LLM with fused context</td></tr>
+            <tr><td><strong>5. review</strong><span class="zh">双层审核</span></td><td>Layer ①: Rule compliance · Layer ②: LLM quality + Amap verification<span class="zh">规则合规+LLM质量+高德验证</span></td><td>Two-layer review</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="diagram-shell">
+        <div class="diagram-title">Reflection Self-Review Loop</div>
+        <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="120" y="10" width="160" height="44" rx="10" fill="#e6f7f5" stroke="#0f766e" stroke-width="1.5"/>
+          <text x="200" y="37" text-anchor="middle" font-size="14" font-weight="700" fill="#0a5c55">generate</text>
+          <line x1="200" y1="54" x2="200" y2="75" stroke="#0f766e" stroke-width="2" marker-end="url(#arrR)"/>
+          <rect x="120" y="78" width="160" height="44" rx="10" fill="#fce4ec" stroke="#e91e63" stroke-width="1.5"/>
+          <text x="200" y="105" text-anchor="middle" font-size="14" font-weight="700" fill="#880e4f">review</text>
+          <!-- pass -->
+          <line x1="280" y1="100" x2="370" y2="100" stroke="#0f766e" stroke-width="2"/>
+          <rect x="340" y="82" width="50" height="36" rx="6" fill="#d4f5f0" stroke="#0f766e" stroke-width="1"/>
+          <text x="365" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#0a5c55">pass</text>
+          <text x="360" y="140" font-size="10" fill="#0f766e" font-weight="600">→ Output</text>
+          <!-- block -->
+          <line x1="80" y1="100" x2="30" y2="100" stroke="#e91e63" stroke-width="2"/>
+          <rect x="0" y="82" width="42" height="36" rx="6" fill="#fce4ec" stroke="#e91e63" stroke-width="1"/>
+          <text x="21" y="105" text-anchor="middle" font-size="11" font-weight="700" fill="#c62828">block</text>
+          <text x="16" y="140" font-size="10" fill="#e91e63" font-weight="600">→ Reject</text>
+          <!-- review loop -->
+          <path d="M98,100 Q60,170 200,190 Q340,170 302,100" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="6,3"/>
+          <text x="195" y="210" text-anchor="middle" font-size="11" font-weight="700" fill="#2563eb">review → correction → generate (≤ 2 rounds)</text>
+          <text x="195" y="228" text-anchor="middle" font-size="9" fill="#5a5a72">修正编造地名 · 补充返程 · 纠正不合规建议</text>
+          <!-- corrections list -->
+          <text x="200" y="248" text-anchor="middle" font-size="9" fill="#5a5a72">Fix hallucinated places · Add return trip · Correct non-compliant advice</text>
+          <defs><marker id="arrR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0f766e"/></marker></defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 7 · RAG ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">7 / 18</span>
+  </div>
+  <div class="content">
+    <h2>RAG Knowledge Base<span class="zh">RAG 知识库 — 10 Bilingual Docs + Hybrid Search</span></h2>
+    <div class="cols-3" style="flex-shrink:0;">
+      <div class="panel teal"><h3>🏦 Finance</h3><p>bank-guide.md, virtual-bank-guide.md<span class="zh">6传统+4虚拟银行开户指南</span></p></div>
+      <div class="panel blue"><h3>🛃 Customs</h3><p>customs-clearance.md<span class="zh">红绿通道·免税额度·货币申报≥12万HKD</span></p></div>
+      <div class="panel teal"><h3>🚇 Transport</h3><p>transport-guide.md, mtr-fare.md<span class="zh">跨境巴士·港铁·高铁+东铁线票价</span></p></div>
+    </div>
+    <div class="cols-3" style="flex-shrink:0;">
+      <div class="panel blue"><h3>🚧 Border</h3><p>border-policy.md<span class="zh">8大口岸开放时间·签注类型G/L/商务·一地两检</span></p></div>
+      <div class="panel teal"><h3>🏫 Tourism</h3><p>hkust-guide.md, hk-tourism.md, travel-info.md<span class="zh">港科大3路线·20+景点·半日游</span></p></div>
+      <div class="panel blue"><h3>💰 Spending</h3><p>spending-guide.md<span class="zh">支付宝·微信·八达通·现金·餐饮交通消费参考</span></p></div>
+    </div>
+    <table style="flex-shrink:0;">
+      <thead><tr><th>Component</th><th>Choice</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Vector DB</td><td>ChromaDB (Persistent)</td><td>Lightweight, zero-config<span class="zh">轻量零配置</span></td></tr>
+        <tr><td>Embedding</td><td>sentence-transformers / all-MiniLM-L6-v2</td><td>384-dim, HuggingFace mirror<span class="zh">384维HuggingFace镜像下载</span></td></tr>
+        <tr><td>Retrieval</td><td><strong>Hybrid</strong>: keyword match (TF) + semantic (cosine)</td><td>Keyword hit → priority return; fallback to pure semantic<span class="zh">关键词命中优先，无命中回退语义</span></td></tr>
+        <tr><td>Chunking</td><td>Paragraph-boundary aware, 500 chars + 50 overlap</td><td>Preserves semantic integrity<span class="zh">按段落边界智能分块</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 8 · MCP ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">8 / 18</span>
+  </div>
+  <div class="content">
+    <h2>MCP Real-Time Data Layer<span class="zh">MCP 实时数据层 — 4 Tools + Amap Integration</span></h2>
+    <div class="cols-2">
+      <div class="panel">
+        <table>
+          <thead><tr><th>Tool</th><th>Source</th><th>Frequency</th><th>Key Ability</th></tr></thead>
+          <tbody>
+            <tr><td>💱 exchange_rate</td><td>open.er-api.com (primary) + nxvav.cn (backup)</td><td>Real-time</td><td>Dual API auto-failover<span class="zh">双API自动failover</span></td></tr>
+            <tr><td>🚌 port_traffic</td><td>HK Immigration CSV + simulated fallback</td><td>Daily</td><td>3-level congestion (🟢🟡🔴)<span class="zh">三级拥堵分级</span></td></tr>
+            <tr><td>🚆 mtr_schedule</td><td>data.gov.hk MTR Open API</td><td>Every 10s</td><td>East Rail Line 12 stations real-time<span class="zh">东铁线12站实时到站</span></td></tr>
+            <tr><td>🗺️ route_planner</td><td>Amap Transit API + preset route library</td><td>Real-time</td><td>Bus/Metro/HSR multi-mode, cost &amp; time<span class="zh">公交地铁高铁多模式含费用耗时</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="diagram-shell">
+        <div class="diagram-title">Data Flow Architecture</div>
+        <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+          <rect x="100" y="8" width="200" height="36" rx="8" fill="#e6f7f5" stroke="#0f766e" stroke-width="1.5"/>
+          <text x="200" y="31" text-anchor="middle" font-size="12" font-weight="700" fill="#0a5c55">MCP Client (mcp_client.py)</text>
+          <line x1="200" y1="44" x2="200" y2="62" stroke="#0f766e" stroke-width="1.5" marker-end="url(#arrM)"/>
+          <rect x="100" y="65" width="200" height="36" rx="8" fill="#eef3ff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="200" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">Primary API (Real-time Call)</text>
+          <line x1="300" y1="83" x2="370" y2="83" stroke="#e91e63" stroke-width="1.2" stroke-dasharray="4,3"/>
+          <text x="375" y="78" font-size="8" fill="#e91e63">failover</text>
+          <rect x="310" y="60" width="80" height="24" rx="6" fill="#fce4ec" stroke="#e91e63" stroke-width="0.8"/>
+          <text x="350" y="76" text-anchor="middle" font-size="8" fill="#c62828">Backup API</text>
+          <line x1="200" y1="101" x2="200" y2="122" stroke="#0f766e" stroke-width="1.5" marker-end="url(#arrM)"/>
+          <rect x="100" y="125" width="200" height="36" rx="8" fill="#f0faf8" stroke="#0f766e" stroke-width="1.5"/>
+          <text x="200" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#0a5c55">Agent State (tool_results dict)</text>
+          <line x1="200" y1="161" x2="200" y2="182" stroke="#0f766e" stroke-width="1.5" marker-end="url(#arrM)"/>
+          <rect x="100" y="185" width="200" height="36" rx="8" fill="#e6f7f5" stroke="#0f766e" stroke-width="1.5"/>
+          <text x="200" y="208" text-anchor="middle" font-size="12" font-weight="700" fill="#0a5c55">Planner Agent → generate Node</text>
+          <defs><marker id="arrM" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#0f766e"/></marker></defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 9 · MULTIMODAL ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">9 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Multimodal Processing<span class="zh">多模态处理 — Vision-LLM Dual Capabilities</span></h2>
+    <div class="cols-2">
+      <div class="panel">
+        <table>
+          <thead><tr><th>Capability</th><th>Input</th><th>Output</th><th>Tech</th></tr></thead>
+          <tbody>
+            <tr><td>📅 Event Extraction<span class="zh">日程提取</span></td><td>Event poster / screenshot (PNG/JPEG/GIF/WebP)</td><td><code>[{date, time, title}]</code> JSON</td><td>Vision-LLM → JSON parse → conflict detection</td></tr>
+            <tr><td>📝 Form Parsing<span class="zh">表单解析</span></td><td>Bank appointment screenshot / form image</td><td><code>{form_title, fields: [{label, type, required, hint}]}</code></td><td>Vision-LLM → field recognition → fill-in suggestions</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:clamp(11px,0.95vw,13px);margin-top:4px;"><strong>File Type Detection:</strong> Magic Bytes identification — PNG <code>\x89PNG</code>, JPEG <code>\xff\xd8\xff</code>, GIF <code>GIF87a/89a</code>, WebP <code>RIFF....WEBP</code></p>
+      </div>
+      <div class="panel teal">
+        <h3>Processing Pipeline</h3>
+        <div class="flow-chain" style="flex-direction:column;align-items:flex-start;gap:6px;">
+          <div class="flow-node" style="width:100%;text-align:left;">1. User uploads image (PNG/JPEG/GIF/WebP)</div>
+          <div style="text-align:center;width:100%;color:var(--teal);">↓</div>
+          <div class="flow-node" style="width:100%;text-align:left;">2. File type auto-detection (Magic Bytes)</div>
+          <div style="text-align:center;width:100%;color:var(--teal);">↓</div>
+          <div class="flow-node" style="width:100%;text-align:left;">3. Base64 encoding</div>
+          <div style="text-align:center;width:100%;color:var(--teal);">↓</div>
+          <div class="flow-node" style="width:100%;text-align:left;background:#eef3ff;border-color:rgba(37,99,235,0.2);color:#1d4ed8;">4. Provider selection: OpenAI Vision / Anthropic Vision</div>
+          <div style="text-align:center;width:100%;color:var(--teal);">↓</div>
+          <div class="flow-node" style="width:100%;text-align:left;">5. LLM structured output (JSON mode)</div>
+          <div style="text-align:center;width:100%;color:var(--teal);">↓</div>
+          <div class="flow-node" style="width:100%;text-align:left;background:#fce4ec;border-color:rgba(233,30,99,0.2);color:#880e4f;">6. Conflict detection → inject into Agent plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 10 · LLM PROVIDERS ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">10 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Multi-LLM Provider Design<span class="zh">LLM 多供应商设计 — Auto Priority Detection</span></h2>
+    <div class="cols-3" style="flex-shrink:0;">
+      <div class="panel teal"><h3>Priority 1<span class="zh">优先级1</span></h3><p><strong>DeepSeek / OpenAI-compatible</strong><span class="zh">OpenAI兼容</span></p><p style="font-size:clamp(11px,0.9vw,13px);">Trigger: <code>OPENAI_API_KEY</code> + <code>OPENAI_BASE_URL</code><br/>Model: <code>deepseek-v4-pro</code></p></div>
+      <div class="panel blue"><h3>Priority 2<span class="zh">优先级2</span></h3><p><strong>Anthropic</strong><span class="zh">Anthropic</span></p><p style="font-size:clamp(11px,0.9vw,13px);">Trigger: <code>ANTHROPIC_API_KEY</code><br/>Model: <code>claude-3-5-sonnet-20241022</code></p></div>
+      <div class="panel teal"><h3>Priority 3<span class="zh">优先级3</span></h3><p><strong>Ollama Local Fallback</strong><span class="zh">Ollama本地回退</span></p><p style="font-size:clamp(11px,0.9vw,13px);">Trigger: No API keys + Ollama reachable<br/>Model: <code>qwen2.5:1.5b</code></p></div>
+    </div>
+    <table style="flex-shrink:0;">
+      <thead><tr><th>Scenario</th><th>Method</th><th>Output Format</th></tr></thead>
+      <tbody>
+        <tr><td>Intent routing<span class="zh">意图路由</span></td><td><code>chat_json()</code></td><td><code>{intent, needs_rag, needs_vision, tool_calls, needs_verification}</code></td></tr>
+        <tr><td>Task decomposition<span class="zh">任务拆解</span></td><td><code>chat_json()</code></td><td><code>{subtasks: [...]}</code></td></tr>
+        <tr><td>Plan generation<span class="zh">规划生成</span></td><td><code>chat_json()</code></td><td><code>{tasks: [...]}</code></td></tr>
+        <tr><td>Quality review<span class="zh">质量审核</span></td><td><code>chat_json()</code></td><td><code>{status, reason, corrections}</code></td></tr>
+        <tr><td>Vision — events<span class="zh">视觉日程</span></td><td><code>chat()</code> + image</td><td><code>{events: [...]}</code></td></tr>
+        <tr><td>Vision — forms<span class="zh">视觉表单</span></td><td><code>chat()</code> + image</td><td><code>{form_title, fields: [...]}</code></td></tr>
+      </tbody>
+    </table>
+    <div class="callout" style="flex-shrink:0;">JSON structured output: OpenAI uses <code>response_format</code>; Anthropic/Ollama use System Prompt injection. Robust <code>_safe_json()</code> fallback parser. Temperature: 0.2 across all providers.<span class="zh">JSON容错解析+温度统一0.2</span></div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 11 · TDD TESTING ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">11 / 18</span>
+  </div>
+  <div class="content">
+    <h2>TDD-for-AI Testing Practice<span class="zh">TDD测试实践 — 20+ Cases · 4 Levels (A-Grade: 3+)</span></h2>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">7</div><div class="label">Test Files<span class="zh">测试文件</span></div></div>
+      <div class="stat-card"><div class="num">20+</div><div class="label">Test Cases<span class="zh">测试用例</span></div></div>
+      <div class="stat-card"><div class="num">4</div><div class="label">Coverage Levels ⭐<span class="zh">覆盖层级</span></div></div>
+      <div class="stat-card"><div class="num">pytest</div><div class="label">Framework<span class="zh">测试框架</span></div></div>
+    </div>
+    <div class="cols-4" style="flex:1;">
+      <div class="panel teal"><h3>🔧 Tool Tests<span class="zh">工具测试</span></h3><p><code>test_mcp_client.py</code><br/>MCP parsing, rate reading, exception handling, API failover</p><p><code>test_vision_client.py</code><br/>Image type detection, JSON extraction, provider dispatch</p></div>
+      <div class="panel blue"><h3>📚 Retrieval Tests<span class="zh">检索测试</span></h3><p><code>test_rag_chunking.py</code><br/>Chunk boundaries, size/overlap validation</p><p><code>test_rag_search.py</code><br/>Keyword extraction, hybrid ranking, empty query handling</p></div>
+      <div class="panel teal"><h3>🧠 Behavior Tests<span class="zh">行为测试</span></h3><p><code>test_planner_workflow.py</code><br/>Routing decisions, plan format, compliance review, degradation</p><p><code>test_llm_client.py</code><br/>Provider priority, no-config error, JSON wrapping</p></div>
+      <div class="panel blue"><h3>🔗 Integration Tests<span class="zh">集成测试</span></h3><p><code>test_app_features.py</code><br/>E2E schedule parsing, RAG output, route switching, safety hints</p><p><code>test_config_and_ingest.py</code><br/>Config reading, RAG ingest filtering</p></div>
+    </div>
+    <div class="callout" style="flex-shrink:0;"><strong>Testing strategy:</strong> Hard-constraint tests (JSON schema, step count range, sensitive-request flag) + Semantic evaluation templates (<code>cases_template.jsonl</code>, <code>rubric_template.md</code>) + CI blocks all on <code>pytest</code> failure.<span class="zh">硬约束+语义评测+CI阻断</span></div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 12 · SAFETY ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">12 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Safety Guardrails<span class="zh">安全护栏 — Two-Layer Architecture</span></h2>
+    <div class="cols-2" style="flex-shrink:0;">
+      <div class="panel teal"><h3>Layer ① · Rule-Based<span class="zh">规则层</span></h3><p>Hard-coded sensitive keyword filter (<code>SENSITIVE_TERMS</code>)</p><p style="font-size:clamp(11px,0.9vw,13px);">Keywords: "绕过外汇", "套现", "洗钱", "违规开户", "避税", "非法"</p></div>
+      <div class="panel pink"><h3>Layer ② · LLM-Based<span class="zh">AI层</span></h3><p>LLM compliance review + Amap location anti-hallucination verification</p><p style="font-size:clamp(11px,0.9vw,13px);">Checks: fabricated place names, missing return trip, non-compliant financial advice</p></div>
+    </div>
+    <div class="flow-chain" style="flex-shrink:0;">
+      <div class="flow-node">User Input</div><div class="flow-arrow">→</div>
+      <div class="flow-node" style="background:#fce4ec;border-color:rgba(233,30,99,0.35);">Keyword Scan ①</div><div class="flow-arrow">→</div>
+      <div class="flow-node" style="background:#e6f7f5;">Agent Plan</div><div class="flow-arrow">→</div>
+      <div class="flow-node" style="background:#eef3ff;">Review Node ②</div><div class="flow-arrow">→</div>
+      <div class="flow-node" style="background:#d4f5f0;border-color:rgba(15,118,110,0.4);">✅ Pass</div>
+    </div>
+    <p style="text-align:center;font-size:clamp(10px,0.85vw,12px);">Hit keyword → ⛔ Manual review required &nbsp;|&nbsp; Review: pass / review (→ Reflection ≤2) / block (→ Reject)</p>
+    <div class="red-lines" style="flex-shrink:0;">
+      <div class="red-line"><span class="icon">🚫</span><span><strong>No forex bypass</strong> — annual $50K USD equivalent limit<span class="zh">不可规避外汇额度</span></span></div>
+      <div class="red-line"><span class="icon">🚫</span><span><strong>No money laundering</strong> — illegal fund transfers<span class="zh">不涉及套现洗钱</span></span></div>
+      <div class="red-line"><span class="icon">🚫</span><span><strong>No fake-account opening</strong> — no false material suggestions<span class="zh">不提供虚假开户建议</span></span></div>
+      <div class="red-line"><span class="icon">🚫</span><span><strong>No tax evasion</strong> — no tax avoidance schemes<span class="zh">不提供避税方案</span></span></div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 13 · LIVE DEMO ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">13 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Live Demo<span class="zh">现场演示 — 3 min · 6 Scenarios</span></h2>
+    <div class="demo-steps">
+      <div class="demo-step"><div class="step-num">1</div><h4>Launch</h4><p><code>python app.py</code> → open <code>http://127.0.0.1:7860</code></p><p class="zh">启动系统 → 浏览器打开UI</p></div>
+      <div class="demo-step"><div class="step-num">2</div><h4>Basic Plan</h4><p>"Sat @ West Kowloon shopping, budget 2000 HKD" → 5-8 step plan with FX / route / return</p><p class="zh">基础规划：西九龙购物+汇率换算+返程</p></div>
+      <div class="demo-step"><div class="step-num">3</div><h4>Complex Scenario</h4><p>"HKUST competition + ZA Bank account + Tsim Sha Tsui evening" → sub-task decomposition + multi-dim plan</p><p class="zh">复杂场景：港科大+开户+尖沙咀</p></div>
+      <div class="demo-step"><div class="step-num">4</div><h4>Multimodal</h4><p>Upload event poster → Vision-LLM extracts schedule + conflict detection</p><p class="zh">上传海报→自动提取日程+冲突检测</p></div>
+      <div class="demo-step"><div class="step-num">5</div><h4>Safety</h4><p>"How to bypass forex limit?" → ⛔ keyword interception</p><p class="zh">安全护栏：敏感词拦截</p></div>
+      <div class="demo-step"><div class="step-num">6</div><h4>Review Details</h4><p>Expand review panel → LLM verdict + location verification + compliance check</p><p class="zh">审核详情：LLM评审+地点验证+合规</p></div>
+    </div>
+    <div class="callout warn" style="flex-shrink:0;">
+      <strong>Backup Plan:</strong> If API unavailable → Ollama local fallback. If network down → preset routes + offline KB. If time runs short → prioritize Scenarios 2 &amp; 4.
+      <span class="zh">备用方案：Ollama回退 / 预设路线离线检索 / 优先展示场景2和4</span>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 14 · INNOVATION ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">14 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Innovation &amp; Highlights<span class="zh">创新点与项目亮点</span></h2>
+    <table style="flex-shrink:0;">
+      <thead><tr><th>A-Grade Requirement</th><th>Our Achievement</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td>4+ tech integrations</td><td>✅ <strong>6</strong></td><td>Prompt Engineering + MCP + RAG + Agent + Multimodal + Guardrails</td></tr>
+        <tr><td>15+ test cases</td><td>✅ <strong>20+</strong></td><td>4 test levels</td></tr>
+        <tr><td>Smooth demo</td><td>✅</td><td>Gradio Web UI + Live Demo</td></tr>
+        <tr><td>Safety testing</td><td>✅</td><td>Two-layer safety + 3 compliance red-line categories</td></tr>
+      </tbody>
+    </table>
+    <div class="inno-grid" style="flex:1;">
+      <div class="inno-card"><div class="num">1</div><h4>Vertical Domain Depth</h4><p>Focused on SZ-HK cross-border — a real high-frequency scenario, not a generic chatbot<span class="zh">专注深港跨境真实高频场景</span></p></div>
+      <div class="inno-card"><div class="num">2</div><h4>Reflection Self-Correction</h4><p>Plan → self-review → auto-fix (≤ 2 rounds), AI self-error-correction<span class="zh">AI自我纠错</span></p></div>
+      <div class="inno-card"><div class="num">3</div><h4>Location Anti-Hallucination</h4><p>Amap Geocoding verifies every LLM-generated place name<span class="zh">高德地图验证所有地名</span></p></div>
+      <div class="inno-card"><div class="num">4</div><h4>Sub-Task Driven RAG</h4><p>Decompose complex needs → retrieve per sub-task → broader coverage than single-shot<span class="zh">子任务驱动RAG覆盖更全</span></p></div>
+      <div class="inno-card"><div class="num">5</div><h4>Hybrid Search</h4><p>Keyword match first + semantic fallback — balances precision &amp; recall<span class="zh">混合检索兼顾精确与召回</span></p></div>
+      <div class="inno-card"><div class="num">6</div><h4>Multi-LLM Seamless Switch</h4><p>Teachers can verify without any API key via Ollama fallback<span class="zh">教师无需API Key即可验证</span></p></div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 15 · FUTURE WORK ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">15 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Future Improvements<span class="zh">未来展望</span></h2>
+    <table>
+      <thead><tr><th>#</th><th>Improvement</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>More real-time data sources (weather, bus ETA)<span class="zh">接入更多实时数据源</span></td><td><span class="pri high">HIGH</span></td></tr>
+        <tr><td>2</td><td>User history &amp; preference learning via vector memory<span class="zh">用户历史记录与偏好学习</span></td><td><span class="pri high">HIGH</span></td></tr>
+        <tr><td>3</td><td>Multi-language support (Cantonese / English)<span class="zh">多语言支持（粤语/英文）</span></td><td><span class="pri med">MED</span></td></tr>
+        <tr><td>4</td><td>Model fine-tuning (LoRA) on cross-border domain data<span class="zh">模型微调LoRA</span></td><td><span class="pri med">MED</span></td></tr>
+        <tr><td>5</td><td>LLM-as-Judge automated evaluation<span class="zh">LLM自动化评测</span></td><td><span class="pri med">MED</span></td></tr>
+        <tr><td>6</td><td>Mobile-friendly responsive UI<span class="zh">移动端适配</span></td><td><span class="pri low">LOW</span></td></tr>
+        <tr><td>7</td><td>Voice input integration<span class="zh">语音输入</span></td><td><span class="pri low">LOW</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 16 · TEAM ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">16 / 18</span>
+  </div>
+  <div class="content">
+    <h2>Individual Contributions<span class="zh">团队贡献</span></h2>
+    <table>
+      <thead><tr><th>Member</th><th>Contribution</th><th>Share</th></tr></thead>
+      <tbody>
+        <tr><td>[Member 1]</td><td>[To be filled]<span class="zh">待填写</span></td><td>XX%</td></tr>
+        <tr><td>[Member 2]</td><td>[To be filled]<span class="zh">待填写</span></td><td>XX%</td></tr>
+      </tbody>
+    </table>
+    <div class="panel teal" style="margin-top:2%;flex:1;">
+      <h3>Suggested Contribution Categories<span class="zh">贡献维度建议</span></h3>
+      <div class="chips" style="margin-top:2%;">
+        <span class="chip teal">LangGraph Agent Workflow</span>
+        <span class="chip blue">RAG KB Construction</span>
+        <span class="chip teal">MCP Client Development</span>
+        <span class="chip blue">Vision-LLM Module</span>
+        <span class="chip teal">Gradio Web UI</span>
+        <span class="chip blue">Safety Guardrails</span>
+        <span class="chip teal">Test Suite &amp; Evaluation</span>
+        <span class="chip blue">Documentation &amp; Slides</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 17 · REFERENCES ════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">17 / 18</span>
+  </div>
+  <div class="content">
+    <h2>References &amp; Acknowledgments<span class="zh">参考文献与致谢</span></h2>
+    <div class="cols-even" style="flex:1;">
+      <div class="panel">
+        <h3>References</h3>
+        <ol class="list" style="list-style:decimal;padding-left:1.8em;">
+          <li>LangGraph Docs — langchain-ai.github.io/langgraph/</li>
+          <li>ChromaDB Docs — docs.trychroma.com/</li>
+          <li>MCP Specification — modelcontextprotocol.io/</li>
+          <li>data.gov.hk MTR Real-Time API</li>
+          <li>HK Immigration Dept Open Data — immd.gov.hk/</li>
+          <li>Course Lab Guides: llm_en/experiments/exp01–exp09/guide.md</li>
+        </ol>
+      </div>
+      <div class="panel teal">
+        <h3>Open-Source Projects Used</h3>
+        <div class="chips" style="margin-top:3%;">
+          <span class="chip teal">LangGraph</span><span class="chip blue">ChromaDB</span>
+          <span class="chip teal">sentence-transformers</span><span class="chip blue">Gradio</span>
+          <span class="chip teal">FastAPI</span><span class="chip blue">BeautifulSoup4</span>
+        </div>
+        <h3 style="margin-top:5%;">Acknowledgments</h3>
+        <p>Thanks to Prof. nieliming@sztu.edu.cn for guidance, and peer review team for constructive feedback.<span class="zh">感谢任课教师及同行评审</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ SLIDE 18 · Q&A ════════════════════════════════════════════ -->
+<section class="slide qa-slide">
+  <div class="topbar">
+    <span>SZ-HK Hub · Capstone Defense</span>
+    <span class="page">18 / 18</span>
+  </div>
+  <div class="qa-inner">
+    <h1>Thank You!</h1>
+    <p>Questions &amp; Answers</p>
+    <p style="font-size:clamp(14px,1.3vw,18px);opacity:0.7;">谢谢 · 欢迎提问</p>
+  </div>
+  <div class="footer">
+    <span>SZ-HK Hub · LLM Applications Capstone</span>
+    <span>Spring 2026</span>
+  </div>
+</section>
+
+</div><!-- /deck -->
+</body>
+</html>
