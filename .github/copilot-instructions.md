@@ -26,6 +26,21 @@
 - 动画只保留少量、表达明确的过渡效果。
 - 如果需要代码示例、公式或数据表，优先保证排版稳定和可读性。
 
+## 演示控制栏（必备）
+- 每个 HTML 演示文稿 **必须** 包含底部浮动控制栏（`#ctrl-bar`），提供全屏、翻页、页码显示和退出功能。
+- 控制栏 HTML 结构固定为：全屏按钮 `#btn-fs` → 分隔线 → 上一页 `#btn-prev` → 页码 `#page-counter`（格式 `当前 / 总页数`）→ 下一页 `#btn-next` → 分隔线 → 退出按钮 `#btn-exit`。
+- 控制栏 CSS：`position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 9999`，胶囊形（`border-radius: 999px`），半透明背景 + `backdrop-filter: blur`，按钮 hover 高亮为主题色。
+- 控制栏自动隐藏：非全屏模式下鼠标静止 3 秒后添加 `.hidden`（`opacity: 0; pointer-events: none`），鼠标移动或触摸时恢复。
+- 全屏模式（`body.fullscreen-mode`）：隐藏滚动条，`.deck` 铺满视口，所有 `.slide` 默认 `display: none`，仅 `.slide.active` 显示为 `grid`。
+- JavaScript 导航功能（内联 `<script>`，放在 `</body>` 前）：
+  - **键盘**：`ArrowDown` / `ArrowRight` / `PageDown` 下一页，`ArrowUp` / `ArrowLeft` / `PageUp` 上一页，`F` 键切换全屏，`Escape` 退出全屏。
+  - **滚轮**（全屏模式）：`deltaY > 0` 下一页，反之上页，带 600ms 节流。
+  - **触摸**（全屏模式）：上下滑动超过 40px 触发翻页。
+  - **全屏 API**：`btn-fs` 调用 `document.documentElement.requestFullscreen()`，监听 `fullscreenchange` 事件同步退出。
+  - **IntersectionObserver**（非全屏模式）：`threshold: 0.5` 监听当前可见 slide，自动更新页码。
+- 打印样式（`@media print`）中必须隐藏控制栏：`#ctrl-bar { display: none; }`。
+- 控制栏配色需与当前主题色协调（按钮 hover、边框颜色等使用主题 CSS 变量）。
+
 ## PDF 导出
 - 导出目标是浏览器打印到 PDF。
 - 必须检查分页、溢出、页眉页脚、背景图和深色块的打印表现。
